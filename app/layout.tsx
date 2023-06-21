@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <BackToTopBtn />
 
-          <main className="grow p-8">{children}</main>
+          <main className="grow px-8">{children}</main>
           <Footer />
         </body>
       </html>

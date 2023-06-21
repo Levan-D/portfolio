@@ -3,18 +3,22 @@
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import { setActiveLink } from "@/lib/redux/slices/globalSlice"
 
-const routes = [
+export const routes = [
   {
-    name: "landing",
+    name: "about",
+    icon: "mdiAccount",
   },
   {
     name: "projects",
+    icon: "mdiNewspaperVariant",
   },
   {
     name: "technologies",
+    icon: "mdiCpu32Bit",
   },
   {
     name: "experience",
+    icon: "mdiBriefcase",
   },
 ]
 
@@ -24,6 +28,12 @@ export default function Navbar() {
 
   const handleActive = (name: string) => {
     dispatch(setActiveLink(name))
+    scrollToElementSmooth(name)
+  }
+
+  const scrollToElementSmooth = (elementId: string) => {
+    const element = document.getElementById(elementId)
+    element?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -39,9 +49,9 @@ export default function Navbar() {
                 } duration-300 hover:text-teal-200`}
                 onClick={() => handleActive(route.name)}
               >
-                <a href={`#${route.name}`}>
+                <button>
                   {route.name.charAt(0).toUpperCase() + route.name.slice(1)}
-                </a>
+                </button>
               </li>
             )
           }

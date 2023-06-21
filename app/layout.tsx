@@ -2,10 +2,10 @@
 
 import "./globals.css"
 import { Inter } from "next/font/google"
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
+import Navbar from "@/app/components/Navbar"
+import Footer from "@/app/components/Footer"
 import { Providers } from "@/lib/provider"
-import BackToTopBtn from "@/components/BackToTop"
+import BackToTopBtn from "@/app/components/BackToTop"
 
 const inter = Inter({ subsets: ["latin"] })
 

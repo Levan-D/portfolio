@@ -1,0 +1,40 @@
+/** @format */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+.invisTrack::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2dd4bf;
+  border-radius: 5px;
+}
+.invisTrack::-webkit-scrollbar-thumb {
+  background: #2dd4bf;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #14b8a6;
+}
+.invisTrack::-webkit-scrollbar-thumb:hover {
+  background: #14b8a6;
+}
+/* scrollbar */

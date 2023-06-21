@@ -26,7 +26,7 @@ export default function Navbar() {
   const { activeLink } = useAppSelector(state => state.global)
   const dispatch = useAppDispatch()
 
-  const handleActive = (name: string) => {
+  const handleActiveLink = (name: string) => {
     dispatch(setActiveLink(name))
     scrollToElementSmooth(name)
   }
@@ -47,7 +47,7 @@ export default function Navbar() {
                 className={`${
                   activeLink === route.name && "!text-teal-400"
                 } duration-300 hover:text-teal-200`}
-                onClick={() => handleActive(route.name)}
+                onClick={() => handleActiveLink(route.name)}
               >
                 <button>
                   {route.name.charAt(0).toUpperCase() + route.name.slice(1)}

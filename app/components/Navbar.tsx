@@ -43,7 +43,7 @@ export default function Navbar() {
 
   return (
     <nav className="select-none p-8">
-      <ul className="flex items-center justify-end gap-12 font-semibold ">
+      <ul className=" hidden items-center justify-end gap-12 font-semibold md:flex ">
         {routes.map((route, i) => {
           if (i !== 0) {
             return (

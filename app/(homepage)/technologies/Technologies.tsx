@@ -1,4 +1,6 @@
 /** @format */
+import Link from "next/link"
+
 import html from "@/app/assets/html.png"
 import css from "@/app/assets/css.png"
 import tailwind from "@/app/assets/tailwind.png"
@@ -26,32 +28,44 @@ import postman from "@/app/assets/postman.png"
 
 const techArray = {
   firstCol: [
-    { name: "HTML", image: html },
-    { name: "CSS", image: css },
-    { name: "Tailwind", image: tailwind },
-    { name: "Sass", image: sass },
-    { name: "Ant Design", image: antDesign },
-    { name: "React Flow", image: reactFlow },
-    { name: "i18next", image: i18next },
-    { name: "Axios", image: axios },
+    { name: "HTML", image: html, url: "https://www.w3schools.com/html/default.asp" },
+    { name: "CSS", image: css, url: "https://www.w3schools.com/css/default.asp" },
+    { name: "Tailwind", image: tailwind, url: "https://tailwindcss.com/" },
+    { name: "Sass", image: sass, url: "https://sass-lang.com/" },
+    { name: "Ant Design", image: antDesign, url: "https://ant.design/" },
+    { name: "React Flow", image: reactFlow, url: "https://reactflow.dev/" },
+    { name: "i18next", image: i18next, url: "https://www.i18next.com/" },
+    { name: "Axios", image: axios, url: "https://axios-http.com/" },
   ],
   secondCol: [
-    { name: "JavaScript", image: javaScript },
-    { name: "TypeScript", image: typeScript },
-    { name: "React", image: react },
-    { name: "React Router", image: reactRouter },
-    { name: "Redux Toolkit", image: reduxToolkit },
-    { name: "Next.js", image: nextJS },
-    { name: "Prisma", image: prisma },
-    { name: "Node.js", image: nodeJS },
+    {
+      name: "JavaScript",
+      image: javaScript,
+      url: "https://www.w3schools.com/js/default.asp",
+    },
+    { name: "TypeScript", image: typeScript, url: "https://www.typescriptlang.org/" },
+    { name: "React", image: react, url: "https://react.dev/" },
+    { name: "React Router", image: reactRouter, url: "https://reactrouter.com/en/main" },
+    { name: "Redux Toolkit", image: reduxToolkit, url: "https://redux-toolkit.js.org/" },
+    { name: "Next.js", image: nextJS, url: "https://nextjs.org/" },
+    { name: "Prisma", image: prisma, url: "https://www.prisma.io/" },
+    { name: "Node.js", image: nodeJS, url: "https://www.w3schools.com/nodejs/" },
   ],
   thirdCol: [
-    { name: "Photoshop", image: photoshop },
-    { name: "Illustrator", image: illustrator },
-    { name: "Figma", image: figma },
-    { name: "Jira", image: jira },
-    { name: "Git", image: git },
-    { name: "Postman", image: postman },
+    {
+      name: "Photoshop",
+      image: photoshop,
+      url: "https://www.adobe.com/products/photoshop.html",
+    },
+    {
+      name: "Illustrator",
+      image: illustrator,
+      url: "https://www.adobe.com/products/illustrator.html",
+    },
+    { name: "Figma", image: figma, url: "https://www.figma.com" },
+    { name: "Jira", image: jira, url: "https://jira.atlassian.com/" },
+    { name: "Git", image: git, url: "https://git-scm.com/" },
+    { name: "Postman", image: postman, url: "https://www.postman.com/" },
   ],
 }
 
@@ -59,31 +73,71 @@ import Image from "next/image"
 
 export default function Technologies() {
   return (
-    <div id="technologies" className="grid h-screen grid-cols-3">
-      <div className="">
-        <div className="flex gap-12">
-          {techArray.firstCol.map(tech => (
-            <div key={tech.name}>
-              <Image src={tech.image}  alt={tech.name} />
-              <div>{tech.name}</div>
-            </div>
-          ))}
-        </div>
-        <div className="flex gap-12">
-          {techArray.secondCol.map(tech => (
-            <div key={tech.name}>
-              <Image src={tech.image}  alt={tech.name} />
-              <div>{tech.name}</div>
-            </div>
-          ))}
-        </div>
-        <div className="flex gap-12">
-          {techArray.thirdCol.map(tech => (
-            <div key={tech.name}>
-              <Image src={tech.image}  alt={tech.name} />
-              <div>{tech.name}</div>
-            </div>
-          ))}
+    <div id="technologies" className="select-none">
+      <div className="mx-auto w-fit py-20 text-center">
+        <h2 className="text-5xl font-bold text-teal-400">Technologies & Tools</h2>
+        <p className="mt-4 text-lg font-semibold text-slate-300">
+          These are some of the tools I use
+        </p>
+        <p className="text-lg font-semibold text-slate-300">when building my projects</p>
+      </div>
+
+      <div className=" mx-auto w-fit rounded-xl bg-gradient-border p-0.5">
+        <div className=" rounded-xl bg-gradient-main px-24  py-10">
+          <div className="my-12 flex justify-center gap-4">
+            {techArray.firstCol.map(tech => (
+              <a
+                key={tech.name}
+                href={tech.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 hover:border-slate-500 hover:border-opacity-50 hover:bg-slate-600 hover:bg-opacity-50  active:bg-slate-600"
+              >
+                <div className="flex flex-col items-center justify-end">
+                  <Image src={tech.image} alt={tech.name} />
+                  <p className="mt-2 whitespace-nowrap text-center font-semibold">
+                    {tech.name}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className="my-12 flex justify-center gap-4">
+            {techArray.secondCol.map(tech => (
+              <a
+                key={tech.name}
+                href={tech.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 hover:border-slate-500 hover:border-opacity-50 hover:bg-slate-600 hover:bg-opacity-50  active:bg-slate-600"
+              >
+                <div className="flex flex-col items-center justify-end">
+                  <Image src={tech.image} alt={tech.name} />
+                  <p className="mt-2 whitespace-nowrap text-center font-semibold">
+                    {tech.name}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className="my-12 flex justify-center gap-4">
+            {techArray.thirdCol.map(tech => (
+              <a
+                key={tech.name}
+                href={tech.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 hover:border-slate-500 hover:border-opacity-50 hover:bg-slate-600 hover:bg-opacity-50  active:bg-slate-600"
+              >
+                <div className="flex flex-col items-center justify-end">
+                  <Image src={tech.image} alt={tech.name} />
+                  <p className="mt-2 whitespace-nowrap text-center font-semibold">
+                    {tech.name}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>

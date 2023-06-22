@@ -17,7 +17,7 @@ module.exports = {
         "gradient-main":
           "linear-gradient(135deg, rgba(30, 41, 59, 1) 30%,rgba(15, 23, 42, 1) 70%)",
         "gradient-border":
-          "linear-gradient(135deg, rgba(51, 65, 85, 1) 20%,rgba(15, 23, 42, 1) 55%)",
+          "linear-gradient(135deg, rgba(51, 65, 85, 1) 0%,rgba(15, 23, 42, 1) 50%)",
       },
       screens: {
         sm: "540px",

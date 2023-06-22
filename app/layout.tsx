@@ -6,6 +6,7 @@ import Navbar from "@/app/components/Navbar"
 import Footer from "@/app/components/Footer"
 import { Providers } from "@/lib/provider"
 import BackToTopBtn from "@/app/components/BackToTop"
+import Modal from "./components/Modal"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,6 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
 
           <BackToTopBtn />
+          <Modal/>
+
 
           <main className="grow px-8">{children}</main>
           <Footer />

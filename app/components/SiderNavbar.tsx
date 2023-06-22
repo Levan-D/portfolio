@@ -76,10 +76,10 @@ export default function SiderNavbar({ activeLink, setActiveLink, routes }: Props
   }
 
   return (
-    <div
+    <nav
       className={` ${
         !showNav ? " collapse opacity-0" : " collapse opacity-100 sm:visible"
-      } fixed right-10 top-1/2 duration-500`}
+      } fixed right-10 top-1/2 hidden select-none duration-500 md:block`}
     >
       <ul className="flex translate-y-[-50%]  flex-col  items-end gap-3 font-semibold ">
         {routes.map((route, i) => (
@@ -99,6 +99,6 @@ export default function SiderNavbar({ activeLink, setActiveLink, routes }: Props
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   )
 }

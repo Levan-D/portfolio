@@ -1,5 +1,5 @@
 /** @format */
-import Link from "next/link"
+import { StaticImageData } from "next/image"
 
 import html from "@/app/assets/html.png"
 import css from "@/app/assets/css.png"
@@ -26,7 +26,12 @@ import jira from "@/app/assets/jira.png"
 import git from "@/app/assets/git.png"
 import postman from "@/app/assets/postman.png"
 
-const techArray = {
+type ColType = { name: string; image: StaticImageData; url: string }[]
+
+type TechObj = {
+  [key: string]: ColType
+}
+const techObj: TechObj = {
   firstCol: [
     { name: "HTML", image: html, url: "https://www.w3schools.com/html/default.asp" },
     { name: "CSS", image: css, url: "https://www.w3schools.com/css/default.asp" },
@@ -72,72 +77,65 @@ const techArray = {
 import Image from "next/image"
 
 export default function Technologies() {
+  const arrayRender = (col: ColType) => {
+    return (
+      <div className="flex justify-center gap-4 md:my-4 xl:my-12">
+        {col.map(item => (
+          <a
+            key={item.name}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 hover:border-slate-500 hover:border-opacity-50 hover:bg-slate-600 hover:bg-opacity-50  active:bg-slate-600"
+          >
+            <div className="flex flex-col items-center justify-end">
+              <span className="hidden md:block">
+                <Image src={item.image} alt={item.name} height={50} />
+              </span>
+              <span className="block md:hidden">
+                <Image src={item.image} alt={item.name} height={38} />
+              </span>
+              <p className=" mt-2 whitespace-nowrap  text-center text-sm font-semibold md:text-base">
+                {item.name}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    )
+  }
+
+  const arrayRenderAll = () => {
+    const flatArray = Object.values(techObj).flat()
+
+    return flatArray.map((item, index) => <div key={index}>{arrayRender([item])} </div>)
+  }
+
   return (
-    <div id="technologies" className="select-none">
+    <div id="technologies" className=" min-h-screen">
       <div className="mx-auto w-fit py-20 text-center">
-        <h2 className="text-5xl font-bold text-teal-400">Technologies & Tools</h2>
-        <p className="mt-4 text-lg font-semibold text-slate-300">
+        <h2 className="text-2xl font-bold text-teal-400 md:text-3xl  lg:text-4xl">
+          Technologies & Tools
+        </h2>
+        <p className="mt-4 font-semibold text-slate-300 lg:text-xl">
           These are some of the tools I use
         </p>
-        <p className="text-lg font-semibold text-slate-300">when building my projects</p>
+        <p className="font-semibold text-slate-300 lg:text-xl">
+          when building my projects
+        </p>
       </div>
 
-      <div className=" mx-auto w-fit rounded-xl bg-gradient-border p-0.5">
-        <div className=" rounded-xl bg-gradient-main px-24  py-10">
-          <div className="my-12 flex justify-center gap-4">
-            {techArray.firstCol.map(tech => (
-              <a
-                key={tech.name}
-                href={tech.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 hover:border-slate-500 hover:border-opacity-50 hover:bg-slate-600 hover:bg-opacity-50  active:bg-slate-600"
-              >
-                <div className="flex flex-col items-center justify-end">
-                  <Image src={tech.image} alt={tech.name} />
-                  <p className="mt-2 whitespace-nowrap text-center font-semibold">
-                    {tech.name}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
-          <div className="my-12 flex justify-center gap-4">
-            {techArray.secondCol.map(tech => (
-              <a
-                key={tech.name}
-                href={tech.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 hover:border-slate-500 hover:border-opacity-50 hover:bg-slate-600 hover:bg-opacity-50  active:bg-slate-600"
-              >
-                <div className="flex flex-col items-center justify-end">
-                  <Image src={tech.image} alt={tech.name} />
-                  <p className="mt-2 whitespace-nowrap text-center font-semibold">
-                    {tech.name}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
-          <div className="my-12 flex justify-center gap-4">
-            {techArray.thirdCol.map(tech => (
-              <a
-                key={tech.name}
-                href={tech.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 hover:border-slate-500 hover:border-opacity-50 hover:bg-slate-600 hover:bg-opacity-50  active:bg-slate-600"
-              >
-                <div className="flex flex-col items-center justify-end">
-                  <Image src={tech.image} alt={tech.name} />
-                  <p className="mt-2 whitespace-nowrap text-center font-semibold">
-                    {tech.name}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
+      <div className=" mx-auto hidden w-fit select-none rounded-xl bg-gradient-border p-0.5 xl:block">
+        <div className=" rounded-xl bg-gradient-main px-20 py-10  ">
+          {arrayRender(techObj.firstCol)}
+          {arrayRender(techObj.secondCol)}
+          {arrayRender(techObj.thirdCol)}
+        </div>
+      </div>
+
+      <div className=" block w-fit select-none rounded-xl bg-gradient-border p-0.5 md:mx-12 xl:hidden">
+        <div className="  flex  max-w-full flex-wrap justify-center gap-4  rounded-xl bg-gradient-main  p-4 md:p-8 lg:p-20 xl:hidden">
+          {arrayRenderAll()}
         </div>
       </div>
     </div>

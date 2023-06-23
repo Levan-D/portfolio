@@ -3,6 +3,8 @@
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import { setActiveLink } from "@/lib/redux/slices/globalSlice"
 import { openModal } from "@/lib/redux/slices/globalSlice"
+import Icon from "@mdi/react"
+import { mdiEmailFastOutline } from "@mdi/js"
 
 export const routes = [
   {
@@ -24,7 +26,10 @@ export const routes = [
 ]
 
 export default function Navbar() {
-  const { activeLink } = useAppSelector(state => state.global)
+  const {
+    activeLink,
+    modal: { vis },
+  } = useAppSelector(state => state.global)
   const dispatch = useAppDispatch()
 
   const handleActiveLink = (name: string) => {
@@ -51,7 +56,7 @@ export default function Navbar() {
                 key={route.name}
                 className={`${
                   activeLink === route.name && "!text-teal-400"
-                } duration-300 hover:text-teal-200`}
+                } duration-300 hover:text-teal-200 active:text-teal-400`}
                 onClick={() => handleActiveLink(route.name)}
               >
                 <button>
@@ -61,13 +66,18 @@ export default function Navbar() {
             )
           }
         })}
-        <span className="mr-40"></span>
+        <span className=" mr-12 lg:mr-40"></span>
         <li className={`fixed   `}>
           <button
-            className={`  rounded-full  border-2 border-teal-400 px-4 py-2 duration-300 hover:text-teal-200 active:text-teal-400`}
+            className={`${
+              vis && "!text-teal-400"
+            }  flex gap-4 rounded-full border-2  border-teal-400 px-4 py-2 duration-300 hover:text-teal-200 active:text-teal-400 `}
             onClick={handleOpenModal}
           >
-            Get in touch
+            <div className="  hidden lg:block ">Get in touch</div>
+            <div>
+              <Icon path={mdiEmailFastOutline} size={1} />
+            </div>
           </button>
         </li>
       </ul>

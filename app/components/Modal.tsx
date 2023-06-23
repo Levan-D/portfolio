@@ -58,31 +58,29 @@ export default function Modal() {
   }
 
   return (
-    vis && (
-      <>
-        <div
-          onClick={handleCloseModal}
-          className="fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50"
-        >
-          <div className="z-50  rounded-xl bg-gradient-border p-0.5">
-            <div className="min-h-[500px] min-w-[400px] rounded-xl bg-gradient-main p-4">
-              <div className="flex  items-center justify-between">
-                <h4 className="text-xl font-semibold">{renderTitle()}</h4>
-                <button
-                  onClick={handleCloseButtonClick}
-                  className="duration-300 hover:text-teal-200 active:text-teal-400"
-                >
-                  <Icon path={mdiClose} size={1} />
-                </button>
-              </div>
-
-              <hr className="my-4 h-0.5 border-none bg-slate-600 opacity-50" />
-
-              <div className="">{renderContenet()}</div>
-            </div>
+    <div
+      onClick={handleCloseModal}
+      className={`fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
+        vis ? "visible opacity-100" : "collapse opacity-0"
+      }`}
+    >
+      <div className="z-50  flex min-h-[500px] w-full max-w-[540px]  flex-col rounded-xl bg-gradient-border p-0.5 md:min-h-[600px] ">
+        <div className=" flex grow flex-col   rounded-xl bg-gradient-main px-6 py-4">
+          <div className="flex  items-center justify-between">
+            <h4 className="text-xl font-semibold">{renderTitle()}</h4>
+            <button
+              onClick={handleCloseButtonClick}
+              className=" hover:text-teal-200 active:text-teal-400"
+            >
+              <Icon path={mdiClose} size={1} />
+            </button>
           </div>
+
+          <hr className="my-4 h-0.5 border-none bg-slate-600 opacity-50" />
+
+          {renderContenet()}
         </div>
-      </>
-    )
+      </div>
+    </div>
   )
 }

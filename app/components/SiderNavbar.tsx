@@ -3,17 +3,14 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useAppDispatch } from "@/lib/redux/hooks"
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
 import Tooltip from "./Tooltip"
-import { ActionCreatorWithPayload } from "@reduxjs/toolkit"
+import { setActiveLink } from "@/lib/redux/slices/globalSlice"
+import { routes } from "./Navbar"
 
-type Props = {
-  activeLink: string
-  setActiveLink: ActionCreatorWithPayload<string>
-  routes: { name: string }[]
-}
+export default function SiderNavbar() {
+  const { activeLink } = useAppSelector(state => state.global)
 
-export default function SiderNavbar({ activeLink, setActiveLink, routes }: Props) {
   const dispatch = useAppDispatch()
 
   const [showNav, setShowNav] = useState(false)
@@ -47,7 +44,7 @@ export default function SiderNavbar({ activeLink, setActiveLink, routes }: Props
     return () => {
       observer.disconnect()
     }
-  }, [dispatch, routes, setActiveLink])
+  }, [dispatch])
 
   useEffect(() => {
     window.addEventListener("scroll", () => {

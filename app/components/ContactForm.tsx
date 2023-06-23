@@ -121,7 +121,7 @@ export default function ContactForm() {
         )}
         <button
           type="submit"
-          className="my-4 flex w-full items-center justify-center gap-2 rounded-lg bg-teal-400 py-3 font-semibold text-slate-950 duration-300 hover:bg-teal-300 active:bg-teal-500"
+          className="my-4 flex w-full items-center justify-center gap-2 rounded-lg [background:linear-gradient(135deg,_rgba(94,_234,_212,_1)_20%,rgba(45,_212,_191,_1)_80%)] py-3 font-semibold text-slate-950 duration-300 hover:bg-teal-300 active:bg-teal-500"
         >
           <div> Send</div>
           <div>

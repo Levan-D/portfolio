@@ -3,7 +3,7 @@
 "use client"
 
 import Icon from "@mdi/react"
-import { mdiArrowDown } from "@mdi/js"
+import { mdiChevronDown } from "@mdi/js"
 
 export default function ScrollBtn() {
   const scrollToElementSmooth = () => {
@@ -17,13 +17,13 @@ export default function ScrollBtn() {
         className="rounded-full border-2 border-teal-400 p-28 duration-500 group-hover:p-14  group-hover:text-slate-950 group-hover:[background:linear-gradient(135deg,_rgba(94,_234,_212,_1)_20%,rgba(45,_212,_191,_1)_80%)] "
       >
         <div className="arrow transition-opacity group-hover:opacity-0">
-          <Icon path={mdiArrowDown} size={2} />
+          <Icon path={mdiChevronDown} size={2.5} />
         </div>
         <div className="arrowDelay">
-          <Icon path={mdiArrowDown} size={2} />
+          <Icon path={mdiChevronDown} size={2.5} />
         </div>
         <div className="arrowDelaySecond">
-          <Icon path={mdiArrowDown} size={2} />
+          <Icon path={mdiChevronDown} size={2.5} />
         </div>
       </button>
     </div>

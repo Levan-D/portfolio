@@ -107,14 +107,14 @@ export default function Navbar() {
               )
           )}
           <span className=" mr-12 lg:mr-[200px]"></span>
-          <li className={`fixed   `}>
+          <li className={`fixed  z-10 `}>
             <ContactBtn type={"icon"} />
           </li>
         </ul>
       </nav>
 
       {/* - md  screen nav */}
-      <nav className="fixed block w-screen p-2 [background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
+      <nav className="fixed z-50 block w-screen p-2 [background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
         <button onClick={handleToggleSider} className="text-slate-300">
           <Icon path={mdiMenu} size={1.5} />
         </button>

@@ -19,14 +19,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <Providers>
       <html lang="en">
+        <head>
+          <link rel="icon" href="../public/favicon.ico" />
+        </head>
         <body
           className={`${inter.className} mx-auto flex	 min-h-screen  max-w-screen-2xl flex-col bg-gradient-body text-white`}
         >
           <Navbar />
 
           <BackToTopBtn />
-          <Modal/>
-
+          <Modal />
 
           <main className="grow px-8">{children}</main>
           <Footer />

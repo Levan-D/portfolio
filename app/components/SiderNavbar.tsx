@@ -76,7 +76,7 @@ export default function SiderNavbar() {
     <nav
       className={` ${
         !showNav ? " collapse opacity-0" : " collapse opacity-100 sm:visible"
-      } fixed right-10 top-1/2 hidden select-none duration-500 md:block`}
+      } fixed right-10 top-1/2 hidden z-10 select-none duration-500 md:block`}
     >
       <ul className="flex translate-y-[-50%]  flex-col  items-end gap-3 font-semibold ">
         {routes.map((route, i) => (

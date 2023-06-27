@@ -21,7 +21,8 @@ export default function Projects() {
           return (
             <Card
               key={uuidv4()}
-              customCSS={`${height}  ${stagger}  ${visibility}    max-w-[400px]  `}
+              glow={true}
+              customCSS={`${height}  ${stagger}  ${visibility}  hover:scale-[1.01]    max-w-[400px]  `}
             >
               <div className="flex h-full flex-col ">
                 <div className="grow">{cover}</div>

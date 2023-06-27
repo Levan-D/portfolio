@@ -8,16 +8,19 @@ import React from "react"
 type Props = {
   children: JSX.Element
   customCSS?: string
-  sideLine?:boolean
+  sideLine?: boolean
+  glow?: boolean
 }
 
-export default function Card({ children, customCSS,sideLine }: Props) {
+export default function Card({ children, customCSS, sideLine, glow }: Props) {
   const { ref, mousePos } = useMousePosition()
 
   return (
     <div
       ref={ref}
-      className={`${customCSS} relative  group h-full w-full rounded-xl bg-gradient-border   duration-300   `}
+      className={`${customCSS} ${sideLine && "sideLine"} ${
+        glow && "flickerBox"
+      }     group relative h-full w-full rounded-xl bg-gradient-border  duration-300   `}
     >
       <div
         style={{

@@ -18,7 +18,7 @@ const arrayRender = (col: ColType) => {
             <span className="block lg:hidden">
               <Image src={item.image} alt={item.name} height={38} />
             </span>
-            <p className=" mt-2 whitespace-nowrap  text-center text-sm font-semibold ld:text-base">
+            <p className=" ld:text-base mt-2  whitespace-nowrap text-center text-sm font-semibold">
               {item.name}
             </p>
           </div>
@@ -66,14 +66,14 @@ export default function Technologies() {
         </p>
       </div>
 
-      <Card customCSS=" mx-auto  !h-fit !w-fit   ">
+      <Card sideLine={true} customCSS=" mx-auto  !h-fit !w-fit   ">
         <>
           <div className="  hidden  select-none rounded-xl px-12  py-10 xl:block">
             {arrayRender(techObj.firstCol)}
             {arrayRender(techObj.secondCol)}
             {arrayRender(techObj.thirdCol)}
           </div>
-          <div className="   flex lg:max-w-[800px] md:max-w-[600px] select-none flex-wrap  justify-center  gap-4 rounded-xl py-12 lg:mx-8    xl:hidden">
+          <div className="   flex select-none flex-wrap justify-center gap-4  rounded-xl  py-12 md:max-w-[600px] lg:mx-8 lg:max-w-[800px]    xl:hidden">
             {arrayRenderAll()}
           </div>
         </>

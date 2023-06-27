@@ -100,7 +100,7 @@
 /* contact btn */
 
 .flickerBox:hover {
-  animation: flickerBox 20s;
+  animation: flickerBox 20s infinite alternate;
 }
 @keyframes flickerBox {
   0% {
@@ -122,5 +122,29 @@
   }
 }
 
- 
+/* card animations */
+.sideLine:after {
+  content: "";
+  height: 100px;
+  width: 1px;
+  position: absolute;
+  left: -1px;
+  top: 65%;
+  transition: top, opacity;
+  transition-duration: 900ms;
+  transition-timing-function: ease;
+  background: linear-gradient(transparent, rgba(45, 212, 191, 1), transparent);
+  opacity: 0;
+}
+
+.sideLine:after {
+  top: 65%;
+  opacity: 0;
+}
+
+.sideLine:hover:after {
+  top: 15%;
+  opacity: 1;
+}
+
 /* animations */

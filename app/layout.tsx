@@ -7,6 +7,8 @@ import Footer from "@/app/components/Footer"
 import { Providers } from "@/lib/provider"
 import BackToTopBtn from "@/app/components/BackToTop"
 import Modal from "./components/Modal"
+import "react-toastify/dist/ReactToastify.css"
+import { ToastContainer } from "react-toastify"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -29,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <BackToTopBtn />
           <Modal />
+          <ToastContainer position="top-center" theme="dark" newestOnTop />
 
           <main className="grow px-8">{children}</main>
           <Footer />

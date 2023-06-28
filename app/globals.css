@@ -4,6 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* toast styling */
+.Toastify__toast {
+  border-radius: 8px !important;
+
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+}
+:root {
+  --toastify-color-dark: #0f172a !important;
+  --toastify-color-success: #2dd4bf !important;
+}
+/* toast styling */
+
 /* scrollbar */
 /* width */
 ::-webkit-scrollbar {

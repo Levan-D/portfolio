@@ -114,7 +114,7 @@ export default function Navbar() {
       </nav>
 
       {/* - md  screen nav */}
-      <nav className="fixed z-50 block w-screen p-2 [background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
+      <nav className="fixed z-40 block w-screen p-2 [background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
         <button onClick={handleToggleSider} className="text-slate-300">
           <Icon path={mdiMenu} size={1.5} />
         </button>
@@ -128,7 +128,7 @@ export default function Navbar() {
           <ul
             className={`${
               sider ? "left-0" : "left-screen"
-            } fixed top-0  z-50 flex h-screen w-screen  flex-col gap-4 bg-slate-950 px-4 pt-2 duration-300 `}
+            } fixed top-0  z-40 flex h-screen w-screen  flex-col gap-4 bg-slate-950 px-4 pt-2 duration-300 `}
           >
             <li className="mb-12 flex justify-end text-slate-300">
               <button onClick={handleToggleSider}>

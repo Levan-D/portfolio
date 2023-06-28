@@ -60,7 +60,7 @@ export default function Modal() {
   return (
     <div
       onClick={handleCloseModal}
-      className={`fixed inset-0 z-40 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
         vis ? "visible opacity-100" : "collapse opacity-0"
       }`}
     >

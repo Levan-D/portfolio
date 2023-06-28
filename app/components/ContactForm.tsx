@@ -2,38 +2,69 @@
 "use client"
 import React, { useState } from "react"
 import Icon from "@mdi/react"
-import { mdiSend } from "@mdi/js"
+import { mdiSend, mdiGamepadCircleOutline } from "@mdi/js"
+import { useTransition } from "react"
+import { ContactFormType, sendEmail } from "../actions"
+import { toast } from "react-toastify"
+
+type ErrorType = {
+  name?: string
+  email?: string
+  message?: string
+}
 
 export default function ContactForm() {
+  let [isPending, startTransition] = useTransition()
+  const [emailStatus, setEmailStatus] = useState("")
+  console.log(emailStatus)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
-  const [errors, setErrors] = useState<{
-    name?: string
-    email?: string
-    message?: string
-  }>({})
+  const [errors, setErrors] = useState<ErrorType>({})
 
   const action = (event: React.FormEvent) => {
     event.preventDefault()
 
-    const newErrors = validateFields()
+    setEmailStatus("")
+
+    const handleSuccess = () => {
+      toast.success("Email sent successfully!")
+      setEmailStatus("success")
+      setName("")
+      setEmail("")
+      setMessage("")
+    }
+
+    const handleFailure = () => {
+      toast.error("Couldn't send email!")
+
+      setEmailStatus("failed")
+    }
+
+    const formData = { name, email, message }
+    const newErrors = validateFields(formData)
 
     if (Object.values(newErrors).some(error => error)) {
       setErrors(newErrors)
     } else {
-      // Perform submission logic here...
+      startTransition(() => {
+        sendEmail(formData)
+          .then(() => handleSuccess())
+          .catch(() => handleFailure())
+      })
     }
   }
 
-  const validateEmail = (email: string) => {
-    const re = /\S+@\S+\.\S+/
-    return re.test(email)
-  }
+  const validateFields = (formData: ContactFormType) => {
+    const { name, email, message } = formData
 
-  const validateFields = () => {
-    const newErrors: { name?: string; email?: string; message?: string } = {
+    const validateEmail = (email: string) => {
+      const re = /\S+@\S+\.\S+/
+      return re.test(email)
+    }
+
+    const newErrors: ErrorType = {
       name: "",
       email: "",
       message: "",
@@ -121,11 +152,15 @@ export default function ContactForm() {
         )}
         <button
           type="submit"
-          className="my-4 flex w-full items-center justify-center gap-2 rounded-lg [background:linear-gradient(135deg,_rgba(94,_234,_212,_1)_20%,rgba(45,_212,_191,_1)_80%)] py-3 font-semibold text-slate-950 duration-300 hover:bg-teal-300 active:bg-teal-500"
+          className="my-4 flex w-full items-center justify-center gap-2 rounded-lg py-3 font-semibold text-slate-950 duration-300 [background:linear-gradient(135deg,_rgba(94,_234,_212,_1)_20%,rgba(45,_212,_191,_1)_80%)] hover:bg-teal-300 active:bg-teal-500"
         >
           <div> Send</div>
           <div>
-            <Icon path={mdiSend} size={0.7} />
+            {!isPending ? (
+              <Icon path={mdiSend} size={0.7} />
+            ) : (
+              <Icon path={mdiGamepadCircleOutline} size={0.7} spin />
+            )}
           </div>
         </button>
       </form>

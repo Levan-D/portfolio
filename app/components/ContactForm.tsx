@@ -6,6 +6,8 @@ import { mdiSend, mdiGamepadCircleOutline } from "@mdi/js"
 import { useTransition } from "react"
 import { ContactFormType, sendEmail } from "../actions"
 import { toast } from "react-toastify"
+import { useAppDispatch } from "@/lib/redux/hooks"
+import { closeModal } from "@/lib/redux/slices/globalSlice"
 
 type ErrorType = {
   name?: string
@@ -14,9 +16,11 @@ type ErrorType = {
 }
 
 export default function ContactForm() {
+  const dispatch = useAppDispatch()
+
   let [isPending, startTransition] = useTransition()
   const [emailStatus, setEmailStatus] = useState("")
-  console.log(emailStatus)
+
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
@@ -30,6 +34,7 @@ export default function ContactForm() {
 
     const handleSuccess = () => {
       toast.success("Email sent successfully!")
+      dispatch(closeModal())
       setEmailStatus("success")
       setName("")
       setEmail("")
@@ -151,8 +156,11 @@ export default function ContactForm() {
           <p className=" text-sm">&#160;</p>
         )}
         <button
+          disabled={isPending}
           type="submit"
-          className="my-4 flex w-full items-center justify-center gap-2 rounded-lg py-3 font-semibold text-slate-950 duration-300 [background:linear-gradient(135deg,_rgba(94,_234,_212,_1)_20%,rgba(45,_212,_191,_1)_80%)] hover:bg-teal-300 active:bg-teal-500"
+          className={`${
+            isPending && "!opacity-80 "
+          } my-4 flex w-full items-center justify-center gap-2 rounded-lg  bg-teal-400 py-3 font-semibold text-slate-950 duration-300 hover:bg-teal-300 active:bg-teal-500`}
         >
           <div> Send</div>
           <div>

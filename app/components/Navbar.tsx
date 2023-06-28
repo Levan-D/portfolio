@@ -4,7 +4,7 @@
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import { setActiveLink } from "@/lib/redux/slices/globalSlice"
 import Icon from "@mdi/react"
-import { mdiMenu, mdiBackburger } from "@mdi/js"
+import { mdiMenu, mdiBackburger, mdiLinkedin, mdiGithub } from "@mdi/js"
 import { useState, useEffect } from "react"
 import ContactBtn from "./ContactBtn"
 
@@ -41,9 +41,9 @@ const Route = ({ route, handleActiveLink, activeLink }: RouteType) => (
     key={route.name}
     className={`${
       activeLink === route.name ? "!text-teal-400" : ""
-    } text-center  text-xl font-semibold duration-300 hover:text-teal-200 active:text-teal-400 md:text-base  `}
+    } text-center   text-xl font-semibold duration-300 hover:text-teal-200 active:text-teal-400 md:text-base  `}
   >
-    <button onClick={() => handleActiveLink(route.name)} className="w-2/5  p-2">
+    <button onClick={() => handleActiveLink(route.name)} className="w-2/5 p-2  md:w-full">
       {route.name.charAt(0).toUpperCase() + route.name.slice(1)}
     </button>
   </li>
@@ -93,23 +93,48 @@ export default function Navbar() {
   return (
     <>
       {/* md + screen nav */}
-      <nav className="hidden select-none p-6 md:block">
-        <ul className="  flex items-center justify-end gap-12  font-semibold">
-          {routes.map(
-            (route, i) =>
-              i !== 0 && (
-                <Route
-                  key={route.name}
-                  route={route}
-                  handleActiveLink={handleActiveLink}
-                  activeLink={activeLink}
-                />
-              )
-          )}
-          <span className=" mr-12 lg:mr-[200px]"></span>
-          <li className={`fixed  z-10 `}>
-            <ContactBtn type={"icon"} />
-          </li>
+      <nav className="hidden select-none  p-6 md:block">
+        <ul className="  flex items-center justify-between   font-semibold">
+          <div className="basis-1/3"></div>
+          <div className="flex basis-1/3 items-center gap-12">
+            {routes.map(
+              (route, i) =>
+                i !== 0 && (
+                  <Route
+                    key={route.name}
+                    route={route}
+                    handleActiveLink={handleActiveLink}
+                    activeLink={activeLink}
+                  />
+                )
+            )}
+          </div>
+          <div className="flex basis-1/3 items-center justify-end gap-8 ">
+            <li>
+              <a
+                href={"https://www.linkedin.com/in/levan-dolidze/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="duration-300 hover:text-teal-200 active:text-teal-400"
+              >
+                <Icon path={mdiLinkedin} size={1.1} />
+              </a>
+            </li>
+            <li>
+              <a
+                href={"https://github.com/Levan-D"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="duration-300 hover:text-teal-200 active:text-teal-400"
+              >
+                <Icon path={mdiGithub} size={1.1} />
+              </a>
+            </li>
+            <span className=" ml-12 lg:ml-[170px]"></span>
+            <li className={`fixed  z-10 `}>
+              <ContactBtn type={"icon"} />
+            </li>
+          </div>
         </ul>
       </nav>
 

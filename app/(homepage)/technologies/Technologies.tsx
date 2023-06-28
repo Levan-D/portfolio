@@ -53,7 +53,7 @@ const arrayRenderAll = () => {
 
 export default function Technologies() {
   return (
-    <div id="technologies" className=" py-20 md:min-h-screen">
+    <div id="technologies" className="mt-20  md:mt-48 md:min-h-screen">
       <div className="mx-auto w-fit py-20 text-center">
         <h2 className="text-2xl font-bold text-teal-400 md:text-3xl  lg:text-4xl">
           Technologies & Tools

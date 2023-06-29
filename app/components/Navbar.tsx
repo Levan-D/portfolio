@@ -7,6 +7,8 @@ import Icon from "@mdi/react"
 import { mdiMenu, mdiBackburger, mdiLinkedin, mdiGithub } from "@mdi/js"
 import { useState, useEffect } from "react"
 import ContactBtn from "./ContactBtn"
+import { usePathname } from "next/navigation"
+import Link from "next/link"
 
 type RouteType = {
   route: {
@@ -50,10 +52,11 @@ const Route = ({ route, handleActiveLink, activeLink }: RouteType) => (
 )
 
 export default function Navbar() {
-  const [sider, setSider] = useState(false)
-
-  const { activeLink } = useAppSelector(state => state.global)
+  const pathname = usePathname()
   const dispatch = useAppDispatch()
+  const { activeLink } = useAppSelector(state => state.global)
+
+  const [sider, setSider] = useState(false)
 
   const handleActiveLink = (name: string) => {
     dispatch(setActiveLink(name))
@@ -66,13 +69,13 @@ export default function Navbar() {
     element?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const handleToggleSider = () => {
+  const toggleSidebar = () => {
     setSider(!sider)
   }
 
   const handleCloseSider = (event: React.MouseEvent) => {
     if (event.target === event.currentTarget) {
-      handleToggleSider()
+      toggleSidebar()
     }
   }
 
@@ -96,19 +99,26 @@ export default function Navbar() {
       <nav className="hidden select-none  p-6 md:block">
         <ul className="  flex items-center justify-between   font-semibold">
           <div className="basis-1/3"></div>
-          <div className="flex basis-1/3 items-center gap-12">
-            {routes.map(
-              (route, i) =>
-                i !== 0 && (
-                  <Route
-                    key={route.name}
-                    route={route}
-                    handleActiveLink={handleActiveLink}
-                    activeLink={activeLink}
-                  />
-                )
+          <div className="flex basis-1/3 items-center justify-center gap-12">
+            {pathname === "/" ? (
+              routes.map(
+                (route, i) =>
+                  i !== 0 && (
+                    <Route
+                      key={route.name}
+                      route={route}
+                      handleActiveLink={handleActiveLink}
+                      activeLink={activeLink}
+                    />
+                  )
+              )
+            ) : (
+              <li className="duration-300 hover:text-teal-200 active:text-teal-400">
+                <Link href="/">Home</Link>
+              </li>
             )}
           </div>
+
           <div className="flex basis-1/3 items-center justify-end gap-8 ">
             <li>
               <a
@@ -140,7 +150,7 @@ export default function Navbar() {
 
       {/* - md  screen nav */}
       <nav className="fixed z-40 block w-screen p-2 [background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
-        <button onClick={handleToggleSider} className="text-slate-300">
+        <button onClick={toggleSidebar} className="text-slate-300">
           <Icon path={mdiMenu} size={1.5} />
         </button>
 
@@ -156,7 +166,7 @@ export default function Navbar() {
             } fixed top-0  z-40 flex h-screen w-screen  flex-col gap-4 bg-slate-950 px-4 pt-2 duration-300 `}
           >
             <li className="mb-12 flex justify-end text-slate-300">
-              <button onClick={handleToggleSider}>
+              <button onClick={toggleSidebar}>
                 <Icon path={mdiBackburger} size={1.5} />
               </button>
             </li>

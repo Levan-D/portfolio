@@ -1,7 +1,7 @@
 /** @format */
 import { v4 as uuidv4 } from "uuid"
-import { techObj } from "./techData"
-import type { ColType } from "./techData"
+import { techObj } from "../../data/techData"
+import type { ColType } from "../../data/techData"
 import Image from "next/image"
 import Card from "@/app/components/Card"
 
@@ -11,7 +11,7 @@ const arrayRender = (col: ColType) => {
     <div className="flex justify-center gap-4 md:my-4 xl:my-12 ">
       {col.map(item => {
         const content = (
-          <div className="flex flex-col items-center justify-end rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 sm:hover:-translate-y-2 sm:hover:border-slate-500 sm:hover:border-opacity-50 sm:hover:bg-slate-600 sm:hover:bg-opacity-50  sm:active:bg-slate-600">
+          <div className="flex flex-col items-center justify-end rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 active:scale-[0.95] sm:hover:-translate-y-2 sm:hover:border-slate-500 sm:hover:border-opacity-50 sm:hover:bg-slate-600 sm:hover:bg-opacity-50  sm:active:bg-slate-600">
             <span className="hidden lg:block">
               <Image src={item.image} alt={item.name} height={50} />
             </span>

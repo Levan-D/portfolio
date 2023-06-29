@@ -1,8 +1,9 @@
 /** @format */
 
 import Card from "@/app/components/Card"
-import { cardsData } from "./cardsData"
-import { v4 as uuidv4 } from "uuid"
+import { projectData } from "../../data/projectData"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function Projects() {
   return (
@@ -15,21 +16,50 @@ export default function Projects() {
       </div>
 
       <div className="   mx-auto flex w-fit grid-flow-col grid-rows-[repeat(12,_minmax(10px,_40px))] flex-wrap  justify-center  gap-8   lg:grid lg:grid-cols-3 xl:grid-cols-4  ">
-        {cardsData.map(card => {
-          const { height, stagger, visibility, title, desc, cover } = card
+        {projectData.map(card => {
+          const {
+            height,
+            stagger,
+            visibility,
+            title,
+            pitch,
+            tech,
+            images: { coverWeb },
+          } = card
+
+          let imgCSS = "xl:h-[130px] lg:h-[120px] object-fit "
+
+          let flex
+
+          if (height.includes("xl:row-span-6")) {
+            imgCSS += "xl:!object-cover xl:!h-[340px]"
+
+            if (height.includes("lg:row-span-5")) {
+              imgCSS += " lg:!h-[340px]"
+            }
+          } else if (height.includes("xl:row-span-3")) {
+            imgCSS += "!h-[76px] w-[76px] object-cover xl:mt-2"
+            flex = "!flex-row "
+          }
 
           return (
             <Card
-              key={uuidv4()}
+              key={card.id}
               glow={true}
-              customCSS={`${height}  ${stagger}  ${visibility}  hover:scale-[1.01]    max-w-[400px]  `}
+              customCSS={`${height}  ${stagger}  ${visibility}  hover:scale-[1.01]  active:scale-[0.99]  max-w-[400px]  `}
             >
-              <div className="flex h-full flex-col ">
-                <div className="grow">{cover}</div>
-                <h4 className="font-semibold">{title}</h4>
-                <p className="mb-2 text-slate-300">{desc}</p>
-                <button>click me</button>
-              </div>
+              <Link href={card.id} className={`${flex} flex h-full flex-col gap-4`}>
+                <Image
+                  src={coverWeb}
+                  alt={`cover picter for ${title} project`}
+                  className={` ${imgCSS} rounded-lg `}
+                ></Image>
+
+                <div className={`overflow-hidden ${!flex && "mb-1"} `}>
+                  <h4 className="font-semibold">{title}</h4>
+                  <p className=" text-slate-300">{pitch}</p>
+                </div>
+              </Link>
             </Card>
           )
         })}

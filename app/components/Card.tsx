@@ -10,9 +10,16 @@ type Props = {
   customCSS?: string
   sideLine?: boolean
   glow?: boolean
+  glimmer?: boolean
 }
 
-export default function Card({ children, customCSS, sideLine, glow }: Props) {
+export default function Card({
+  children,
+  customCSS,
+  sideLine,
+  glow,
+  glimmer = true,
+}: Props) {
   const { ref, mousePos } = useMousePosition()
 
   return (
@@ -24,10 +31,12 @@ export default function Card({ children, customCSS, sideLine, glow }: Props) {
     >
       <div
         style={{
-          background: `radial-gradient(
+          background: glimmer
+            ? `radial-gradient(
             600px circle at ${mousePos.x}px ${mousePos.y}px,
             rgba(203, 213, 225, 0.3),
-            transparent 40%`,
+            transparent 40%`
+            : "",
         }}
         className="h-full w-full rounded-xl p-0.5 "
       >
@@ -35,14 +44,16 @@ export default function Card({ children, customCSS, sideLine, glow }: Props) {
           <div
             className="absolute  z-10  h-full w-full rounded-xl opacity-0 duration-300 group-hover:opacity-100  "
             style={{
-              background: `radial-gradient(
+              background: glimmer
+                ? `radial-gradient(
               600px circle at ${mousePos.x}px ${mousePos.y}px,
               rgba(100, 116, 139, 0.2),
-              transparent 40%`,
+              transparent 40%`
+                : "",
             }}
           ></div>
 
-          <div className=" relative z-20 flex h-full flex-col rounded-xl bg-opacity-0 px-2 py-1 hover:bg-opacity-100">
+          <div className=" relative z-20 flex h-full flex-col rounded-xl bg-opacity-0 p-4 hover:bg-opacity-100">
             {children}
           </div>
         </div>

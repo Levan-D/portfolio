@@ -11,63 +11,60 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 
 type RouteType = {
-  route: {
-    name: string
-    icon: string
-  }
-  handleActiveLink: (name: string) => void
-  activeLink: string
+  route: string
+  toggleSidebar: () => void
 }
 
 export const routes = [
   {
     name: "about",
-    icon: "mdiAccount",
   },
   {
     name: "projects",
-    icon: "mdiNewspaperVariant",
   },
   {
     name: "technologies",
-    icon: "mdiCpu32Bit",
   },
   {
     name: "experience",
-    icon: "mdiBriefcase",
   },
 ]
 
-const Route = ({ route, handleActiveLink, activeLink }: RouteType) => (
-  <li
-    key={route.name}
-    className={`${
-      activeLink === route.name ? "!text-teal-400" : ""
-    } text-center   text-xl font-semibold duration-300 hover:text-teal-200 active:text-teal-400 md:text-base  `}
-  >
-    <button onClick={() => handleActiveLink(route.name)} className="w-2/5 p-2  md:w-full">
-      {route.name.charAt(0).toUpperCase() + route.name.slice(1)}
-    </button>
-  </li>
-)
-
-export default function Navbar() {
-  const pathname = usePathname()
+const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
   const dispatch = useAppDispatch()
-  const { activeLink } = useAppSelector(state => state.global)
-
-  const [sider, setSider] = useState(false)
-
-  const handleActiveLink = (name: string) => {
-    dispatch(setActiveLink(name))
-    scrollToElementSmooth(name)
-    setSider(false)
-  }
+  const { activeLink } = useAppSelector((state) => state.global)
 
   const scrollToElementSmooth = (elementId: string) => {
     const element = document.getElementById(elementId)
     element?.scrollIntoView({ behavior: "smooth" })
   }
+
+  const handleActiveLink = (name: string) => {
+    dispatch(setActiveLink(name))
+    scrollToElementSmooth(name)
+    toggleSidebar()
+  }
+  return (
+    <li
+      key={route}
+      className={`${
+        activeLink === route ? "!text-teal-400" : ""
+      } text-center   text-xl font-semibold duration-300 hover:text-teal-200 active:text-teal-400 md:text-base  `}
+    >
+      <button
+        onClick={() => handleActiveLink(route)}
+        className="w-2/5 p-2  md:w-full"
+      >
+        {route.charAt(0).toUpperCase() + route.slice(1)}
+      </button>
+    </li>
+  )
+}
+
+export default function Navbar() {
+  const pathname = usePathname()
+
+  const [sider, setSider] = useState(false)
 
   const toggleSidebar = () => {
     setSider(!sider)
@@ -104,11 +101,10 @@ export default function Navbar() {
               routes.map(
                 (route, i) =>
                   i !== 0 && (
-                    <Route
+                    <RouteScroll
                       key={route.name}
-                      route={route}
-                      handleActiveLink={handleActiveLink}
-                      activeLink={activeLink}
+                      route={route.name}
+                      toggleSidebar={toggleSidebar}
                     />
                   )
               )
@@ -174,14 +170,23 @@ export default function Navbar() {
             <li className="mx-auto mb-8 w-fit">
               <ContactBtn />
             </li>
-            {routes.map(route => (
-              <Route
-                key={route.name}
-                route={route}
-                handleActiveLink={handleActiveLink}
-                activeLink={activeLink}
-              />
-            ))}
+
+            {pathname === "/" ? (
+              routes.map((route) => (
+                <RouteScroll
+                  key={route.name}
+                  route={route.name}
+                  toggleSidebar={toggleSidebar}
+                />
+              ))
+            ) : (
+              <li
+                onClick={() => setSider(false)}
+                className="text-center   text-xl font-semibold duration-300 hover:text-teal-200 active:text-teal-400 md:text-base"
+              >
+                <Link href="/">Home</Link>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

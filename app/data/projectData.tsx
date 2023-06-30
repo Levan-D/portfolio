@@ -44,7 +44,7 @@ export const projectData: ProjectsDataType[] = [
     height: "row-span-3 lg:row-span-5 xl:row-span-6  ",
     stagger: "   lg:translate-y-0 xl:-translate-y-10",
     visibility: "visible",
-    mobile: false,
+    mobile: true,
     title: "card title",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
@@ -60,7 +60,7 @@ export const projectData: ProjectsDataType[] = [
     height: "row-span-2 xl:row-span-3",
     stagger: "   lg:translate-y-0 xl:translate-y-56",
     visibility: "visible",
-    mobile: false,
+    mobile: true,
     title: "card title",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
@@ -76,7 +76,7 @@ export const projectData: ProjectsDataType[] = [
     height: " row-span-3 lg:row-span-4 xl:row-span-6 ",
     stagger: "   lg:translate-y-20 xl:translate-y-56",
     visibility: "visible",
-    mobile: false,
+    mobile: true,
     title: "card title",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
@@ -92,7 +92,7 @@ export const projectData: ProjectsDataType[] = [
     height: "row-span-3 lg:row-span-4 xl:row-span-6 ",
     stagger: " lg:translate-y-20 xl:translate-y-28",
     visibility: "visible",
-    mobile: false,
+    mobile: true,
     title: "card title",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
@@ -108,7 +108,7 @@ export const projectData: ProjectsDataType[] = [
     height: "row-span-3 lg:row-span-4 xl:row-span-6 ",
     stagger: " lg:translate-y-20 xl:translate-y-28",
     visibility: "visible",
-    mobile: false,
+    mobile: true,
     title: "card title",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
@@ -124,7 +124,7 @@ export const projectData: ProjectsDataType[] = [
     height: "row-span-2 lg:row-span-4 ",
     stagger: " lg:translate-y-10 xl:translate-y-0",
     visibility: "visible",
-    mobile: false,
+    mobile: true,
     title: "card title",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
@@ -140,7 +140,7 @@ export const projectData: ProjectsDataType[] = [
     height: "row-span-2 lg:row-span-4 ",
     stagger: " lg:translate-y-10 xl:translate-y-0",
     visibility: "visible",
-    mobile: false,
+    mobile: true,
     title: "card title",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
@@ -156,7 +156,7 @@ export const projectData: ProjectsDataType[] = [
     height: "row-span-2 lg:row-span-4 ",
     stagger: " lg:translate-y-10 xl:translate-y-0",
     visibility: "visible",
-    mobile: false,
+    mobile: true,
     title: "card title",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",

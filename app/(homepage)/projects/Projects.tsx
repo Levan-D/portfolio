@@ -7,17 +7,20 @@ import Image from "next/image"
 
 export default function Projects() {
   return (
-    <div id="projects" className="   mx-16 mt-[200px] py-20 md:min-h-screen">
+    <div id="projects" className="   sm:mx-16 mt-20 md:mt-[200px] py-20 md:min-h-screen">
       <div className="mx-auto w-fit -translate-y-10 text-center  lg:translate-y-2 lg:text-left xl:-translate-x-28 xl:translate-y-6">
         <h2 className="text-2xl font-bold text-teal-400 md:text-3xl  lg:text-4xl">
           Projects
         </h2>
-        <p className="mt-4 font-semibold text-slate-300 lg:text-xl">Some of my works </p>
+        <p className="mt-4 font-semibold text-slate-300 lg:text-xl">
+          Some of my works{" "}
+        </p>
       </div>
 
       <div className="   mx-auto flex w-fit grid-flow-col grid-rows-[repeat(12,_minmax(10px,_40px))] flex-wrap  justify-center  gap-8   lg:grid lg:grid-cols-3 xl:grid-cols-4  ">
-        {projectData.map(card => {
+        {projectData.map((card) => {
           const {
+            id,
             height,
             stagger,
             visibility,
@@ -38,17 +41,17 @@ export default function Projects() {
               imgCSS += " lg:!h-[340px]"
             }
           } else if (height.includes("xl:row-span-3")) {
-            imgCSS += "!h-[76px] w-[76px] object-cover xl:mt-2"
-            flex = "!flex-row "
+            imgCSS += "lg:!h-[76px] lg:w-[76px] !object-cover xl:mt-2"
+            flex = "lg:!flex-row "
           }
 
           return (
             <Card
-              key={card.id}
+              key={id}
               glow={true}
               customCSS={`${height}  ${stagger}  ${visibility}  hover:scale-[1.01]  active:scale-[0.99]  max-w-[400px]  `}
             >
-              <Link href={card.id} className={`${flex} flex h-full flex-col gap-4`}>
+              <Link href={id} className={`${flex} flex h-full flex-col gap-4`}>
                 <Image
                   src={coverWeb}
                   alt={`cover picter for ${title} project`}

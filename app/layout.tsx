@@ -17,10 +17,10 @@ export const metadata = {
   description:
     "Professional web developer with expertise in React, Next.js, and other modern web technologies. Explore my work, learn about my skills, and get in touch for collaboration.",
   keywords:
-    "Web Developer, React,Next,js,Tailwind,Typescript, Node.js, JavaScript, Portfolio",
+    "Web Developer, React, Next.js, Tailwind, Typescript, Node.js, JavaScript, Portfolio",
   author: "Levan Dolidze",
-  // image: "/path_to_your_image.jpg",
-  // url: "https://www.yourportfolio.com",
+  image: "https://i.imgur.com/MlF0tGd.png",
+  url: "https://levandolidze.com/",
   locale: "en_US",
   type: "website",
 }

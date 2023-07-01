@@ -11,7 +11,7 @@ export default function About() {
           Levan Dolidze.
         </p>
         <p className=" mt-2 text-2xl font-bold text-slate-300 md:text-4xl lg:mt-4 lg:text-5xl xl:text-6xl">
-          I’m a Front-End Developer.
+          I’m a Web Developer.
         </p>
         <p className=" mx-auto mt-2 max-w-[600px] font-bold text-slate-300  md:mx-0  lg:mt-4  lg:max-w-[700px]  lg:text-xl">
           I specialize in building accessible digital experiences for the web using

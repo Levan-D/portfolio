@@ -2,6 +2,9 @@
 import { projectData } from "../data/projectData"
 import ImageDisplay from "./components/ImageDisplay"
 import Carousel from "./components/Caruosel"
+import Icon from "@mdi/react"
+import { mdiGithub, mdiWeb } from "@mdi/js"
+import Link from "next/link"
 
 type Props = {
   params: {
@@ -27,19 +30,20 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
     desc,
     tech,
     images,
+    links,
   } = project
 
   return (
-    <div className=" mt-36 lg:mt-16 my-16">
+    <div className=" my-16 mt-36 lg:mt-16">
       <div className="items-center justify-center gap-12 lg:flex">
-        <div className="basis-2/5  md:w-2/3 lg:w-full mx-auto">
+        <div className="mx-auto my-8  basis-2/5 md:w-2/3 lg:w-full">
           <h2 className="text-center text-2xl font-bold text-teal-400  md:text-3xl lg:text-left lg:text-4xl ">
             {title}
           </h2>
           <p className=" mt-4  font-semibold text-slate-300  lg:text-xl">
             {desc}
           </p>
-          <div className=" mt-4 flex   gap-4  my-8">
+          <div className=" mt-4 mt-4   flex  gap-4">
             {tech.map((tech: string) => (
               <div
                 className="rounded-full  bg-teal-200 px-4 py-1 font-semibold text-teal-950 "
@@ -48,6 +52,21 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
                 {tech}
               </div>
             ))}
+          </div>
+
+          <div className="flex mt-4 gap-4 text-slate-300 ">
+            <div>
+              <Link target="_blank" className="duration-300 hover:text-teal-300 active:text-teal-400" href={links.github}>
+                <Icon path={mdiGithub} size={1.2} />
+              </Link>
+            </div>
+            {links.website && (
+              <div>
+                <Link target="_blank" className="duration-300 hover:text-teal-300 active:text-teal-400" href={links.website}>
+                  <Icon path={mdiWeb} size={1.2} />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 

@@ -13,7 +13,7 @@ export async function sendEmail({ name, email, message }: ContactFormType) {
     from: email,
     to: process.env.GMAIL_USER,
     subject: "Client inquiry",
-    text: email + "" + name + " " + message,
+    text: email + " " + name + " " + message,
   }
 
   return new Promise((resolve, reject) => {

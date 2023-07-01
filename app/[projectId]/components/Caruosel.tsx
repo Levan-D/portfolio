@@ -8,14 +8,14 @@ import { mdiArrowTopRight } from "@mdi/js"
 
 export default function Carousel() {
   return (
-    <div className="h-[200px] lg:h-[300px] ">
+    <div className="h-[200px] lg:h-[250px] xl:h-[300px] ">
       <Card glimmer={true} customCSS="">
         <div className="flex h-full w-full gap-4 overflow-x-auto overflow-y-hidden   ">
           {projectData.map((project) => (
             <Link
               href={project.id}
               key={project.id}
-              className="  group/title mb-2 block flex flex-col  h-[calc(100%-8px)] aspect-square  rounded-lg bg-slate-700 bg-opacity-60 p-2 flex-shrink-0"
+              className="  group/title mb-2 block flex aspect-square h-[calc(100%-8px)]  flex-shrink-0 flex-col  rounded-lg bg-slate-700 bg-opacity-60 p-2 duration-300 hover:bg-slate-600 active:bg-slate-700"
             >
               <Image
                 src={project.images.coverWeb}
@@ -23,8 +23,8 @@ export default function Carousel() {
                 className=" aspect-[4/3]  rounded object-cover "
               ></Image>
 
-              <div className="mt-2 grow mx-1 flex items-center gap-1 ">
-                <h4 className=" font-semibold lg:text-lg duration-300 group-hover/title:text-teal-300 group-active/title:text-teal-400">
+              <div className="mx-1 mt-2 flex grow items-center gap-1 ">
+                <h4 className=" font-semibold duration-300 group-hover/title:text-teal-300 group-active/title:text-teal-400 xl:text-lg">
                   {project.title}
                 </h4>
                 <Icon

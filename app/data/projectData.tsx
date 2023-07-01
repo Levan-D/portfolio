@@ -18,6 +18,10 @@ export type ProjectsDataType = {
     leftMobile?: StaticImageData
     rightMobile?: StaticImageData
   }
+  links: {
+    github: string
+    website?: string
+  }
 }
 
 export const projectData: ProjectsDataType[] = [
@@ -38,6 +42,10 @@ export const projectData: ProjectsDataType[] = [
       leftMobile: cssMateCoverWeb,
       rightMobile: cssMateCoverWeb,
     },
+    links: {
+      github: "aaa",
+      website: "ssss",
+    },
   },
   {
     id: "7a8a95e1-0a2f-4947-8de7-f93e004616f5",
@@ -52,6 +60,10 @@ export const projectData: ProjectsDataType[] = [
     tech: [""],
     images: {
       coverWeb: cssMateCoverWeb,
+    },
+    links: {
+      github: "aaa",
+      website: "ssss",
     },
   },
 
@@ -69,6 +81,10 @@ export const projectData: ProjectsDataType[] = [
     images: {
       coverWeb: cssMateCoverWeb,
     },
+    links: {
+      github: "aaa",
+      website: "ssss",
+    },
   },
 
   {
@@ -84,6 +100,10 @@ export const projectData: ProjectsDataType[] = [
     tech: [""],
     images: {
       coverWeb: cssMateCoverWeb,
+    },
+    links: {
+      github: "aaa",
+      website: "ssss",
     },
   },
 
@@ -101,6 +121,10 @@ export const projectData: ProjectsDataType[] = [
     images: {
       coverWeb: cssMateCoverWeb,
     },
+    links: {
+      github: "aaa",
+      website: "ssss",
+    },
   },
 
   {
@@ -116,6 +140,10 @@ export const projectData: ProjectsDataType[] = [
     tech: [""],
     images: {
       coverWeb: cssMateCoverWeb,
+    },
+    links: {
+      github: "aaa",
+      website: "ssss",
     },
   },
 
@@ -133,6 +161,10 @@ export const projectData: ProjectsDataType[] = [
     images: {
       coverWeb: cssMateCoverWeb,
     },
+    links: {
+      github: "aaa",
+      website: "ssss",
+    },
   },
 
   {
@@ -149,6 +181,10 @@ export const projectData: ProjectsDataType[] = [
     images: {
       coverWeb: cssMateCoverWeb,
     },
+    links: {
+      github: "aaa",
+      website: "ssss",
+    },
   },
 
   {
@@ -157,13 +193,16 @@ export const projectData: ProjectsDataType[] = [
     stagger: " lg:translate-y-10 xl:translate-y-0",
     visibility: "visible",
     mobile: true,
-    title: "card title",
+    title: "card youyou",
     pitch:
       "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
     desc: "desc",
     tech: [""],
     images: {
       coverWeb: cssMateCoverWeb,
+    },
+    links: {
+      github: "https://www.youtube.com/",
     },
   },
 ]

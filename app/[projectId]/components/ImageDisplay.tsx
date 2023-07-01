@@ -21,7 +21,7 @@ export default function ImageDisplay({
   mobile,
   images: { coverWeb, coverMobile, leftMobile, rightMobile },
 }: Props) {
-  const [active, setActive] = useState("mobile")
+  const [active, setActive] = useState("web")
 
   return (
     <Card sideLine={true} glimmer={false} customCSS=" ">

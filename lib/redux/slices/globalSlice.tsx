@@ -3,16 +3,18 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
 
-interface globalState {
+interface initialState {
   activeLink: string
+  darkMode: boolean
   modal: {
     vis: boolean
     type: string
   }
 }
 
-const initialState: globalState = {
+const initialState: initialState = {
   activeLink: "",
+  darkMode: localStorage.getItem("darkMode") !== "false",
   modal: {
     vis: false,
     type: "",
@@ -23,19 +25,27 @@ const globalSlice = createSlice({
   name: "global",
   initialState,
   reducers: {
-    setActiveLink: (state, action: PayloadAction<globalState["activeLink"]>) => {
+    setActiveLink: (
+      state,
+      action: PayloadAction<initialState["activeLink"]>
+    ) => {
       state.activeLink = action.payload
     },
-    openModal: (state, action: PayloadAction<globalState["modal"]>) => {
+    setDarkMode: (state, action: PayloadAction<initialState["darkMode"]>) => {
+      state.darkMode = action.payload
+      localStorage.setItem("darkMode", String(action.payload))
+    },
+    openModal: (state, action: PayloadAction<initialState["modal"]>) => {
       state.modal.vis = action.payload.vis
       state.modal.type = action.payload.type
     },
-    closeModal: state => {
+    closeModal: (state) => {
       state.modal.vis = false
       state.modal.type = ""
     },
   },
 })
 
-export const { setActiveLink, openModal, closeModal } = globalSlice.actions
+export const { setActiveLink, openModal, closeModal, setDarkMode } =
+  globalSlice.actions
 export default globalSlice.reducer

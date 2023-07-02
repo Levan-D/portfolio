@@ -15,7 +15,7 @@ export default function Carousel() {
             <Link
               href={project.id}
               key={project.id}
-              className="  group/title mb-2 block flex aspect-square h-[calc(100%-8px)]  flex-shrink-0 flex-col  rounded-lg bg-slate-700 bg-opacity-60 p-2 duration-300 hover:bg-slate-600 active:bg-slate-700"
+              className="  group/title mb-2 block flex aspect-square h-[calc(100%-8px)]  flex-shrink-0 flex-col  rounded-lg bg-slate-400 bg-opacity-50 p-2 duration-300 hover:bg-slate-400 active:bg-slate-500 dark:bg-slate-700 dark:hover:bg-slate-600 dark:active:bg-slate-700"
             >
               <Image
                 src={project.images.coverWeb}
@@ -24,13 +24,13 @@ export default function Carousel() {
               ></Image>
 
               <div className="mx-1 mt-2 flex grow items-center gap-1 ">
-                <h4 className=" font-semibold duration-300 group-hover/title:text-teal-300 group-active/title:text-teal-400 xl:text-lg">
+                <h4 className=" -white font-semibold duration-300 group-hover/title:text-white dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400 xl:text-lg">
                   {project.title}
                 </h4>
                 <Icon
                   path={mdiArrowTopRight}
                   size={0.6}
-                  className="duration-300 ease-in group-hover/title:-translate-y-1 group-hover/title:translate-x-1 group-hover/title:text-teal-300 group-active/title:text-teal-400"
+                  className="duration-300 ease-in group-hover/title:-translate-y-1 group-hover/title:translate-x-1 group-hover/title:text-white dark:group-hover/title:text-teal-300  dark:group-active/title:text-teal-400"
                 />
               </div>
             </Link>

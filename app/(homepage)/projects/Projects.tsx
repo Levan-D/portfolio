@@ -56,7 +56,7 @@ export default function Projects() {
 
             <div className={`overflow-hidden ${!flex && "mb-1"} `}>
               <h4 className="font-semibold">{title}</h4>
-              <p className=" text-slate-300">{pitch}</p>
+              <p className=" textTertiary">{pitch}</p>
             </div>
           </Link>
         </Card>
@@ -70,11 +70,11 @@ export default function Projects() {
       className="   mt-20 py-20 sm:mx-16 md:mt-[200px] md:min-h-screen"
     >
       <div className="mx-auto w-fit -translate-y-10 text-center  lg:translate-y-2 lg:text-left xl:-translate-x-28 xl:translate-y-6">
-        <h2 className="text-2xl font-bold text-teal-400 md:text-3xl  lg:text-4xl">
+        <h2 className="text-2xl font-bold textSecondary md:text-3xl  lg:text-4xl">
           Projects
         </h2>
-        <p className="mt-4 font-semibold text-slate-300 lg:text-xl">
-          Some of my works{" "}
+        <p className="mt-4 font-semibold textTertiary lg:text-xl">
+          Some of my works
         </p>
       </div>
 
@@ -84,7 +84,7 @@ export default function Projects() {
       {cardCount < projectData.length && (
         <button
           onClick={handleMoreClick}
-          className="mx-auto mt-8 block rounded-full border-2 border-teal-400  px-6 py-2 text-center text-white duration-300 hover:text-teal-200 active:text-teal-400 lg:hidden  "
+          className="mx-auto mt-8 btnSecondary  lg:hidden  "
         >
           Show More
         </button>

@@ -4,6 +4,7 @@
  */
 
 module.exports = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,12 +13,18 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-body":
+        "gradient-body-dark":
           "linear-gradient(225deg, rgba(15, 23, 42, 1) 0%,rgba(2, 6, 23, 1) 20%)",
-        "gradient-main":
+        "gradient-card-body-dark":
           "linear-gradient(135deg, rgba(30, 41, 59, 1) 30%,rgba(15, 23, 42, 1) 70%)",
-        "gradient-border":
+        "gradient-border-dark":
           "linear-gradient(135deg, rgba(51, 65, 85, 1) 0%,rgba(15, 23, 42, 1) 50%)",
+        "gradient-body-light":
+          "linear-gradient(225deg, rgba(226, 232, 240, 1) 0%,rgba(241, 245, 249, 1) 20%)",
+        "gradient-card-body-light":
+          "linear-gradient(135deg, rgba(203, 213, 225, 1) 30%,rgba(203, 213, 225, 1) 70%)",
+        "gradient-border-light":
+          "linear-gradient(135deg, rgba(203, 213, 225, 1) 0%,rgba(193, 203, 215, 1) 50%)",
       },
       screens: {
         sm: "540px",

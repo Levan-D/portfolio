@@ -37,16 +37,16 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
     <div className=" my-16 ">
       <div className="items-center justify-center gap-12 lg:flex">
         <div className="mx-auto my-8  basis-2/5 md:w-2/3 lg:w-full">
-          <h2 className="text-center text-2xl font-bold text-teal-400  md:text-3xl lg:text-left lg:text-4xl ">
+          <h2 className="textSecondary text-center text-2xl font-bold  md:text-3xl lg:text-left lg:text-4xl ">
             {title}
           </h2>
-          <p className=" mt-4  font-semibold text-slate-300  lg:text-xl">
+          <p className=" textTertiary  mt-4 font-semibold  lg:text-xl">
             {desc}
           </p>
           <div className=" mt-4 mt-4   flex  gap-4">
             {tech.map((tech: string) => (
               <div
-                className="rounded-full  bg-teal-200 px-4 py-1 font-semibold text-teal-950 "
+                className="rounded-full  bg-teal-100 px-4 py-1 font-semibold text-teal-700 "
                 key={tech}
               >
                 {tech}
@@ -54,13 +54,9 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
             ))}
           </div>
 
-          <div className="mt-4 flex gap-4 text-slate-300 ">
+          <div className="textTertiary mt-4 flex gap-4 ">
             <div>
-              <Link
-                target="_blank"
-                className="duration-300 hover:text-teal-300 active:text-teal-400"
-                href={links.github}
-              >
+              <Link target="_blank" className="btnTertiary" href={links.github}>
                 <Icon path={mdiGithub} size={1.2} />
               </Link>
             </div>
@@ -68,7 +64,7 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
               <div>
                 <Link
                   target="_blank"
-                  className="duration-300 hover:text-teal-300 active:text-teal-400"
+                  className="btnTertiary"
                   href={links.website}
                 >
                   <Icon path={mdiWeb} size={1.2} />

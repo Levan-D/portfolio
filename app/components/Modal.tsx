@@ -11,7 +11,7 @@ export default function Modal() {
   const dispatch = useAppDispatch()
   const {
     modal: { vis, type },
-  } = useAppSelector(state => state.global)
+  } = useAppSelector((state) => state.global)
 
   // Disable scroll when modal is visible
   useEffect(() => {
@@ -64,8 +64,8 @@ export default function Modal() {
         vis ? "visible opacity-100" : "collapse opacity-0"
       }`}
     >
-      <div className="z-50  flex min-h-[500px] w-full max-w-[540px]  flex-col rounded-xl bg-gradient-border p-0.5 md:min-h-[600px] ">
-        <div className=" flex grow flex-col   rounded-xl bg-gradient-main px-6 py-4">
+      <div className="z-50  flex min-h-[500px] w-full max-w-[540px]  flex-col rounded-xl bg-gradient-border-light dark:bg-gradient-border-dark p-0.5 md:min-h-[600px] ">
+        <div className=" dark:bg-gradient-card-body-dark bg-gradient-card-body-light flex grow   flex-col rounded-xl px-6 py-4">
           <div className="flex  items-center justify-between">
             <h4 className="text-xl font-semibold">{renderTitle()}</h4>
             <button

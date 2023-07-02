@@ -2,9 +2,16 @@
 "use client"
 
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
-import { setActiveLink } from "@/lib/redux/slices/globalSlice"
+import { setActiveLink, setDarkMode } from "@/lib/redux/slices/globalSlice"
 import Icon from "@mdi/react"
-import { mdiMenu, mdiBackburger, mdiLinkedin, mdiGithub } from "@mdi/js"
+import {
+  mdiMenu,
+  mdiBackburger,
+  mdiLinkedin,
+  mdiGithub,
+  mdiWeatherNight,
+  mdiWhiteBalanceSunny,
+} from "@mdi/js"
 import { useState, useEffect } from "react"
 import ContactBtn from "./ContactBtn"
 import { usePathname } from "next/navigation"
@@ -48,8 +55,8 @@ const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
     <li
       key={route}
       className={`${
-        activeLink === route ? "!text-teal-400" : ""
-      } text-center   text-xl font-semibold duration-300 hover:text-teal-200 active:text-teal-400 md:text-base  `}
+        activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
+      } btnTertiary   text-center  text-xl md:text-base  `}
     >
       <button
         onClick={() => handleActiveLink(route)}
@@ -62,6 +69,8 @@ const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
 }
 
 export default function Navbar() {
+  const dispatch = useAppDispatch()
+  const { darkMode } = useAppSelector((state) => state.global)
   const pathname = usePathname()
 
   const [sider, setSider] = useState(false)
@@ -75,6 +84,29 @@ export default function Navbar() {
       toggleSidebar()
     }
   }
+
+  const handleDarkMode = () => {
+    const newDarkMode = !darkMode
+    dispatch(setDarkMode(newDarkMode))
+    if (newDarkMode) {
+      document.documentElement.classList.add("dark")
+      document.documentElement.classList.remove("light")
+    } else {
+      document.documentElement.classList.add("light")
+      document.documentElement.classList.remove("dark")
+    }
+  }
+
+  // Add or remove dark class on load and on click
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark")
+      document.documentElement.classList.remove("light")
+    } else {
+      document.documentElement.classList.add("light")
+      document.documentElement.classList.remove("dark")
+    }
+  }, [])
 
   // Disable scroll when sider is visible
   useEffect(() => {
@@ -109,7 +141,7 @@ export default function Navbar() {
                   )
               )
             ) : (
-              <li className="duration-300 hover:text-teal-200 active:text-teal-400">
+              <li className="btnTertiary">
                 <Link href="/">Home</Link>
               </li>
             )}
@@ -117,11 +149,23 @@ export default function Navbar() {
 
           <div className="flex basis-1/3 items-center justify-end gap-8 ">
             <li>
+              <button
+                onClick={handleDarkMode}
+                className="btnTertiary translate-y-0.5"
+              >
+                {!darkMode ? (
+                  <Icon path={mdiWeatherNight} size={1} />
+                ) : (
+                  <Icon path={mdiWhiteBalanceSunny} size={1} />
+                )}
+              </button>
+            </li>
+            <li>
               <a
                 href={"https://www.linkedin.com/in/levan-dolidze/"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-300 hover:text-teal-200 active:text-teal-400"
+                className="btnTertiary"
               >
                 <Icon path={mdiLinkedin} size={1.1} />
               </a>
@@ -131,12 +175,12 @@ export default function Navbar() {
                 href={"https://github.com/Levan-D"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-300 hover:text-teal-200 active:text-teal-400"
+                className="btnTertiary"
               >
                 <Icon path={mdiGithub} size={1.1} />
               </a>
             </li>
-            <span className=" ml-12 lg:ml-[170px]"></span>
+            <span className=" ml-12 lg:ml-[200px]"></span>
             <li className={`fixed  z-10 `}>
               <ContactBtn type={"icon"} />
             </li>
@@ -145,8 +189,8 @@ export default function Navbar() {
       </nav>
 
       {/* - md  screen nav */}
-      <nav className="fixed z-40 block w-screen p-2 [background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
-        <button onClick={toggleSidebar} className="text-slate-300">
+      <nav className="fixed z-40 block w-screen p-2 dark:[background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
+        <button onClick={toggleSidebar} className="textTertiary">
           <Icon path={mdiMenu} size={1.5} />
         </button>
 
@@ -159,9 +203,9 @@ export default function Navbar() {
           <ul
             className={`${
               sider ? "left-0" : "left-screen"
-            } fixed top-0  z-40 flex h-screen w-screen  flex-col gap-4 bg-slate-950 px-4 pt-2 duration-300 `}
+            } fixed top-0  z-40 flex h-screen w-screen  flex-col gap-4 bg-slate-200 px-4 pt-2 duration-300 dark:bg-slate-950 `}
           >
-            <li className="mb-12 flex justify-end text-slate-300">
+            <li className="textTertiary mb-12 flex justify-end">
               <button onClick={toggleSidebar}>
                 <Icon path={mdiBackburger} size={1.5} />
               </button>
@@ -182,7 +226,7 @@ export default function Navbar() {
             ) : (
               <li
                 onClick={() => setSider(false)}
-                className="text-center   text-xl font-semibold duration-300 hover:text-teal-200 active:text-teal-400 md:text-base"
+                className="btnTertiary   text-center text-xl md:text-base"
               >
                 <Link href="/">Home</Link>
               </li>

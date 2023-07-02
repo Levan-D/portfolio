@@ -9,7 +9,7 @@ import { setActiveLink } from "@/lib/redux/slices/globalSlice"
 import { routes } from "./Navbar"
 
 export default function SiderNavbar() {
-  const { activeLink } = useAppSelector(state => state.global)
+  const { activeLink } = useAppSelector((state) => state.global)
 
   const dispatch = useAppDispatch()
 
@@ -17,11 +17,11 @@ export default function SiderNavbar() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
+      (entries) => {
         let largestRatio = 0
         let largestRatioId = ""
 
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.intersectionRatio > largestRatio) {
             largestRatio = entry.intersectionRatio
             largestRatioId = entry.target.id
@@ -35,11 +35,11 @@ export default function SiderNavbar() {
       { threshold: [0.1, 0.25, 0.5, 0.75, 1] }
     )
 
-    const ids = routes.map(route => `#${route.name}`)
+    const ids = routes.map((route) => `#${route.name}`)
 
     const sections = document.querySelectorAll(ids.join(", "))
 
-    sections.forEach(section => observer.observe(section))
+    sections.forEach((section) => observer.observe(section))
 
     return () => {
       observer.disconnect()
@@ -76,15 +76,15 @@ export default function SiderNavbar() {
     <nav
       className={` ${
         !showNav ? " collapse opacity-0" : " collapse opacity-100 sm:visible"
-      } fixed right-10 top-1/2 hidden z-10 select-none duration-500 md:block`}
+      } fixed right-10 top-1/2 z-10 hidden select-none duration-500 md:block`}
     >
       <ul className="flex translate-y-[-50%]  flex-col  items-end gap-3 font-semibold ">
         {routes.map((route, i) => (
           <li
             key={route.name}
             className={`${
-              activeLink === route.name && "!text-teal-400"
-            }  text-xs text-slate-300 duration-300  hover:text-teal-200`}
+              activeLink === route.name && "!text-teal-700 dark:!text-teal-400"
+            }  textTertiary text-xs `}
             onClick={() => scrollToElementSmooth(route.name)}
           >
             <Tooltip

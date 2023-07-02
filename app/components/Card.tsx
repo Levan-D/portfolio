@@ -27,7 +27,7 @@ export default function Card({
       ref={ref}
       className={`${customCSS} ${sideLine && "sideLine"} ${
         glow && "flickerBox"
-      }     group relative h-full w-full rounded-xl bg-gradient-border  duration-300   `}
+      }     group relative h-full w-full rounded-xl dark:bg-gradient-border-dark bg-gradient-border-light  duration-300   `}
     >
       <div
         style={{
@@ -40,7 +40,7 @@ export default function Card({
         }}
         className="h-full w-full rounded-xl p-0.5 "
       >
-        <div className="h-full  w-full rounded-xl bg-gradient-main">
+        <div className="bg-gradient-card-body-light h-full  w-full rounded-xl dark:bg-gradient-card-body-dark">
           <div
             className="absolute  z-10  h-full w-full rounded-xl opacity-0 duration-300 group-hover:opacity-100  "
             style={{

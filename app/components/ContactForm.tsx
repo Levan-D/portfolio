@@ -102,7 +102,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <p className="mb-4 font-semibold text-slate-300">Enter your information below</p>
+      <p className="mb-4 font-semibold textTertiary">Enter your information below</p>
       <form onSubmit={action} className=" flex h-max grow flex-col ">
         <label className="mb-1 font-semibold" htmlFor="name">
           Name
@@ -160,7 +160,7 @@ export default function ContactForm() {
           type="submit"
           className={`${
             isPending && "!opacity-80 "
-          } my-4 flex w-full items-center justify-center gap-2 rounded-lg  bg-teal-400 py-3 font-semibold text-slate-950 duration-300 hover:bg-teal-300 active:bg-teal-500`}
+          } my-4 flex w-full items-center justify-center gap-2 btnPrimary`}
         >
           <div> Send</div>
           <div>

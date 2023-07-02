@@ -31,16 +31,18 @@ export default function ImageDisplay({
             <button
               onClick={() => setActive("web")}
               className={`${
-                active === "web" && "!border-slate-300 !text-slate-300"
-              }  rounded-xl border-2 border-slate-400 p-2 text-slate-400 duration-300 hover:border-slate-300 hover:text-slate-300 active:border-slate-500 active:text-slate-500`}
+                active === "web" &&
+                "!border-slate-900 !text-slate-900 dark:!border-slate-300 dark:!text-slate-300"
+              }  rounded-xl border-2 border-slate-500 p-2 text-slate-500 duration-300  hover:border-slate-400 hover:text-slate-400 dark:border-slate-400 dark:text-slate-400 dark:hover:border-slate-300 dark:hover:text-slate-300  `}
             >
               <Icon path={mdiLaptop} size={1} />
             </button>
             <button
               onClick={() => setActive("mobile")}
               className={`${
-                active === "mobile" && "!border-slate-300 !text-slate-300"
-              }  rounded-xl border-2 border-slate-400 px-2.5 py-2 text-slate-400 duration-300 hover:border-slate-300 hover:text-slate-300 active:border-slate-500 active:text-slate-500`}
+                active === "mobile" &&
+                "!border-slate-900 !text-slate-900 dark:!border-slate-300 dark:!text-slate-300"
+              }  rounded-xl border-2 border-slate-500 px-2.5 py-2 text-slate-500 duration-300  hover:border-slate-400 hover:text-slate-400 dark:border-slate-400 dark:text-slate-400 dark:hover:border-slate-300 dark:hover:text-slate-300  `}
             >
               <Icon path={mdiCellphone} size={0.8} />
             </button>
@@ -52,7 +54,7 @@ export default function ImageDisplay({
             className={` ${
               active === "mobile" &&
               "!-translate-x-56 translate-y-4 -rotate-[15deg] md:!visible md:!-translate-x-72 lg:!-translate-x-40  lg:translate-y-2  xl:!-translate-x-80 xl:translate-y-6 "
-            } collapse absolute left-1/2 z-10 mx-auto   aspect-[9/16]  -translate-x-1/2 rounded-3xl bg-slate-600 p-2  transition-transform  duration-500 ease-in-out md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px] `}
+            } collapse absolute left-1/2 z-10 mx-auto   aspect-[9/16]  -translate-x-1/2 rounded-3xl bg-slate-400 dark:bg-slate-600 p-2  transition-transform  duration-500 ease-in-out md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px] `}
           >
             <Image
               src={coverWeb}
@@ -65,7 +67,7 @@ export default function ImageDisplay({
             className={` ${
               active === "mobile" &&
               "!translate-x-14 translate-y-4 rotate-[15deg] md:!visible   md:!translate-x-16 lg:!translate-x-10 lg:translate-y-2 xl:!translate-x-20 xl:translate-y-6 "
-            } collapse absolute left-1/2 z-10 mx-auto   aspect-[9/16]  -translate-x-1/2 rounded-3xl  bg-slate-600  p-2  transition-transform duration-500 ease-in-out md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px] `}
+            } collapse absolute left-1/2 z-10 mx-auto   aspect-[9/16]  -translate-x-1/2 rounded-3xl  bg-slate-400 dark:bg-slate-600  p-2  transition-transform duration-500 ease-in-out md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px] `}
           >
             <Image
               src={coverWeb}
@@ -77,7 +79,7 @@ export default function ImageDisplay({
           <div
             className={` ${
               active === "mobile" && "md:aspect-[9/16]"
-            } relative z-20 mx-auto aspect-[16/9] max-h-[500px] rounded-3xl bg-slate-600 md:p-2 duration-300 ease-in-out  md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px]`}
+            } relative z-20 mx-auto aspect-[16/9] max-h-[500px] rounded-3xl bg-slate-400 dark:bg-slate-600 duration-300 ease-in-out md:max-h-[400px]  md:p-2 lg:max-h-[240px] xl:max-h-[420px]`}
           >
             <Image
               src={coverWeb}

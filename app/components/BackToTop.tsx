@@ -34,7 +34,7 @@ const BackToTopBtn = () => {
       onClick={scrollToTopSmooth}
       className={`${
         !showButton ? " collapse opacity-0" : " opacity-100"
-      } fixed bottom-4 right-4 z-20 hidden cursor-pointer rounded-full bg-gradient-main p-1.5  duration-300 sm:hover:translate-y-[-5px]  md:block 8xl:right-[calc(50%-1240px)]`}
+      } fixed bottom-4 right-4 z-20 hidden cursor-pointer rounded-full bg-slate-700 p-1.5  duration-300 sm:hover:translate-y-[-5px]  md:block 8xl:right-[calc(50%-1240px)]`}
     >
       <Icon path={mdiChevronUp} title="Up Arrow" size={1.5} color="#cbd5e1" />
     </div>

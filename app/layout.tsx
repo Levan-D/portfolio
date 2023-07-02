@@ -37,7 +37,7 @@ export default function RootLayout({
           <link rel="icon" href="../public/favicon.ico" />
         </head>
         <body
-          className={`${inter.className} mx-auto flex	 min-h-screen  max-w-screen-2xl flex-col bg-gradient-body text-white`}
+          className={`${inter.className} mx-auto flex	 min-h-screen  max-w-screen-2xl flex-col bg-slate-200 text-slate-950  dark:bg-gradient-body-dark dark:text-white`}
         >
           <Navbar />
 

@@ -18,10 +18,12 @@ export default function ContactBtn({ type }: Props) {
   }
   return (
     <button
-      className={`flickerBox z-50 flex gap-4 rounded-full border-2    border-teal-400 px-4 py-2 duration-300  active:text-teal-400 `}
+      className={`flickerBox btnSecondary z-50 flex gap-4`}
       onClick={handleOpenModal}
     >
-      <div className={`${type === "icon" && "hidden lg:block"}`}>Get in touch</div>
+      <div className={`${type === "icon" && "hidden lg:block"}`}>
+        Get in touch
+      </div>
       <div>
         <Icon path={mdiEmailFastOutline} size={1} />
       </div>

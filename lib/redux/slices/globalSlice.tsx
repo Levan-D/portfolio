@@ -1,5 +1,4 @@
 /** @format */
-"use client"
 
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
@@ -15,7 +14,10 @@ interface initialState {
 
 const initialState: initialState = {
   activeLink: "",
-  darkMode: localStorage.getItem("darkMode") !== "false",
+  darkMode:
+    typeof window !== undefined
+      ? localStorage.getItem("darkMode") !== "false"
+      : true,
   modal: {
     vis: false,
     type: "",

@@ -19,7 +19,7 @@ export const metadata = {
   keywords:
     "Web Developer, React, Next.js, Tailwind, Typescript, Node.js, JavaScript, Portfolio",
   author: "Levan Dolidze",
-  image: "https://i.imgur.com/MlF0tGd.png",
+  image: "https://i.imgur.com/pKweUJY.png",
   url: "https://levandolidze.com/",
   locale: "en_US",
   type: "website",

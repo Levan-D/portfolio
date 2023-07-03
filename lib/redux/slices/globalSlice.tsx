@@ -36,7 +36,9 @@ const globalSlice = createSlice({
     },
     setDarkMode: (state, action: PayloadAction<initialState["darkMode"]>) => {
       state.darkMode = action.payload
-      localStorage.setItem("darkMode", String(action.payload))
+      if (typeof window !== undefined) {
+        localStorage.setItem("darkMode", String(action.payload))
+      }
     },
     openModal: (state, action: PayloadAction<initialState["modal"]>) => {
       state.modal.vis = action.payload.vis

@@ -5,10 +5,44 @@ import Carousel from "./components/Caruosel"
 import Icon from "@mdi/react"
 import { mdiGithub, mdiWeb } from "@mdi/js"
 import Link from "next/link"
+import { Metadata, ResolvingMetadata } from "next"
 
 type Props = {
   params: {
     projectId: string
+  }
+}
+
+export async function generateMetadata(
+  { params: { projectId } }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const project = projectData.find((card) => card.id === projectId)
+
+  return {
+    title: project?.title,
+    description: project?.pitch,
+    keywords: project?.tech,
+    authors: [{ name: "Levan Dolidze" }],
+    colorScheme: "dark",
+    creator: "Levan Dolidze",
+    publisher: "Levan Dolidze",
+
+    openGraph: {
+      title: `Levan Dolidze${" - " + project?.title}`,
+      description: project?.pitch,
+      url: `https://levandolidze.com/${projectId}`,
+      siteName: "Levan Dolidze - Web Developer",
+      images: [
+        {
+          url: "https://i.imgur.com/pKweUJY.png",
+          width: 1200,
+          height: 630,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
   }
 }
 

@@ -2,27 +2,27 @@
 import type { StaticImageData } from "next/image"
 import cssMateCoverWeb from "@/app/assets/projects/css-mate-cover-web.png"
 
-export type ProjectsDataType = {
-  id: string
-  height: string
-  stagger: string
-  visibility: string
-  mobile: boolean
-  title: string
-  pitch: string
-  desc: string
-  tech: string[]
-  images: {
-    coverWeb: StaticImageData
-    coverMobile?: StaticImageData
-    leftMobile?: StaticImageData
-    rightMobile?: StaticImageData
+  export type ProjectsDataType = {
+    id: string
+    height: string
+    stagger: string
+    visibility: string
+    mobile: boolean
+    title: string
+    pitch: string
+    desc: string
+    tech: string[]
+    images: {
+      coverWeb: StaticImageData
+      coverMobile?: StaticImageData
+      leftMobile?: StaticImageData
+      rightMobile?: StaticImageData
+    }
+    links: {
+      github: string
+      website?: string
+    }
   }
-  links: {
-    github: string
-    website?: string
-  }
-}
 
 export const projectData: ProjectsDataType[] = [
   {

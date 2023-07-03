@@ -214,12 +214,16 @@ export default function Navbar() {
             <li>
               <button
                 onClick={handleDarkMode}
-                className="btnTertiary translate-y-0.5"
+                className="btnSecondary mx-auto mb-4 translate-y-0.5"
               >
                 {!darkMode ? (
-                  <Icon path={mdiWeatherNight} size={1} />
+                  <div className="flex gap-4" >
+                    <div>Dark mode</div> <Icon path={mdiWeatherNight} size={1} />
+                  </div>
                 ) : (
-                  <Icon path={mdiWhiteBalanceSunny} size={1} />
+                  <div className="flex gap-4" >
+                    <div>Light mode</div> <Icon path={mdiWhiteBalanceSunny} size={1} />
+                  </div>
                 )}
               </button>
             </li>

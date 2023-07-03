@@ -211,6 +211,19 @@ export default function Navbar() {
               </button>
             </li>
 
+            <li>
+              <button
+                onClick={handleDarkMode}
+                className="btnTertiary translate-y-0.5"
+              >
+                {!darkMode ? (
+                  <Icon path={mdiWeatherNight} size={1} />
+                ) : (
+                  <Icon path={mdiWhiteBalanceSunny} size={1} />
+                )}
+              </button>
+            </li>
+
             <li className="mx-auto mb-8 w-fit">
               <ContactBtn />
             </li>

@@ -170,7 +170,7 @@ export default function Navbar() {
                 <Icon path={mdiLinkedin} size={1.1} />
               </a>
             </li>
-            <li>
+            <li className=" mr-12 lg:mr-[200px]">
               <a
                 href={"https://github.com/Levan-D"}
                 target="_blank"
@@ -181,7 +181,6 @@ export default function Navbar() {
                 <Icon path={mdiGithub} size={1.1} />
               </a>
             </li>
-            <span className=" ml-12 lg:ml-[200px]"></span>
             <li className={`fixed  z-10 `}>
               <ContactBtn type={"icon"} />
             </li>

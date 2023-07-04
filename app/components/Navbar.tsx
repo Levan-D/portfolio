@@ -39,7 +39,7 @@ export const routes = [
 
 const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
   const dispatch = useAppDispatch()
-  const { activeLink } = useAppSelector((state) => state.global)
+  const { activeLink } = useAppSelector(state => state.global)
 
   const scrollToElementSmooth = (elementId: string) => {
     const element = document.getElementById(elementId)
@@ -58,10 +58,7 @@ const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
         activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
       } btnTertiary   text-center  text-xl md:text-base  `}
     >
-      <button
-        onClick={() => handleActiveLink(route)}
-        className="w-2/5 p-2  md:w-full"
-      >
+      <button onClick={() => handleActiveLink(route)} className="w-2/5 p-2  md:w-full">
         {route.charAt(0).toUpperCase() + route.slice(1)}
       </button>
     </li>
@@ -70,7 +67,7 @@ const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
 
 export default function Navbar() {
   const dispatch = useAppDispatch()
-  const { darkMode } = useAppSelector((state) => state.global)
+  const { darkMode } = useAppSelector(state => state.global)
   const pathname = usePathname()
 
   const [sider, setSider] = useState(false)
@@ -126,9 +123,10 @@ export default function Navbar() {
     <>
       {/* md + screen nav */}
       <nav className="hidden select-none  p-6 md:block">
-        <ul className="  flex items-center justify-between   font-semibold">
+        <div className="  flex items-center justify-between   font-semibold">
           <div className="basis-1/3"></div>
-          <div className="flex basis-1/3 items-center justify-center gap-12">
+
+          <ul className="flex basis-1/3 items-center justify-center gap-12">
             {pathname === "/" ? (
               routes.map(
                 (route, i) =>
@@ -145,11 +143,12 @@ export default function Navbar() {
                 <Link href="/">Home</Link>
               </li>
             )}
-          </div>
+          </ul>
 
-          <div className="flex basis-1/3 items-center justify-end gap-8 ">
+          <ul className="flex basis-1/3 items-center justify-end gap-8 ">
             <li>
               <button
+                aria-label="toggle dark mode"
                 onClick={handleDarkMode}
                 className="btnTertiary translate-y-0.5"
               >
@@ -166,6 +165,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btnTertiary"
+                aria-label="link to personal linkedin profile"
               >
                 <Icon path={mdiLinkedin} size={1.1} />
               </a>
@@ -176,6 +176,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btnTertiary"
+                aria-label="link to personal github profile"
               >
                 <Icon path={mdiGithub} size={1.1} />
               </a>
@@ -184,13 +185,17 @@ export default function Navbar() {
             <li className={`fixed  z-10 `}>
               <ContactBtn type={"icon"} />
             </li>
-          </div>
-        </ul>
+          </ul>
+        </div>
       </nav>
 
       {/* - md  screen nav */}
       <nav className="fixed z-40 block w-screen p-2 dark:[background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
-        <button onClick={toggleSidebar} className="textTertiary">
+        <button
+          aria-label="open mobile menu"
+          onClick={toggleSidebar}
+          className="textTertiary"
+        >
           <Icon path={mdiMenu} size={1.5} />
         </button>
 
@@ -206,7 +211,7 @@ export default function Navbar() {
             } fixed top-0  z-40 flex h-screen w-screen  flex-col gap-4 bg-slate-200 px-4 pt-2 duration-300 dark:bg-slate-950 `}
           >
             <li className="textTertiary mb-12 flex justify-end">
-              <button onClick={toggleSidebar}>
+              <button aria-label="close mobile menu" onClick={toggleSidebar}>
                 <Icon path={mdiBackburger} size={1.5} />
               </button>
             </li>
@@ -214,14 +219,15 @@ export default function Navbar() {
             <li>
               <button
                 onClick={handleDarkMode}
+                aria-label="toggle dark mode"
                 className="btnSecondary mx-auto mb-4 translate-y-0.5"
               >
                 {!darkMode ? (
-                  <div className="flex gap-4" >
+                  <div className="flex gap-4">
                     <div>Dark mode</div> <Icon path={mdiWeatherNight} size={1} />
                   </div>
                 ) : (
-                  <div className="flex gap-4" >
+                  <div className="flex gap-4">
                     <div>Light mode</div> <Icon path={mdiWhiteBalanceSunny} size={1} />
                   </div>
                 )}
@@ -233,7 +239,7 @@ export default function Navbar() {
             </li>
 
             {pathname === "/" ? (
-              routes.map((route) => (
+              routes.map(route => (
                 <RouteScroll
                   key={route.name}
                   route={route.name}

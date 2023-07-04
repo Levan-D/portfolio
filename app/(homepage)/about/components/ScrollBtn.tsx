@@ -13,8 +13,9 @@ export default function ScrollBtn() {
   return (
     <div className="scrollWrap group absolute -bottom-28 left-1/2 hidden -translate-x-1/2 rounded-full    duration-500 hover:p-14 md:block">
       <button
+        aria-label="scroll down"
         onClick={scrollToElementSmooth}
-        className="rounded-full border-2 border-teal-400 p-28 duration-500 group-hover:p-14   group-hover:bg-teal-400 "
+        className="rounded-full border-2 border-teal-400 p-28 duration-500 group-hover:bg-teal-400   group-hover:p-14 "
       >
         <div className="arrow transition-opacity group-hover:opacity-0">
           <Icon path={mdiChevronDown} size={2.5} />

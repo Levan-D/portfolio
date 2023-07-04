@@ -1,3 +1,5 @@
+/** @format */
+
 "use client"
 
 import { useState } from "react"
@@ -29,6 +31,7 @@ export default function ImageDisplay({
         {mobile && (
           <div className="mb-12 hidden justify-center  gap-6 md:flex ">
             <button
+              aria-label="show web view"
               onClick={() => setActive("web")}
               className={`${
                 active === "web" &&
@@ -38,6 +41,7 @@ export default function ImageDisplay({
               <Icon path={mdiLaptop} size={1} />
             </button>
             <button
+              aria-label="show mobile view"
               onClick={() => setActive("mobile")}
               className={`${
                 active === "mobile" &&
@@ -54,7 +58,7 @@ export default function ImageDisplay({
             className={` ${
               active === "mobile" &&
               "!-translate-x-56 translate-y-4 -rotate-[15deg] md:!visible md:!-translate-x-72 lg:!-translate-x-40  lg:translate-y-2  xl:!-translate-x-80 xl:translate-y-6 "
-            } collapse absolute left-1/2 z-10 mx-auto   aspect-[9/16]  -translate-x-1/2 rounded-3xl bg-slate-400 dark:bg-slate-600 p-2  transition-transform  duration-500 ease-in-out md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px] `}
+            } collapse absolute left-1/2 z-10 mx-auto   aspect-[9/16]  -translate-x-1/2 rounded-3xl bg-slate-400 p-2 transition-transform  duration-500  ease-in-out dark:bg-slate-600 md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px] `}
           >
             <Image
               src={coverWeb}
@@ -67,7 +71,7 @@ export default function ImageDisplay({
             className={` ${
               active === "mobile" &&
               "!translate-x-14 translate-y-4 rotate-[15deg] md:!visible   md:!translate-x-16 lg:!translate-x-10 lg:translate-y-2 xl:!translate-x-20 xl:translate-y-6 "
-            } collapse absolute left-1/2 z-10 mx-auto   aspect-[9/16]  -translate-x-1/2 rounded-3xl  bg-slate-400 dark:bg-slate-600  p-2  transition-transform duration-500 ease-in-out md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px] `}
+            } collapse absolute left-1/2 z-10 mx-auto   aspect-[9/16]  -translate-x-1/2 rounded-3xl  bg-slate-400 p-2  transition-transform  duration-500 ease-in-out dark:bg-slate-600 md:max-h-[400px] lg:max-h-[240px] xl:max-h-[420px] `}
           >
             <Image
               src={coverWeb}
@@ -79,7 +83,7 @@ export default function ImageDisplay({
           <div
             className={` ${
               active === "mobile" && "md:aspect-[9/16]"
-            } relative z-20 mx-auto aspect-[16/9] max-h-[500px] rounded-3xl bg-slate-400 dark:bg-slate-600 duration-300 ease-in-out md:max-h-[400px]  md:p-2 lg:max-h-[240px] xl:max-h-[420px]`}
+            } relative z-20 mx-auto aspect-[16/9] max-h-[500px] rounded-3xl bg-slate-400 duration-300 ease-in-out dark:bg-slate-600 md:max-h-[400px]  md:p-2 lg:max-h-[240px] xl:max-h-[420px]`}
           >
             <Image
               src={coverWeb}

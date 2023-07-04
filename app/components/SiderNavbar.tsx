@@ -9,7 +9,7 @@ import { setActiveLink } from "@/lib/redux/slices/globalSlice"
 import { routes } from "./Navbar"
 
 export default function SiderNavbar() {
-  const { activeLink } = useAppSelector((state) => state.global)
+  const { activeLink } = useAppSelector(state => state.global)
 
   const dispatch = useAppDispatch()
 
@@ -17,11 +17,11 @@ export default function SiderNavbar() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
+      entries => {
         let largestRatio = 0
         let largestRatioId = ""
 
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
           if (entry.intersectionRatio > largestRatio) {
             largestRatio = entry.intersectionRatio
             largestRatioId = entry.target.id
@@ -35,11 +35,11 @@ export default function SiderNavbar() {
       { threshold: [0.1, 0.25, 0.5, 0.75, 1] }
     )
 
-    const ids = routes.map((route) => `#${route.name}`)
+    const ids = routes.map(route => `#${route.name}`)
 
     const sections = document.querySelectorAll(ids.join(", "))
 
-    sections.forEach((section) => observer.observe(section))
+    sections.forEach(section => observer.observe(section))
 
     return () => {
       observer.disconnect()
@@ -91,7 +91,9 @@ export default function SiderNavbar() {
               position="left"
               text={route.name.charAt(0).toUpperCase() + route.name.slice(1)}
             >
-              <button className="p-2">0{i}</button>
+              <button aria-label="scroll to anchor" className="p-2">
+                0{i}
+              </button>
             </Tooltip>
           </li>
         ))}

@@ -3,14 +3,16 @@
 import { MetadataRoute } from "next"
 import { projectData } from "./data/projectData"
 
+const baseURL = "https://levandolidze.com"
+
 const projectUrls = projectData.map(project => {
-  return { url: project.id, lastModified: new Date() }
+  return { url: baseURL + "/" + project.id, lastModified: new Date() }
 })
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://levandolidze.com",
+      url: baseURL,
       lastModified: new Date(),
     },
     ...projectUrls,

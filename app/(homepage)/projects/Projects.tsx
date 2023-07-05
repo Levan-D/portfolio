@@ -57,7 +57,7 @@ export default function Projects() {
             ></Image>
 
             <div className={`overflow-hidden ${!flex && "mb-1"} `}>
-              <h4 className="font-semibold">{title}</h4>
+              <h3 className="font-semibold">{title}</h3>
               <p className=" textTertiary">{pitch}</p>
             </div>
           </Link>

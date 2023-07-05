@@ -67,7 +67,7 @@ export default function Modal() {
       <div className="z-50  flex min-h-[500px] w-full max-w-[540px]  flex-col rounded-xl bg-gradient-border-light p-0.5 dark:bg-gradient-border-dark md:min-h-[600px] ">
         <div className=" flex grow flex-col rounded-xl   bg-gradient-card-body-light px-6 py-4 dark:bg-gradient-card-body-dark">
           <div className="flex  items-center justify-between">
-            <h4 className="text-xl font-semibold">{renderTitle()}</h4>
+            <h3 className="text-xl font-semibold">{renderTitle()}</h3>
             <button
               aria-label="close"
               onClick={handleCloseButtonClick}

@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react"
 import { projectData } from "@/app/data/projectData"
 import Card from "@/app/components/Card"
@@ -11,7 +13,7 @@ export default function Carousel() {
     <div className="h-[200px] lg:h-[250px] xl:h-[300px] ">
       <Card glimmer={true} customCSS="">
         <div className="flex h-full w-full gap-4 overflow-x-auto overflow-y-hidden   ">
-          {projectData.map((project) => (
+          {projectData.map(project => (
             <Link
               href={project.id}
               key={project.id}
@@ -24,9 +26,9 @@ export default function Carousel() {
               ></Image>
 
               <div className="mx-1 mt-2 flex grow items-center gap-1 ">
-                <h4 className=" -white font-semibold duration-300 group-hover/title:text-white dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400 xl:text-lg">
+                <h3 className=" -white font-semibold duration-300 group-hover/title:text-white dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400 xl:text-lg">
                   {project.title}
-                </h4>
+                </h3>
                 <Icon
                   path={mdiArrowTopRight}
                   size={0.6}

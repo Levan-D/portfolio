@@ -2,6 +2,8 @@
 
 This repository contains the source code for my personal portfolio website, which showcases my experience, skills, and projects. It is a responsive website, designed in Figma, and built with Next.js.
 
+Visit at https://levandolidze.com/
+
 # Features 
 
 - Personal Information: Adjust the data structure in the project to reflect your own personal information.

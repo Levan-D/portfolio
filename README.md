@@ -4,7 +4,7 @@ This repository contains the source code for my personal portfolio website, whic
 
 Visit at https://levandolidze.com/
 
-# Features 
+## Features 
 
 - Personal Information: Adjust the data structure in the project to reflect your own personal information.
 - Projects Showcase: Highlight your best projects in an attractive, organized way.

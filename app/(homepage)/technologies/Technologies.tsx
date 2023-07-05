@@ -6,52 +6,6 @@ import Image from "next/image"
 import Card from "@/app/components/Card"
 import { personalData } from "@/app/data/personalData"
 
-const arrayRender = (col: ColType) => {
-  // using tailwind screen  to render same component with different logic for mobile view
-  return (
-    <div className="flex justify-center gap-4 md:my-4 xl:my-12 ">
-      {col.map(item => {
-        const content = (
-          <div className="flex flex-col items-center justify-end rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 active:scale-[0.95] sm:hover:-translate-y-2 sm:hover:border-slate-500 sm:hover:border-opacity-50 sm:hover:bg-slate-300 sm:hover:bg-opacity-50 sm:active:bg-slate-600  dark:sm:hover:bg-slate-600">
-            <span className="hidden lg:block">
-              <Image src={item.image} alt={item.name} height={50} />
-            </span>
-            <span className="block lg:hidden">
-              <Image src={item.image} alt={item.name} height={38} />
-            </span>
-            <p className=" ld:text-base mt-2  whitespace-nowrap text-center text-sm font-semibold">
-              {item.name}
-            </p>
-          </div>
-        )
-
-        return (
-          <>
-            <a
-              key={uuidv4()}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:block"
-            >
-              {content}
-            </a>
-            <span className="block sm:hidden" key={item.name}>
-              {content}
-            </span>
-          </>
-        )
-      })}
-    </div>
-  )
-}
-
-const arrayRenderAll = () => {
-  const flatArray = Object.values(techObj).flat()
-
-  return flatArray.map((item, index) => <div key={index}>{arrayRender([item])} </div>)
-}
-
 export default function Technologies() {
   const tech = personalData.tech
 
@@ -66,13 +20,29 @@ export default function Technologies() {
 
       <Card sideLine={true} customCSS=" mx-auto  !h-fit !w-fit   ">
         <>
-          <div className="  hidden  select-none rounded-xl px-12  py-10 xl:block">
-            {arrayRender(techObj.firstCol)}
-            {arrayRender(techObj.secondCol)}
-            {arrayRender(techObj.thirdCol)}
-          </div>
-          <div className="   flex select-none flex-wrap justify-center gap-4  rounded-xl  py-12 md:max-w-[600px] lg:mx-8 lg:max-w-[800px]    xl:hidden">
-            {arrayRenderAll()}
+          <div className=" flex  select-none flex-wrap justify-center gap-6 rounded-xl  px-12 py-10 max-w-xl lg:max-w-3xl lg:py-20  xl:max-w-5xl ">
+            {techObj.map(item => (
+              <>
+                <a
+                  key={uuidv4()}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="flex flex-col items-center justify-end rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 active:scale-[0.95] sm:hover:-translate-y-2 sm:hover:border-slate-500 sm:hover:border-opacity-50 sm:hover:bg-slate-300 sm:hover:bg-opacity-50 sm:active:bg-slate-600  dark:sm:hover:bg-slate-600">
+                    <span className="hidden lg:block">
+                      <Image src={item.image} alt={item.name} height={50} />
+                    </span>
+                    <span className="block lg:hidden">
+                      <Image src={item.image} alt={item.name} height={38} />
+                    </span>
+                    <p className=" ld:text-base mt-2  whitespace-nowrap text-center text-sm font-semibold">
+                      {item.name}
+                    </p>
+                  </div>
+                </a>
+              </>
+            ))}
           </div>
         </>
       </Card>

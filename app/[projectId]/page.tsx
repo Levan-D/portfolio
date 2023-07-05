@@ -17,7 +17,7 @@ export async function generateMetadata(
   { params: { projectId } }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const project = projectData.find((card) => card.id === projectId)
+  const project = projectData.find(card => card.id === projectId)
 
   return {
     title: project?.title,
@@ -47,7 +47,7 @@ export async function generateMetadata(
 }
 
 export default function ProjectsPage({ params: { projectId } }: Props) {
-  const project = projectData.find((card) => card.id === projectId)
+  const project = projectData.find(card => card.id === projectId)
 
   if (!project) {
     return <div>Error: Project not found</div>
@@ -74,13 +74,11 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
           <h2 className="textSecondary text-center text-2xl font-bold  md:text-3xl lg:text-left lg:text-4xl ">
             {title}
           </h2>
-          <p className=" textTertiary  mt-4 font-semibold  lg:text-xl">
-            {desc}
-          </p>
-          <div className="  mt-4  flex-wrap flex  gap-4">
+          <p className=" textTertiary  mt-4 font-semibold  lg:text-xl">{desc}</p>
+          <div className="  mt-4  flex flex-wrap  gap-4">
             {tech.map((tech: string) => (
               <div
-                className="rounded-full  bg-teal-100 px-4 py-1 font-semibold text-teal-700 "
+                className="rounded-full bg-teal-100 px-4  py-1 text-sm font-semibold text-teal-700 md:text-base "
                 key={tech}
               >
                 {tech}
@@ -96,11 +94,7 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
             </div>
             {links.website && (
               <div>
-                <Link
-                  target="_blank"
-                  className="btnTertiary"
-                  href={links.website}
-                >
+                <Link target="_blank" className="btnTertiary" href={links.website}>
                   <Icon path={mdiWeb} size={1.2} />
                 </Link>
               </div>
@@ -121,7 +115,7 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
 }
 
 export async function generateStaticParams() {
-  return projectData.map((card) => ({
+  return projectData.map(card => ({
     projectId: card.id.toString(),
   }))
 }

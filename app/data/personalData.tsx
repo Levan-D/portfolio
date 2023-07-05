@@ -20,7 +20,11 @@ export const personalData = {
     desc: "These are some of the tools I use when building my projects",
   },
   exp: {
-    title: "Technologies & Tools",
+    title: "Experience",
     desc: "These are some of the tools I use when building my projects",
+    pos: [
+      { title: "dasdasd", date: "adasd", desc: "ssdad", tech: ["sss"] },
+      { title: "dasdasd", date: "adasd", desc: "ssdad", tech: ["sss"] },
+    ],
   },
 }

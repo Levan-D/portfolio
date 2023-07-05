@@ -1,3 +1,5 @@
+/** @format */
+
 "use client"
 
 import { useState, useEffect, useRef } from "react"
@@ -23,5 +25,5 @@ export function useMousePosition() {
     }
   }, [])
 
-  return {ref, mousePos}
+  return { ref, mousePos }
 }

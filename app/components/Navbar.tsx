@@ -140,7 +140,7 @@ export default function Navbar() {
                 )
             )
           ) : (
-            <li className="btnTertiary">
+            <li className="btnTertiary mx-4 ">
               <Link href="/">Home</Link>
             </li>
           )}

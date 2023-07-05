@@ -4,19 +4,31 @@ This repository contains the source code for my personal portfolio website, whic
 
 Visit at https://levandolidze.com/
 
-# Features 
+## Features 
 
-- Personal Information: Adjust the data structure in the project to reflect your own personal information.
-- Projects Showcase: Highlight your best projects in an attractive, organized way.
-- Contact Form: A ready-to-use contact form, you just need to hook it up with your own Google OAuth credentials.
+- **Personal Information:** Adjust the data structure in the project to reflect your own personal information.
+- **Projects Showcase:** Highlight your best projects in an attractive, organized way.
+- **Contact Form:** A ready-to-use contact form, you just need to hook it up with your own Google OAuth credentials.
 
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/Levan-D/portfolio.git`
-2. Install dependencies: `npm install`
-3. Start the app: `npm run dev`
+1. Clone the repository:
+  ```js
+git clone https://github.com/Levan-D/portfolio.git
+```
+2. Install dependencies:
+  ```js
+npm install
+```
+3. Start the app:
+  ```js
+npm run dev
+```
 4. Open `http://localhost:3000` in your browser
+  ```js
+http://localhost:3000
+```
    
 ## Configuration
 
@@ -39,16 +51,16 @@ export const personalData = {
 
 ```
 
-#Contact Form
+### Contact Form
 
 For the contact form, you'll need to obtain your own Google OAuth Client ID:
 
-Visit the Google Cloud Console.
-Create a new project, or select an existing one.
-Go to "APIs & Services" -> "Credentials".
-Click on "Create Credentials" -> "OAuth client ID".
-Choose "Web application", name it, and add http://localhost:3000 in "Authorized JavaScript origins" and http://localhost:3000/auth/google/callback in "Authorized redirect URIs".
-Save it and copy the client ID to the .env.local file in the root directory of the project.
+1. Visit the Google Cloud Console.
+2. Create a new project, or select an existing one.
+3. Go to "APIs & Services" -> "Credentials".
+4. Click on "Create Credentials" -> "OAuth client ID".
+5. Choose "Web application", name it, and add `http://localhost:3000` in "Authorized JavaScript origins" and `http://localhost:3000/auth/google/callback` in "Authorized redirect URIs".
+6. Save it and copy the client ID to the .env.local file in the root directory of the project.
 
 
 ## Contributing

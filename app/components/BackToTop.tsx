@@ -9,20 +9,19 @@ const BackToTopBtn = () => {
   const [showButton, setShowButton] = useState(false)
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       if (window.scrollY > 300) {
         setShowButton(true)
       } else {
         setShowButton(false)
       }
-    })
-    return window.removeEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        setShowButton(true)
-      } else {
-        setShowButton(false)
-      }
-    })
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   const scrollToTopSmooth = () => {

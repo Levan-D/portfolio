@@ -1,7 +1,7 @@
 /** @format */
 
 import { MetadataRoute } from "next"
-import { projectData } from "../data/projectData"
+import { projectData } from "./data/projectData"
 
 const baseURL = "https://levandolidze.com"
 

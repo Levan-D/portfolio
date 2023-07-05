@@ -4,6 +4,7 @@ import { techObj } from "../../data/techData"
 import type { ColType } from "../../data/techData"
 import Image from "next/image"
 import Card from "@/app/components/Card"
+import { personalData } from "@/app/data/personalData"
 
 const arrayRender = (col: ColType) => {
   // using tailwind screen  to render same component with different logic for mobile view
@@ -11,7 +12,7 @@ const arrayRender = (col: ColType) => {
     <div className="flex justify-center gap-4 md:my-4 xl:my-12 ">
       {col.map(item => {
         const content = (
-          <div className="flex flex-col items-center justify-end rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 active:scale-[0.95] sm:hover:-translate-y-2 sm:hover:border-slate-500 sm:hover:border-opacity-50 sm:hover:bg-slate-300 dark:sm:hover:bg-slate-600 sm:hover:bg-opacity-50  sm:active:bg-slate-600">
+          <div className="flex flex-col items-center justify-end rounded-xl border border-transparent px-4 pb-2 pt-3 duration-300 active:scale-[0.95] sm:hover:-translate-y-2 sm:hover:border-slate-500 sm:hover:border-opacity-50 sm:hover:bg-slate-300 sm:hover:bg-opacity-50 sm:active:bg-slate-600  dark:sm:hover:bg-slate-600">
             <span className="hidden lg:block">
               <Image src={item.image} alt={item.name} height={50} />
             </span>
@@ -52,18 +53,15 @@ const arrayRenderAll = () => {
 }
 
 export default function Technologies() {
+  const tech = personalData.tech
+
   return (
     <div id="technologies" className="mt-20  md:mt-48 md:min-h-screen">
-      <div className="mx-auto w-fit py-20 text-center">
-        <h2 className="text-2xl font-bold textSecondary md:text-3xl  lg:text-4xl">
-          Technologies & Tools
+      <div className="mx-auto w-fit max-w-sm py-20 text-center ">
+        <h2 className="textSecondary   text-2xl font-bold  md:text-3xl lg:text-4xl">
+          {tech.title}
         </h2>
-        <p className="mt-4 font-semibold textTertiary lg:text-xl">
-          These are some of the tools I use
-        </p>
-        <p className="font-semibold textTertiary lg:text-xl">
-          when building my projects
-        </p>
+        <p className="textTertiary mt-4 font-semibold lg:text-xl">{tech.desc}</p>
       </div>
 
       <Card sideLine={true} customCSS=" mx-auto  !h-fit !w-fit   ">

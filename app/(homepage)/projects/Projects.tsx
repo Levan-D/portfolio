@@ -6,16 +6,18 @@ import Card from "@/app/components/Card"
 import { projectData } from "../../data/projectData"
 import Link from "next/link"
 import Image from "next/image"
+import { personalData } from "@/app/data/personalData"
 
 export default function Projects() {
   const [cardCount, setCardCount] = useState(4)
+  const projects = personalData.projects
 
   const handleMoreClick = () => {
-    setCardCount((prevCount) => Math.min(prevCount + 3, projectData.length))
+    setCardCount(prevCount => Math.min(prevCount + 3, projectData.length))
   }
 
   const renderCards = (start: number, end: number) => {
-    return projectData.slice(start, end).map((card) => {
+    return projectData.slice(start, end).map(card => {
       const {
         id,
         height,
@@ -65,17 +67,12 @@ export default function Projects() {
   }
 
   return (
-    <div
-      id="projects"
-      className="   mt-20 py-20 sm:mx-16 md:mt-[200px] md:min-h-screen"
-    >
+    <div id="projects" className="   mt-20 py-20 sm:mx-16 md:mt-[200px] md:min-h-screen">
       <div className="mx-auto w-fit -translate-y-10 text-center  lg:translate-y-2 lg:text-left xl:-translate-x-28 xl:translate-y-6">
-        <h2 className="text-2xl font-bold textSecondary md:text-3xl  lg:text-4xl">
-          Projects
+        <h2 className="textSecondary text-2xl font-bold md:text-3xl  lg:text-4xl">
+          {projects.title}
         </h2>
-        <p className="mt-4 font-semibold textTertiary lg:text-xl">
-          Some of my works
-        </p>
+        <p className="textTertiary mt-4 font-semibold lg:text-xl"> {projects.desc}</p>
       </div>
 
       <div className="mx-auto flex  w-fit  flex-wrap justify-center gap-8 lg:hidden ">
@@ -84,7 +81,7 @@ export default function Projects() {
       {cardCount < projectData.length && (
         <button
           onClick={handleMoreClick}
-          className="mx-auto mt-8 btnSecondary  lg:hidden  "
+          className="btnSecondary mx-auto mt-8  lg:hidden  "
         >
           Show More
         </button>

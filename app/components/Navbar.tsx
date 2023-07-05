@@ -3,6 +3,7 @@
 
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import { setActiveLink, setDarkMode } from "@/lib/redux/slices/globalSlice"
+import { personalData } from "../data/personalData"
 import Icon from "@mdi/react"
 import {
   mdiMenu,
@@ -68,6 +69,9 @@ const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
 export default function Navbar() {
   const dispatch = useAppDispatch()
   const { darkMode } = useAppSelector(state => state.global)
+
+  const links = personalData.links
+
   const pathname = usePathname()
 
   const [sider, setSider] = useState(false)
@@ -161,7 +165,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                href={"https://www.linkedin.com/in/levan-dolidze/"}
+                href={links.linkedIn}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btnTertiary"
@@ -170,9 +174,9 @@ export default function Navbar() {
                 <Icon path={mdiLinkedin} size={1.1} />
               </a>
             </li>
-            <li className=" mr-12 lg:mr-[200px]">
+            <li className=" mr-12 lg:mr-[220px]">
               <a
-                href={"https://github.com/Levan-D"}
+                href={links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btnTertiary"

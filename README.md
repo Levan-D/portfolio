@@ -59,7 +59,7 @@ For the contact form, you'll need to obtain your own Google OAuth Client ID:
 2. Create a new project, or select an existing one.
 3. Go to "APIs & Services" -> "Credentials".
 4. Click on "Create Credentials" -> "OAuth client ID".
-5. Choose "Web application", name it, and add http://localhost:3000 in "Authorized JavaScript origins" and http://localhost:3000/auth/google/callback in "Authorized redirect URIs".
+5. Choose "Web application", name it, and add `http://localhost:3000` in "Authorized JavaScript origins" and `http://localhost:3000/auth/google/callback` in "Authorized redirect URIs".
 6. Save it and copy the client ID to the .env.local file in the root directory of the project.
 
 

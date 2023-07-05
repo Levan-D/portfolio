@@ -57,7 +57,7 @@ const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
       key={route}
       className={`${
         activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
-      } btnTertiary   text-center  text-xl md:text-base  `}
+      } btnTertiary   mx-4  text-center text-xl md:text-base `}
     >
       <button onClick={() => handleActiveLink(route)} className="w-2/5 p-2  md:w-full">
         {route.charAt(0).toUpperCase() + route.slice(1)}
@@ -127,69 +127,63 @@ export default function Navbar() {
     <>
       {/* md + screen nav */}
       <nav className="hidden select-none  p-6 md:block">
-        <div className="  flex items-center justify-between   font-semibold">
-          <div className="basis-1/3"></div>
+        <ul className="flex items-center justify-end ">
+          {pathname === "/" ? (
+            routes.map(
+              (route, i) =>
+                i !== 0 && (
+                  <RouteScroll
+                    key={route.name}
+                    route={route.name}
+                    toggleSidebar={toggleSidebar}
+                  />
+                )
+            )
+          ) : (
+            <li className="btnTertiary">
+              <Link href="/">Home</Link>
+            </li>
+          )}
 
-          <ul className="flex basis-1/3 items-center justify-center gap-12">
-            {pathname === "/" ? (
-              routes.map(
-                (route, i) =>
-                  i !== 0 && (
-                    <RouteScroll
-                      key={route.name}
-                      route={route.name}
-                      toggleSidebar={toggleSidebar}
-                    />
-                  )
-              )
-            ) : (
-              <li className="btnTertiary">
-                <Link href="/">Home</Link>
-              </li>
-            )}
-          </ul>
-
-          <ul className="flex basis-1/3 items-center justify-end gap-8 ">
-            <li>
-              <button
-                aria-label="toggle dark mode"
-                onClick={handleDarkMode}
-                className="btnTertiary translate-y-0.5"
-              >
-                {!darkMode ? (
-                  <Icon path={mdiWeatherNight} size={1} />
-                ) : (
-                  <Icon path={mdiWhiteBalanceSunny} size={1} />
-                )}
-              </button>
-            </li>
-            <li>
-              <a
-                href={links.linkedIn}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btnTertiary"
-                aria-label="link to personal linkedin profile"
-              >
-                <Icon path={mdiLinkedin} size={1.1} />
-              </a>
-            </li>
-            <li className=" mr-12 lg:mr-[220px]">
-              <a
-                href={links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btnTertiary"
-                aria-label="link to personal github profile"
-              >
-                <Icon path={mdiGithub} size={1.1} />
-              </a>
-            </li>
-            <li className={`fixed  z-10 `}>
-              <ContactBtn type={"icon"} />
-            </li>
-          </ul>
-        </div>
+          <li className=" border-l-2 border-slate-700 px-4">
+            <button
+              aria-label="toggle dark mode"
+              onClick={handleDarkMode}
+              className="btnTertiary translate-y-0.5"
+            >
+              {!darkMode ? (
+                <Icon path={mdiWeatherNight} size={1} />
+              ) : (
+                <Icon path={mdiWhiteBalanceSunny} size={1} />
+              )}
+            </button>
+          </li>
+          <li>
+            <a
+              href={links.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btnTertiary"
+              aria-label="link to personal linkedin profile"
+            >
+              <Icon path={mdiLinkedin} size={1.1} />
+            </a>
+          </li>
+          <li className=" mr-24 border-r-2 border-slate-700 px-4 lg:mr-[210px]">
+            <a
+              href={links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btnTertiary"
+              aria-label="link to personal github profile"
+            >
+              <Icon path={mdiGithub} size={1.1} />
+            </a>
+          </li>
+          <li className={`fixed  z-10 `}>
+            <ContactBtn type={"icon"} />
+          </li>
+        </ul>
       </nav>
 
       {/* - md  screen nav */}

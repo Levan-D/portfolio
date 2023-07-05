@@ -13,9 +13,18 @@ Visit at https://levandolidze.com/
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/Levan-D/portfolio.git`
-2. Install dependencies: `npm install`
-3. Start the app: `npm run dev`
+1. Clone the repository:
+  ```js
+git clone https://github.com/Levan-D/portfolio.git
+```
+2. Install dependencies:
+  ```js
+npm install
+```
+3. Start the app:
+  ```js
+npm run dev
+```
 4. Open `http://localhost:3000` in your browser
    
 ## Configuration

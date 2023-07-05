@@ -51,7 +51,7 @@ export const personalData = {
 
 ```
 
-#Contact Form
+### Contact Form
 
 For the contact form, you'll need to obtain your own Google OAuth Client ID:
 

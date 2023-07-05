@@ -26,21 +26,21 @@ export default function Projects() {
         title,
         pitch,
         tech,
-        images: { coverWeb },
+        images: { coverWeb, icon },
       } = card
 
-      let imgCSS = "xl:h-[130px] lg:h-[120px] object-fit "
+      let imgCSS = " grow object-cover "
       let flex
+      let text
 
-      if (height.includes("xl:row-span-6")) {
-        imgCSS += "xl:!object-cover xl:!h-[340px]"
+      if (height.includes("lg:row-span-4")) {
+        imgCSS += "lg:!h-[100px]"
+      }
 
-        if (height.includes("lg:row-span-5")) {
-          imgCSS += " lg:!h-[340px]"
-        }
-      } else if (height.includes("xl:row-span-3")) {
-        imgCSS += "lg:!h-[76px] lg:w-[76px] !object-cover xl:mt-2"
+      if (height.includes("xl:row-span-3")) {
+        imgCSS += "lg:!h-[76px] lg:w-[76px] w-full xl:mt-2 w-fit mx-auto"
         flex = "lg:!flex-row "
+        text = "lg:!line-clamp-2 !line-clamp-none xl:!line-clamp-6	"
       }
 
       return (
@@ -51,14 +51,18 @@ export default function Projects() {
         >
           <Link href={id} className={`${flex} flex h-full flex-col gap-4`}>
             <Image
-              src={coverWeb}
-              alt={`cover picter for ${title} project`}
+              src={icon ? icon : coverWeb}
+              alt={`cover picture for ${title} project`}
               className={` ${imgCSS} rounded-lg `}
             ></Image>
 
             <div className={`overflow-hidden ${!flex && "mb-1"} `}>
               <h3 className="font-semibold">{title}</h3>
-              <p className=" textTertiary">{pitch}</p>
+              <p
+                className={` ${text} textTertiary	 text-sm lg:line-clamp-3 xl:line-clamp-4`}
+              >
+                {pitch}
+              </p>
             </div>
           </Link>
         </Card>
@@ -68,7 +72,7 @@ export default function Projects() {
 
   return (
     <div id="projects" className="   mt-20 py-20 sm:mx-16 md:mt-[200px] md:min-h-screen">
-      <div className="mx-auto w-fit -translate-y-10 text-center  lg:translate-y-2 lg:text-left xl:-translate-x-28 xl:translate-y-6">
+      <div className="mx-auto w-fit -translate-y-10 text-center  lg:-translate-y-10 lg:text-left xl:-translate-x-20 xl:translate-y-6">
         <h2 className="textSecondary text-2xl font-bold md:text-3xl  lg:text-4xl">
           {projects.title}
         </h2>
@@ -86,9 +90,10 @@ export default function Projects() {
           Show More
         </button>
       )}
-      <div className="mx-auto hidden  grid-flow-col grid-rows-[repeat(12,_minmax(10px,_40px))] gap-8 lg:grid lg:grid-cols-3 xl:grid-cols-4">
+      <div className="mx-auto hidden w-fit  grid-flow-col grid-rows-[repeat(12,_minmax(10px,_40px))] gap-8 lg:grid lg:grid-cols-2 xl:grid-cols-3">
         {renderCards(0, projectData.length)}
       </div>
     </div>
   )
 }
+// change xl:grid-cols to 4 and fix title when you add projects. remember to change visibility in the data structure.

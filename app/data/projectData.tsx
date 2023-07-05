@@ -1,28 +1,34 @@
 /** @format */
 import type { StaticImageData } from "next/image"
 import cssMateCoverWeb from "@/app/assets/projects/css-mate-cover-web.png"
+import cssMateCoverMobile from "@/app/assets/projects/css-mate-cover-mobile.png"
+import cssMateLeftMobile from "@/app/assets/projects/css-mate-left-mobile.png"
+import cssMateRightMobile from "@/app/assets/projects/css-mate-right-mobile.png"
+import RNKCoverWeb from "@/app/assets/projects/RNK-cover-web.png"
+import RNKIcon from "@/app/assets/projects/RNK-icon.png"
 
-  export type ProjectsDataType = {
-    id: string
-    height: string
-    stagger: string
-    visibility: string
-    mobile: boolean
-    title: string
-    pitch: string
-    desc: string
-    tech: string[]
-    images: {
-      coverWeb: StaticImageData
-      coverMobile?: StaticImageData
-      leftMobile?: StaticImageData
-      rightMobile?: StaticImageData
-    }
-    links: {
-      github: string
-      website?: string
-    }
+export type ProjectsDataType = {
+  id: string
+  height: string
+  stagger: string
+  visibility: string
+  mobile: boolean
+  title: string
+  pitch: string
+  desc: string
+  tech: string[]
+  images: {
+    coverWeb: StaticImageData
+    coverMobile?: StaticImageData
+    leftMobile?: StaticImageData
+    rightMobile?: StaticImageData
+    icon?: StaticImageData
   }
+  links: {
+    github: string
+    website?: string
+  }
+}
 
 export const projectData: ProjectsDataType[] = [
   {
@@ -31,20 +37,20 @@ export const projectData: ProjectsDataType[] = [
     stagger: "   lg:translate-y-0 xl:-translate-y-10",
     visibility: "visible",
     mobile: true,
-    title: "card title",
+    title: "CSS Mate",
     pitch:
-      "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
-    desc: "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
-    tech: ["react", "ts"],
+      "CSS-Mate is a React application designed to help web developers with CSS & HTML rules.",
+    desc: "CSS-Mate is a React application designed to help web developers visualize CSS rules, access CSS cheat sheets, and assist with color theory. The application provides a user-friendly interface for exploring various CSS properties and their effects on web elements. It is intended to be an educational resource and productivity tool for both beginners and experienced developers.",
+    tech: ["React", "RTK", "RRD", "Tailwind", "Express", "Puppeteer"],
     images: {
       coverWeb: cssMateCoverWeb,
-      coverMobile: cssMateCoverWeb,
-      leftMobile: cssMateCoverWeb,
-      rightMobile: cssMateCoverWeb,
+      coverMobile: cssMateCoverMobile,
+      leftMobile: cssMateLeftMobile,
+      rightMobile: cssMateRightMobile,
     },
     links: {
-      github: "aaa",
-      website: "ssss",
+      github: "https://github.com/Levan-D/css-mate",
+      website: "https://cssmate.online",
     },
   },
   {
@@ -72,18 +78,18 @@ export const projectData: ProjectsDataType[] = [
     height: "row-span-2 xl:row-span-3",
     stagger: "   lg:translate-y-0 xl:translate-y-56",
     visibility: "visible",
-    mobile: true,
-    title: "card title",
+    mobile: false,
+    title: "React Nexus Kit",
     pitch:
-      "By default, Tailwind includes grid-template-row utilities for creating basic grids with up to 6 equal width rows. You can customize these values by editing theme.gridTemplateRows or theme.extend.gridTemplateRows in your tailwind.config.js file.",
-    desc: "desc",
-    tech: [""],
+      "React Nexus Kit (RNK) is an all-in-one solution that brings together a powerful set of React packages and includes prewritten boilerplate code to help you start your project swiftly.",
+    desc: "React Nexus Kit (RNK) is an all-in-one solution that brings together a powerful set of React packages and includes prewritten boilerplate code to help you start your project swiftly. It simplifies the setup process by automatically installing a Vite React TypeScript project, complete with essential libraries such as Redux Toolkit for state management, React Router DOM for routing, Tailwind CSS for styling, Axios for API requests, React Helmet for managing metadata, and the Vite SVGR plugin to seamlessly import SVGs as JSX components.",
+    tech: ["React", "Node.js", "RTK", "Tailwind", "Axios"],
     images: {
-      coverWeb: cssMateCoverWeb,
+      coverWeb: RNKCoverWeb,
+      icon: RNKIcon,
     },
     links: {
-      github: "aaa",
-      website: "ssss",
+      github: "https://github.com/Levan-D/react-nexus-kit",
     },
   },
 
@@ -151,7 +157,7 @@ export const projectData: ProjectsDataType[] = [
     id: "1a1edb85-6188-407d-acb8-713f2aa4aa04",
     height: "row-span-2 lg:row-span-4 ",
     stagger: " lg:translate-y-10 xl:translate-y-0",
-    visibility: "visible",
+    visibility: "!hidden",
     mobile: true,
     title: "card title",
     pitch:
@@ -171,7 +177,7 @@ export const projectData: ProjectsDataType[] = [
     id: "ab758fed-de8d-408e-a903-87f81dcf1905",
     height: "row-span-2 lg:row-span-4 ",
     stagger: " lg:translate-y-10 xl:translate-y-0",
-    visibility: "visible",
+    visibility: "!hidden",
     mobile: true,
     title: "card title",
     pitch:
@@ -191,7 +197,7 @@ export const projectData: ProjectsDataType[] = [
     id: "214294e2-e05d-4478-9640-fe73a9dae164",
     height: "row-span-2 lg:row-span-4 ",
     stagger: " lg:translate-y-10 xl:translate-y-0",
-    visibility: "visible",
+    visibility: "!hidden",
     mobile: true,
     title: "card youyou",
     pitch:

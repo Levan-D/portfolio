@@ -17,7 +17,7 @@ export default function Carousel() {
             <Link
               href={project.id}
               key={project.id}
-              className="  group/title mb-2 block flex aspect-square h-[calc(100%-8px)]  flex-shrink-0 flex-col  rounded-lg bg-slate-400 bg-opacity-50 p-2 duration-300 hover:bg-slate-400 active:bg-slate-500 dark:bg-slate-700 dark:hover:bg-slate-600 dark:active:bg-slate-700"
+              className={`${project.visibility} group/title mb-2  flex aspect-square h-[calc(100%-8px)]  flex-shrink-0 flex-col  rounded-lg bg-slate-400 bg-opacity-50 p-2 duration-300 hover:bg-slate-400 active:bg-slate-500 dark:bg-slate-700 dark:hover:bg-slate-600 dark:active:bg-slate-700`}
             >
               <Image
                 src={project.images.coverWeb}

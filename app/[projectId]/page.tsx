@@ -77,7 +77,7 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
           <p className=" textTertiary  mt-4 font-semibold  lg:text-xl">
             {desc}
           </p>
-          <div className="  mt-4   flex  gap-4">
+          <div className="  mt-4  flex-wrap flex  gap-4">
             {tech.map((tech: string) => (
               <div
                 className="rounded-full  bg-teal-100 px-4 py-1 font-semibold text-teal-700 "

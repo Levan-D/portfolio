@@ -6,9 +6,9 @@ Visit at https://levandolidze.com/
 
 ## Features 
 
-- Personal Information: Adjust the data structure in the project to reflect your own personal information.
-- Projects Showcase: Highlight your best projects in an attractive, organized way.
-- Contact Form: A ready-to-use contact form, you just need to hook it up with your own Google OAuth credentials.
+- **Personal Information:** Adjust the data structure in the project to reflect your own personal information.
+- **Projects Showcase:** Highlight your best projects in an attractive, organized way.
+- **Contact Form:** A ready-to-use contact form, you just need to hook it up with your own Google OAuth credentials.
 
 
 ## Installation

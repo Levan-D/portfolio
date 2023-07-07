@@ -14,7 +14,7 @@ export default function Experience() {
         <h2 className="textSecondary   text-2xl font-bold  md:text-3xl lg:text-4xl">
           {exp.title}
         </h2>
-        <div className="textTertiary mt-4 font-semibold xl:text-xl">{exp.desc}</div>
+        <div className="textTertiary mt-4 font-semibold xl:text-lg">{exp.desc}</div>
       </div>
 
       <div className="basis-1/2  lg:mr-10">

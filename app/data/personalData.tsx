@@ -11,10 +11,10 @@ export const personalData = {
     desc: (
       <p>
         I specialize in building accessible digital experiences for the web using
-        cutting-edge technologies, and guided by intelligible design systems.
+        cutting-edge technologies and guided by intelligible design systems.
       </p>
     ),
-    greetings: "Hey! my name is",
+    greetings: "Hey! My name is",
   },
   projects: {
     title: "Projects",

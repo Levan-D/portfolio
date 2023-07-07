@@ -17,7 +17,6 @@ export default function Projects() {
   const handleMoreClick = () => {
     setCardCount(prevCount => Math.min(prevCount + 3, projectData.length))
   }
-
   const renderCards = (start: number, end: number) => {
     return projectData.slice(start, end).map(card => {
       const {
@@ -52,11 +51,19 @@ export default function Projects() {
           customCSS={`${height}  ${stagger}  ${visibility}  sm:hover:scale-[1.01]  active:scale-[0.99]  max-w-[400px]  `}
         >
           <Link href={id} className={`${flex} flex h-full flex-col gap-4`}>
-            <Image
-              src={icon && screenWidth > 1024 ? icon : coverWeb}
-              alt={`cover picture for ${title} project`}
-              className={` ${imgCSS} rounded-lg `}
-            ></Image>
+            {icon && screenWidth > 1024 ? (
+              <Image
+                src={icon}
+                alt={` cover picture for ${title} project`}
+                className={` ${imgCSS} rounded-lg `}
+              />
+            ) : (
+              <Image
+                src={coverWeb}
+                alt={` cover picture for ${title} project`}
+                className={` ${imgCSS} rounded-lg `}
+              />
+            )}
 
             <div className={`overflow-hidden ${!flex && "mb-1"} `}>
               <h3 className="font-semibold">{title}</h3>

@@ -14,7 +14,7 @@ export default function Technologies() {
         <h2 className="textSecondary   text-2xl font-bold  md:text-3xl lg:text-4xl">
           {tech.title}
         </h2>
-        <p className="textTertiary mt-4 font-semibold lg:text-xl">{tech.desc}</p>
+        <div className="textTertiary mt-4 font-semibold lg:text-xl">{tech.desc}</div>
       </div>
 
       <Card sideLine={true} customCSS=" mx-auto  !h-fit !w-fit   ">

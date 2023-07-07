@@ -74,11 +74,11 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
           <h2 className="textSecondary text-center text-2xl font-bold  md:text-3xl lg:text-left lg:text-4xl ">
             {title}
           </h2>
-          <p className=" textTertiary  mt-4 font-semibold  lg:text-xl">{desc}</p>
+          <p className=" textTertiary  mt-4 font-semibold  xl:text-lg">{desc}</p>
           <div className="  mt-4  flex flex-wrap  gap-4">
             {tech.map((tech: string) => (
               <div
-                className="rounded-full bg-teal-100 px-4  py-1 text-sm font-semibold text-teal-700 md:text-base "
+                className="rounded-full bg-teal-100 px-4  py-1 text-sm font-semibold text-teal-800 xl:text-base "
                 key={tech}
               >
                 {tech}

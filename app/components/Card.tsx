@@ -51,7 +51,6 @@ export default function Card({
     const deltaX = rect ? rect.width / 2 - x : 0
     const deltaY = rect ? rect.height / 2 - y : 0
 
-    // These constants control the degree of rotation. Adjust as needed.
     const constantX = 0.02
     const constantY = 0.035
 
@@ -64,51 +63,76 @@ export default function Card({
     }
   }
 
+  let glowClassName = ""
+  let flickerBoxClassName = ""
+  let sideLineClassName = ""
+  let perspectiveStyle = {}
+  let outerGlimmerSyle = {
+    background: `radial-gradient(
+  600px circle at ${0}px ${0}px,
+  rgba(203, 213, 225, 0.3),
+  transparent 40%`,
+  }
+
+  let innerGlimmerSyle = {
+    background: `radial-gradient(
+  600px circle at ${0}px ${0}px,
+  rgba(203, 213, 225, 0.3),
+  transparent 40%`,
+  }
+
+  if (typeof window !== "undefined") {
+    glowClassName = smallScreen && glow ? "flickerBox" : ""
+
+    flickerBoxClassName = smallScreen && glow ? "flickerBox" : ""
+
+    sideLineClassName = smallScreen && sideLine ? "sideLine" : ""
+
+    perspectiveStyle =
+      perspective && hover && smallScreen
+        ? calculatePerspective(mousePos.x, mousePos.y)
+        : {}
+
+    outerGlimmerSyle = {
+      background:
+        smallScreen && glimmer
+          ? `radial-gradient(
+      600px circle at ${mousePos.x}px ${mousePos.y}px,
+      rgba(203, 213, 225, 0.3),
+      transparent 40%`
+          : "",
+    }
+    innerGlimmerSyle = {
+      background:
+        smallScreen && glimmer && typeof window !== "undefined"
+          ? `radial-gradient(
+    600px circle at ${mousePos.x}px ${mousePos.y}px,
+    rgba(100, 116, 139, 0.2),
+    transparent 40%`
+          : "",
+    }
+  }
+
   return (
     <div
       ref={ref}
       onMouseEnter={handleHoverEnter}
       onMouseLeave={handleHoverLeave}
       className={`${customCSS}  ${
-        perspective && "p-6"
+        perspective && "mb-8 sm:mb-0 sm:p-6"
       } relative h-full w-full duration-300`}
     >
       <div
         onMouseEnter={handlePerspEnter}
         onMouseLeave={handlePerspLeave}
-        style={
-          perspective && hover && smallScreen
-            ? calculatePerspective(mousePos.x, mousePos.y)
-            : {}
-        }
-        className={`${smallScreen && glow && "flickerBox"} ${
-          smallScreen && sideLine && "sideLine"
-        }  group relative h-full w-full rounded-xl bg-gradient-border-light duration-300  dark:bg-gradient-border-dark  `}
+        style={perspectiveStyle}
+        className={`${flickerBoxClassName} ${sideLineClassName}  group relative h-full w-full rounded-xl bg-gradient-border-light duration-300  dark:bg-gradient-border-dark  `}
       >
-        <div
-          style={{
-            background:
-              smallScreen && glimmer
-                ? `radial-gradient(
-            600px circle at ${mousePos.x}px ${mousePos.y}px,
-            rgba(203, 213, 225, 0.3),
-            transparent 40%`
-                : "",
-          }}
-          className="h-full w-full rounded-xl p-0.5 "
-        >
+        <div style={outerGlimmerSyle} className="h-full w-full rounded-xl p-0.5 ">
           <div className="h-full w-full  rounded-xl bg-gradient-card-body-light dark:bg-gradient-card-body-dark">
             <div
               className="absolute  z-10  h-full w-full rounded-xl opacity-0 duration-300 group-hover:opacity-100  "
-              style={{
-                background:
-                  smallScreen && glimmer
-                    ? `radial-gradient(
-              600px circle at ${mousePos.x}px ${mousePos.y}px,
-              rgba(100, 116, 139, 0.2),
-              transparent 40%`
-                    : "",
-              }}
+              style={innerGlimmerSyle}
             ></div>
 
             <div className=" relative z-20 flex h-full flex-col rounded-xl bg-opacity-0 p-4 sm:hover:bg-opacity-100">

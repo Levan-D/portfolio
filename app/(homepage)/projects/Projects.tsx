@@ -2,6 +2,7 @@
 "use client"
 
 import { useState } from "react"
+import { useAppSelector } from "@/lib/redux/hooks"
 import Card from "@/app/components/Card"
 import { projectData } from "../../data/projectData"
 import Link from "next/link"
@@ -9,6 +10,7 @@ import Image from "next/image"
 import { personalData } from "@/app/data/personalData"
 
 export default function Projects() {
+  const { screenWidth } = useAppSelector(state => state.global)
   const [cardCount, setCardCount] = useState(4)
   const projects = personalData.projects
 
@@ -51,7 +53,7 @@ export default function Projects() {
         >
           <Link href={id} className={`${flex} flex h-full flex-col gap-4`}>
             <Image
-              src={icon ? icon : coverWeb}
+              src={icon && screenWidth > 1024 ? icon : coverWeb}
               alt={`cover picture for ${title} project`}
               className={` ${imgCSS} rounded-lg `}
             ></Image>

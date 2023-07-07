@@ -16,9 +16,9 @@ export default function About() {
         <p className=" textTertiary mt-2 text-2xl font-bold md:text-4xl lg:mt-4 lg:text-5xl xl:text-6xl">
           I’m a {profile.role}.
         </p>
-        <p className=" textTertiary mx-auto mt-2 max-w-[600px] font-bold  md:mx-0  lg:mt-4  lg:max-w-[700px]  lg:text-xl">
+        <div className=" textTertiary mx-auto mt-2 max-w-[600px] font-bold  md:mx-0  lg:mt-4  lg:max-w-[700px]  lg:text-xl">
           {profile.desc}
-        </p>
+        </div>
         <div className="  mx-auto my-20 block w-fit md:hidden">
           <ContactBtn />
         </div>

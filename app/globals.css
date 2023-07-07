@@ -12,13 +12,13 @@
     @apply text-slate-800 dark:text-slate-300;
   }
   .btnPrimary {
-    @apply rounded-lg  bg-teal-400 py-3 font-semibold text-slate-950 duration-300 hover:bg-teal-300 active:bg-teal-400;
+    @apply rounded-lg  bg-teal-400 py-3 font-semibold text-slate-950 duration-300 active:bg-teal-400 sm:hover:bg-teal-300;
   }
   .btnSecondary {
-    @apply block rounded-full border-2 border-teal-700 dark:border-teal-400 px-6  py-2 font-semibold   duration-300 hover:text-teal-600 active:text-teal-800 dark:hover:text-teal-200 dark:active:text-teal-400;
+    @apply block rounded-full border-2 border-teal-700 px-6 py-2  font-semibold duration-300   active:text-teal-800 dark:border-teal-400 dark:active:text-teal-400 sm:hover:text-teal-600 dark:sm:hover:text-teal-200;
   }
   .btnTertiary {
-    @apply font-semibold   duration-300 hover:text-teal-600 active:text-teal-700 dark:hover:text-teal-200 dark:active:text-teal-400;
+    @apply font-semibold   duration-300 active:text-teal-700 dark:active:text-teal-400 sm:hover:text-teal-600 dark:sm:hover:text-teal-200;
   }
 }
 
@@ -145,9 +145,8 @@
   20%,
   40%,
   80% {
-    box-shadow: 0 0 24px rgba(45, 212, 191, 0.6),
-      0 0 12px rgba(45, 212, 191, 0.8), 0 0 30px rgba(232, 121, 249, 0.6),
-      inset 0 0 16px rgba(45, 212, 191, 0.8);
+    box-shadow: 0 0 24px rgba(45, 212, 191, 0.6), 0 0 12px rgba(45, 212, 191, 0.8),
+      0 0 30px rgba(232, 121, 249, 0.6), inset 0 0 16px rgba(45, 212, 191, 0.8);
   }
 }
 

@@ -13,7 +13,6 @@ export default function Modal() {
     modal: { vis, type },
   } = useAppSelector(state => state.global)
 
-  // Disable scroll when modal is visible
   useEffect(() => {
     if (vis) {
       document.body.style.overflow = "hidden"
@@ -21,7 +20,6 @@ export default function Modal() {
       document.body.style.overflow = "unset"
     }
 
-    // Cleanup function to prevent side-effects
     return () => {
       document.body.style.overflow = "unset"
     }
@@ -71,7 +69,7 @@ export default function Modal() {
             <button
               aria-label="close"
               onClick={handleCloseButtonClick}
-              className=" hover:text-teal-200 active:text-teal-400"
+              className=" active:text-teal-400 sm:hover:text-teal-200"
             >
               <Icon path={mdiClose} size={1} />
             </button>

@@ -26,7 +26,7 @@ export default function ImageDisplay({
   const [active, setActive] = useState("web")
 
   return (
-    <Card sideLine={true} glimmer={false} customCSS=" ">
+    <Card sideLine={true} glimmer={false}>
       <div className="md:scale-75 lg:scale-[0.85] lg:py-8 xl:scale-[1] xl:px-8 xl:py-16">
         {mobile && (
           <div className="mb-12 hidden justify-center  gap-6 md:flex ">
@@ -36,7 +36,7 @@ export default function ImageDisplay({
               className={`${
                 active === "web" &&
                 "!border-slate-900 !text-slate-900 dark:!border-slate-300 dark:!text-slate-300"
-              }  rounded-xl border-2 border-slate-500 p-2 text-slate-500 duration-300  hover:border-slate-400 hover:text-slate-400 dark:border-slate-400 dark:text-slate-400 dark:hover:border-slate-300 dark:hover:text-slate-300  `}
+              }  rounded-xl border-2 border-slate-500 p-2 text-slate-500 duration-300  dark:border-slate-400 dark:text-slate-400 sm:hover:border-slate-400 sm:hover:text-slate-400 dark:sm:hover:border-slate-300 dark:sm:hover:text-slate-300  `}
             >
               <Icon path={mdiLaptop} size={1} />
             </button>
@@ -46,7 +46,7 @@ export default function ImageDisplay({
               className={`${
                 active === "mobile" &&
                 "!border-slate-900 !text-slate-900 dark:!border-slate-300 dark:!text-slate-300"
-              }  rounded-xl border-2 border-slate-500 px-2.5 py-2 text-slate-500 duration-300  hover:border-slate-400 hover:text-slate-400 dark:border-slate-400 dark:text-slate-400 dark:hover:border-slate-300 dark:hover:text-slate-300  `}
+              }  rounded-xl border-2 border-slate-500 px-2.5 py-2 text-slate-500 duration-300  dark:border-slate-400 dark:text-slate-400 sm:hover:border-slate-400 sm:hover:text-slate-400 dark:sm:hover:border-slate-300 dark:sm:hover:text-slate-300  `}
             >
               <Icon path={mdiCellphone} size={0.8} />
             </button>
@@ -91,7 +91,11 @@ export default function ImageDisplay({
           >
             <Image
               src={
-                coverMobile !== undefined ? (active === "web" ? coverWeb : coverMobile) : coverWeb
+                coverMobile !== undefined
+                  ? active === "web"
+                    ? coverWeb
+                    : coverMobile
+                  : coverWeb
               }
               alt="project's landing page image"
               className=" h-full rounded-2xl object-cover"

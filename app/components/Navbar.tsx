@@ -2,7 +2,7 @@
 "use client"
 
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
-import { setActiveLink, setDarkMode } from "@/lib/redux/slices/globalSlice"
+import { setActiveLink, setDarkMode, setSider } from "@/lib/redux/slices/globalSlice"
 import { personalData } from "../data/personalData"
 import Icon from "@mdi/react"
 import {
@@ -13,7 +13,7 @@ import {
   mdiWeatherNight,
   mdiWhiteBalanceSunny,
 } from "@mdi/js"
-import { useState, useEffect } from "react"
+import { useGlobalEffects } from "../hooks/useGlobalEffects"
 import ContactBtn from "./ContactBtn"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
@@ -38,46 +38,21 @@ export const routes = [
   },
 ]
 
-const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
-  const dispatch = useAppDispatch()
-  const { activeLink } = useAppSelector(state => state.global)
-
-  const scrollToElementSmooth = (elementId: string) => {
-    const element = document.getElementById(elementId)
-    element?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const handleActiveLink = (name: string) => {
-    dispatch(setActiveLink(name))
-    scrollToElementSmooth(name)
-    toggleSidebar()
-  }
-  return (
-    <li
-      key={route}
-      className={`${
-        activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
-      } btnTertiary   mx-4  text-center text-xl md:text-base `}
-    >
-      <button onClick={() => handleActiveLink(route)} className="w-2/5 p-2  md:w-full">
-        {route.charAt(0).toUpperCase() + route.slice(1)}
-      </button>
-    </li>
-  )
-}
-
 export default function Navbar() {
   const dispatch = useAppDispatch()
-  const { darkMode } = useAppSelector(state => state.global)
+  const { darkMode, activeLink, sider } = useAppSelector(state => state.global)
+
+  useGlobalEffects()
 
   const links = personalData.links
 
   const pathname = usePathname()
 
-  const [sider, setSider] = useState(false)
-
   const toggleSidebar = () => {
-    setSider(!sider)
+    dispatch(setSider(!sider))
+  }
+  const siderFalse = () => {
+    dispatch(setSider(false))
   }
 
   const handleCloseSider = (event: React.MouseEvent) => {
@@ -98,30 +73,30 @@ export default function Navbar() {
     }
   }
 
-  // Add or remove dark class on load and on click
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark")
-      document.documentElement.classList.remove("light")
-    } else {
-      document.documentElement.classList.add("light")
-      document.documentElement.classList.remove("dark")
-    }
-  }, [])
-
-  // Disable scroll when sider is visible
-  useEffect(() => {
-    if (sider) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
+  const RouteScroll = ({ route, toggleSidebar }: RouteType) => {
+    const scrollToElementSmooth = (elementId: string) => {
+      const element = document.getElementById(elementId)
+      element?.scrollIntoView({ behavior: "smooth" })
     }
 
-    // Cleanup function to prevent side-effects
-    return () => {
-      document.body.style.overflow = "unset"
+    const handleActiveLink = (name: string) => {
+      dispatch(setActiveLink(name))
+      scrollToElementSmooth(name)
+      toggleSidebar()
     }
-  }, [sider])
+    return (
+      <li
+        key={route}
+        className={`${
+          activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
+        } btnTertiary   mx-4  text-center text-xl md:text-base `}
+      >
+        <button onClick={() => handleActiveLink(route)} className="w-2/5 p-2  md:w-full">
+          {route.charAt(0).toUpperCase() + route.slice(1)}
+        </button>
+      </li>
+    )
+  }
 
   return (
     <>
@@ -245,7 +220,7 @@ export default function Navbar() {
               ))
             ) : (
               <li
-                onClick={() => setSider(false)}
+                onClick={siderFalse}
                 className="btnTertiary   text-center text-xl md:text-base"
               >
                 <Link href="/">Home</Link>

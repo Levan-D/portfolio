@@ -47,7 +47,7 @@ export default function Projects() {
         <Card
           key={id}
           glow={true}
-          customCSS={`${height}  ${stagger}  ${visibility}  hover:scale-[1.01]  active:scale-[0.99]  max-w-[400px]  `}
+          customCSS={`${height}  ${stagger}  ${visibility}  sm:hover:scale-[1.01]  active:scale-[0.99]  max-w-[400px]  `}
         >
           <Link href={id} className={`${flex} flex h-full flex-col gap-4`}>
             <Image

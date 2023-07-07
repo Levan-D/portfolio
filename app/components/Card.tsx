@@ -63,23 +63,12 @@ export default function Card({
     }
   }
 
-  let glowClassName = ""
-  let flickerBoxClassName = ""
-  let sideLineClassName = ""
-  let perspectiveStyle = {}
-  let outerGlimmerSyle = {
-    background: `radial-gradient(
-  600px circle at ${0}px ${0}px,
-  rgba(203, 213, 225, 0.3),
-  transparent 40%`,
-  }
-
-  let innerGlimmerSyle = {
-    background: `radial-gradient(
-  600px circle at ${0}px ${0}px,
-  rgba(203, 213, 225, 0.3),
-  transparent 40%`,
-  }
+  let glowClassName
+  let flickerBoxClassName
+  let sideLineClassName
+  let perspectiveStyle
+  let outerGlimmerSyle
+  let innerGlimmerSyle
 
   if (typeof window !== "undefined") {
     glowClassName = smallScreen && glow ? "flickerBox" : ""

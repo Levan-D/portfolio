@@ -17,32 +17,26 @@ export default function Experience() {
         <div className="textTertiary mt-4 font-semibold xl:text-lg">{exp.desc}</div>
       </div>
 
-      <div className="basis-1/2  lg:mr-10">
+      <div className="max-h-screen  basis-1/2 overflow-x-scroll lg:mr-10 ">
         <div>
           {exp.pos.map(role => (
-            <Card perspective customCSS="max-w-xl mx-auto " key={uuidv4()}>
-              <div className="block gap-8 px-4 py-2 md:flex">
-                <div>
-                  <p className=" textTertiary hidden text-lg font-semibold md:block">
-                    {role.date}
-                  </p>
-                </div>
-                <div>
-                  <h3 className=" mb-2 text-lg font-semibold">{role.title}</h3>
-                  <p className=" textTertiary block text-lg font-semibold md:hidden">
-                    {role.date}
-                  </p>
-                  <p className="textTertiary">{role.desc}</p>
-                  <div className="mt-2 flex gap-4">
-                    {role.tech.map(tech => (
-                      <div
-                        className=" rounded-full bg-teal-100  px-3 py-0.5 text-sm font-semibold text-teal-800 "
-                        key={uuidv4()}
-                      >
-                        {tech}
-                      </div>
-                    ))}
-                  </div>
+            <Card perspective customCSS="max-w-2xl mx-auto " key={uuidv4()}>
+              <div className="px-4 py-2 ">
+                <h3 className="  text-lg font-semibold">{role.title}</h3>
+
+                <p className="textTertiary    text-sm  italic">{role.location}</p>
+
+                <p className=" textTertiary mb-2  text-sm  ">{role.date}</p>
+                <div className="textTertiary">{role.desc}</div>
+                <div className="mt-2 flex gap-4">
+                  {role.tech.map(tech => (
+                    <div
+                      className=" rounded-full bg-teal-100  px-3 py-0.5 text-sm font-semibold text-teal-800 "
+                      key={uuidv4()}
+                    >
+                      {tech}
+                    </div>
+                  ))}
                 </div>
               </div>
             </Card>

@@ -57,12 +57,86 @@ export const personalData = {
     ),
     pos: [
       {
-        title: "dasdasd",
-        date: "adasd",
-        desc: "Manage 10 engineers over 2 teams and lead development of Neighbors app.Responsible for technical/coding standards, product/design standards, and recruiting/hiring. Reachitected apps into microservices. Developed sharedframeworks (ui components, analytics, networking, design). Instituted CI/CD pipelines to automate development, deployment and testing.",
+        title: "React Developer",
+        date: "08/2022 - Present",
+        location: "COTT • London",
+        desc: (
+          <>
+            <p>
+              As a React Developer at COTT, London, since August 2022, I have undertaken a
+              wide array of responsibilities. I have designed and implemented UI elements
+              using the React Redux Toolkit, and have been instrumental in refactoring
+              existing React projects for better performance and maintainability. One of
+              my notable achievements was the complete rewriting and architecture overhaul
+              of a key software product which involved intricate state management, use of
+              Ant Design UI library, and integration of numerous API endpoints.
+            </p>
+            <br />
+            <p>
+              Additionally, I have been at the forefront of testing and evaluating
+              potential technologies, frameworks, and projects that can be adopted by the
+              company to drive innovation. I also designed a mobile version of an
+              Innovative Hospitality IPTV Platform, aligning with the company&apos;s goal
+              to expand its product reach and user experience. My role not only involves
+              development but also requires me to work under the direction of Senior
+              Software Developers, ensuring the successful implementation and regular
+              updates of application modules.
+            </p>
+          </>
+        ),
         tech: ["sss"],
       },
-      { title: "dasdasd", date: "adasd", desc: "ssdad", tech: ["sss"] },
+      {
+        title: "React Developer",
+        date: "10/2022 – 01/2023",
+        location: "Hyperdrive • Los Angeles, CA",
+        desc: (
+          <p>
+            I&apos;ve been responsible for the client-side app architecture and
+            development. My main achievements include building the MVP, implementing key
+            features such as Google OAuth sign-in and Google Drive integration. I&apos;ve
+            also been pivotal in bug-fixing, maintaining high standards of software
+            reliability and user experience.
+          </p>
+        ),
+        tech: ["sss"],
+      },
+      {
+        title: "Web Application Developer",
+        date: "05/2022 - 07/2022",
+        location: "GM • Tbilisi ",
+        desc: (
+          <p>
+            My key responsibilities included developing an internal web application to
+            parse and sort a sizable database. Initially, I built a mechanism for
+            automatic database parsing, integrating Firebase for real-time data handling
+            capabilities. In the subsequent phase, I designed and implemented a dynamic
+            user interface to facilitate manual data sorting operations, enabling users to
+            continue the sorting process as per their specific requirements. This project
+            required in-depth understanding of database structures and proficient
+            application of front-end technologies to ensure seamless interaction and data
+            handling.
+          </p>
+        ),
+        tech: ["sss"],
+      },
+      {
+        title: "Freelance: Front-End Developer",
+        date: "02/2020 - 04/2022",
+        desc: (
+          <p>
+            As a Freelance Front-End Developer, I specialized in building, enhancing, and
+            redesigning client interfaces using JavaScript and React. My role included
+            creating new UI components, refactoring existing code for improved
+            maintainability, and optimizing performance for an improved user experience.
+            My work involved regular client interactions, ensuring their needs were met
+            and offering technical expertise when necessary. This freelancing experience
+            has sharpened my technical skills, & reinforced project management
+            capabilities.
+          </p>
+        ),
+        tech: ["sss"],
+      },
     ],
   },
 }

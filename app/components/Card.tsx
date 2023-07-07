@@ -52,8 +52,8 @@ export default function Card({
     const deltaY = rect ? rect.height / 2 - y : 0
 
     // These constants control the degree of rotation. Adjust as needed.
-    const constantX = 0.025
-    const constantY = 0.05
+    const constantX = 0.02
+    const constantY = 0.035
 
     return {
       transform: `perspective(600px) rotateX(${constantY * deltaY}deg) rotateY(${
@@ -70,7 +70,7 @@ export default function Card({
       onMouseEnter={handleHoverEnter}
       onMouseLeave={handleHoverLeave}
       className={`${customCSS}  ${
-        perspective && "p-10"
+        perspective && "p-6"
       } relative h-full w-full duration-300`}
     >
       <div

@@ -28,7 +28,7 @@ export default function Experience() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold">{role.title}</h4>
+                  <h3 className="text-lg font-semibold">{role.title}</h3>
                   <p className=" textTertiary block text-lg font-semibold md:hidden">
                     {role.date}
                   </p>

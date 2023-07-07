@@ -15,7 +15,7 @@ interface initialState {
 }
 
 const initialState: initialState = {
-  screenWidth: typeof window !== "undefined" ? window.innerWidth : 1000,
+  screenWidth: typeof window !== "undefined" ? window.innerWidth : 1200,
   activeLink: "",
   darkMode:
     typeof window !== "undefined" ? localStorage.getItem("darkMode") !== "false" : true,

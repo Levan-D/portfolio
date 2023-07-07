@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Modal />
           <ToastContainer position="top-center" theme="dark" newestOnTop />
 
-          <main className=" grow  overflow-x-hidden px-8">{children}</main>
+          <main className=" grow   px-8">{children}</main>
           <Footer />
         </body>
       </html>

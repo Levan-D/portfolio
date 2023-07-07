@@ -84,7 +84,20 @@ export const personalData = {
             </p>
           </>
         ),
-        tech: ["sss"],
+        tech: [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Axios",
+          "Tailwind",
+          "React Router",
+          "Redux Toolkit",
+          "i18next",
+          "Ant Design",
+          "Prisma",
+          "React Flow",
+          "Figma",
+        ],
       },
       {
         title: "React Developer",
@@ -99,7 +112,15 @@ export const personalData = {
             reliability and user experience.
           </p>
         ),
-        tech: ["sss"],
+        tech: [
+          "React",
+          "TypeScript",
+          "Axios",
+          "Tailwind",
+          "React Router",
+          "Redux Toolkit",
+          "Jira",
+        ],
       },
       {
         title: "Web Application Developer",
@@ -118,7 +139,7 @@ export const personalData = {
             handling.
           </p>
         ),
-        tech: ["sss"],
+        tech: ["React", "TypeScript", "Firebase", "Axios", "Sass"],
       },
       {
         title: "Freelance: Front-End Developer",
@@ -135,7 +156,7 @@ export const personalData = {
             capabilities.
           </p>
         ),
-        tech: ["sss"],
+        tech: ["HTML", "CSS", "JavaScript", "Axios", "Figma"],
       },
     ],
   },

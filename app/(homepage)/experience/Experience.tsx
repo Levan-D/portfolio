@@ -8,16 +8,16 @@ export default function Experience() {
   return (
     <div
       id="experience"
-      className=" items-center justify-items-center  py-20 md:min-h-screen lg:flex"
+      className="  justify-items-center  py-20 md:min-h-screen lg:flex"
     >
-      <div className="  mx-auto  w-fit max-w-2xl  basis-1/2 py-20 ">
+      <div className=" top-0 mx-auto h-fit w-fit  max-w-2xl basis-1/2  py-20 lg:sticky ">
         <h2 className="textSecondary   text-2xl font-bold  md:text-3xl lg:text-4xl">
           {exp.title}
         </h2>
         <div className="textTertiary mt-4 font-semibold xl:text-lg">{exp.desc}</div>
       </div>
 
-      <div className="max-h-screen  basis-1/2 overflow-x-scroll lg:mr-10 ">
+      <div className="  basis-1/2  lg:mr-10 ">
         <div>
           {exp.pos.map(role => (
             <Card perspective customCSS="max-w-2xl mx-auto " key={uuidv4()}>
@@ -28,7 +28,7 @@ export default function Experience() {
 
                 <p className=" textTertiary mb-2  text-sm  ">{role.date}</p>
                 <div className="textTertiary">{role.desc}</div>
-                <div className="mt-2 flex gap-4">
+                <div className="mt-4 flex flex-wrap gap-4">
                   {role.tech.map(tech => (
                     <div
                       className=" rounded-full bg-teal-100  px-3 py-0.5 text-sm font-semibold text-teal-800 "

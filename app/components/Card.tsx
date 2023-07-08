@@ -61,7 +61,6 @@ export default function Card({
     }
   }
 
-  let glowClassName = screenWidth > 540 && glow ? "flickerBox" : ""
   let flickerBoxClassName = screenWidth > 540 && glow ? "flickerBox" : ""
   let sideLineClassName = screenWidth && sideLine ? "sideLine" : ""
   let perspectiveStyle

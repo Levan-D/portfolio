@@ -86,18 +86,25 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
             ))}
           </div>
 
-          <div className="textTertiary mt-4 flex gap-4 ">
-            <div>
-              <Link target="_blank" className="btnTertiary" href={links.github}>
-                <Icon path={mdiGithub} size={1.2} />
-              </Link>
-            </div>
+          <div className="textTertiary mt-4 flex gap-4 lg:block ">
+            <Link
+              target="_blank"
+              className="btnTertiary flex w-fit items-center gap-2 lg:mb-2"
+              href={links.github}
+            >
+              <Icon path={mdiGithub} size={1.2} />
+              <div className="hidden lg:block">Github Repo</div>
+            </Link>
+
             {links.website && (
-              <div>
-                <Link target="_blank" className="btnTertiary" href={links.website}>
-                  <Icon path={mdiWeb} size={1.2} />
-                </Link>
-              </div>
+              <Link
+                target="_blank"
+                className="btnTertiary flex w-fit items-center gap-2 lg:mb-2"
+                href={links.website}
+              >
+                <Icon path={mdiWeb} size={1.2} />
+                <div className="hidden lg:block">{title}</div>
+              </Link>
             )}
           </div>
         </div>

@@ -25,8 +25,6 @@ export default function Card({
 }: Props) {
   const { screenWidth } = useAppSelector(state => state.global)
 
-  const smallScreen = screenWidth > 540 ? true : false
-
   const { ref, mousePos } = useMousePosition()
   const [hover, setHover] = useState(false)
   const [persp, setPersp] = useState(false)
@@ -63,28 +61,22 @@ export default function Card({
     }
   }
 
-  let glowClassName
-  let flickerBoxClassName
-  let sideLineClassName
+  let glowClassName = screenWidth > 540 && glow ? "flickerBox" : ""
+  let flickerBoxClassName = screenWidth > 540 && glow ? "flickerBox" : ""
+  let sideLineClassName = screenWidth && sideLine ? "sideLine" : ""
   let perspectiveStyle
   let outerGlimmerSyle
   let innerGlimmerSyle
 
   if (typeof window !== "undefined") {
-    glowClassName = smallScreen && glow ? "flickerBox" : ""
-
-    flickerBoxClassName = smallScreen && glow ? "flickerBox" : ""
-
-    sideLineClassName = smallScreen && sideLine ? "sideLine" : ""
-
     perspectiveStyle =
-      perspective && hover && smallScreen
+      perspective && hover && screenWidth > 540
         ? calculatePerspective(mousePos.x, mousePos.y)
         : {}
 
     outerGlimmerSyle = {
       background:
-        smallScreen && glimmer
+        screenWidth > 540 && glimmer
           ? `radial-gradient(
       600px circle at ${mousePos.x}px ${mousePos.y}px,
       rgba(203, 213, 225, 0.3),
@@ -93,7 +85,7 @@ export default function Card({
     }
     innerGlimmerSyle = {
       background:
-        smallScreen && glimmer && typeof window !== "undefined"
+        screenWidth > 540 && glimmer && typeof window !== "undefined"
           ? `radial-gradient(
     600px circle at ${mousePos.x}px ${mousePos.y}px,
     rgba(100, 116, 139, 0.2),

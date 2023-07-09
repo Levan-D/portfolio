@@ -120,7 +120,7 @@ export default function Navbar() {
             </li>
           )}
 
-          <li className=" border-l-2 border-slate-700 px-4">
+          <li className=" border-x-2 px-4   dark:border-slate-600 border-slate-400 border-opacity-70">
             <button
               aria-label="toggle dark mode"
               onClick={handleDarkMode}
@@ -133,7 +133,7 @@ export default function Navbar() {
               )}
             </button>
           </li>
-          <li>
+          <li className="pl-4">
             <a
               href={links.linkedIn}
               target="_blank"
@@ -144,7 +144,7 @@ export default function Navbar() {
               <Icon path={mdiLinkedin} size={1.1} />
             </a>
           </li>
-          <li className=" mr-24 border-r-2 border-slate-700 px-4 lg:mr-[210px]">
+          <li className=" mr-24 border-r-2 px-4   dark:border-slate-600 border-slate-400 border-opacity-70 lg:mr-[210px]">
             <a
               href={links.github}
               target="_blank"

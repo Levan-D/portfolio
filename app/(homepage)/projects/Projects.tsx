@@ -36,6 +36,7 @@ export default function Projects() {
 
       if (height.includes("lg:row-span-4")) {
         imgCSS += "lg:!h-[100px]"
+        text = "lg:!line-clamp-3"
       }
 
       if (height.includes("xl:row-span-3")) {
@@ -69,7 +70,7 @@ export default function Projects() {
             <div className={`overflow-hidden ${!flex && "mb-1"} `}>
               <h3 className="font-semibold">{title}</h3>
               <p
-                className={` ${text} textTertiary	 text-sm lg:line-clamp-3 xl:line-clamp-4`}
+                className={` ${text} textTertiary	 text-sm lg:line-clamp-2 xl:line-clamp-4`}
               >
                 {pitch}
               </p>

@@ -78,6 +78,40 @@
   opacity: 0;
 }
 
+.backgroundGrid:before {
+  position: absolute;
+  opacity: 0.3;
+  aspect-ratio: 1 / 0.5;
+  width: 100%;
+  background-repeat: repeat;
+  overflow: hidden;
+  content: "";
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, rgb(35 38 45) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(35 38 45) 1px, transparent 1px);
+  -webkit-mask-image: linear-gradient(to bottom, white 40%, transparent 80%);
+  mask-image: linear-gradient(to bottom, white 40%, transparent 80%);
+
+  z-index: -1;
+}
+
+.backgroundGrid:after {
+  position: absolute;
+  content: "";
+  height: 50vw;
+  width: 100vw;
+  opacity: 0.7;
+  overflow: hidden;
+
+  transform: translateY(-50px);
+  right: -60vw;
+  background: linear-gradient(247.23deg, #2dd4bf 0%, #3a5edf 100%);
+  background-blend-mode: overlay;
+  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 65%);
+  mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 65%);
+  z-index: -1;
+}
+
 .arrowDelay,
 .arrowDelaySecond {
   position: absolute;

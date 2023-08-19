@@ -19,10 +19,10 @@ export default function ContactBtn({ type }: Props) {
   return (
     <button
       aria-label="contact button"
-      className={`flickerBox btnSecondary z-50 flex gap-4`}
+      className={`flickerBox btnSecondary z-50 flex gap-4 bg-slate-900`}
       onClick={handleOpenModal}
     >
-      <div className={`${type === "icon" && "hidden lg:block"}`}>Get in touch</div>
+      <div className={`${type === "icon" && "hidden lg:block"} `}>Get in touch</div>
       <div>
         <Icon path={mdiEmailFastOutline} size={1} />
       </div>

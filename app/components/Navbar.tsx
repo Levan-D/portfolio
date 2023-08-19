@@ -210,7 +210,7 @@ function DesktopNavbar() {
   }
 
   return (
-    <nav className="hidden select-none  p-6 md:block">
+    <nav className="hidden select-none  p-6 md:block mx-auto w-full max-w-screen-2xl">
       <ul className="flex items-center justify-end ">
         {pathname === "/" ? (
           routes.map(

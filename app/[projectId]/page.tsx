@@ -47,7 +47,9 @@ export async function generateMetadata(
 }
 
 export default function ProjectsPage({ params: { projectId } }: Props) {
-  const project = projectData.find(card => card.id === projectId)
+  const project = projectData.find(
+    card => card.title.toLocaleLowerCase().replaceAll(" ", "-") === projectId
+  )
 
   if (!project) {
     return <div>Error: Project not found</div>
@@ -93,7 +95,7 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
               href={links.github}
             >
               <Icon path={mdiGithub} size={1.2} />
-              <div className="hidden lg:block">Github Repo</div>
+              <div className="hidden lg:block">Github</div>
             </Link>
 
             {links.website && (

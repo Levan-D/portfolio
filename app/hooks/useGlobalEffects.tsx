@@ -8,7 +8,6 @@ import { setScreenWidth } from "@/lib/redux/slices/globalSlice"
 export function useGlobalEffects() {
   const dispatch = useAppDispatch()
   const { darkMode, sider } = useAppSelector(state => state.global)
-
   // set screen size
   useEffect(() => {
     const handleResize = () => {

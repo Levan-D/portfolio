@@ -32,7 +32,7 @@ export default function SiderNavbar() {
           dispatch(setActiveLink(largestRatioId))
         }
       },
-      { threshold: [0.1, 0.25, 0.5, 0.75, 1] }
+      { threshold: 0.5}
     )
 
     const ids = routes.map(route => `#${route.name}`)
@@ -41,8 +41,25 @@ export default function SiderNavbar() {
 
     sections.forEach(section => observer.observe(section))
 
+    const experienceSection = document.querySelector("#experience")
+
+    const lastSectionObserver = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        if (entry.isIntersecting) {
+          dispatch(setActiveLink(entry.target.id))
+        }
+      },
+      { threshold: 0 }
+    )
+
+    if (experienceSection) {
+      lastSectionObserver.observe(experienceSection)
+    }
+
     return () => {
       observer.disconnect()
+      lastSectionObserver.disconnect()
     }
   }, [dispatch])
 

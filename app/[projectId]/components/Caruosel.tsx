@@ -15,7 +15,7 @@ export default function Carousel() {
         <div className="flex h-full w-full gap-4 overflow-x-auto overflow-y-hidden   ">
           {projectData.map(project => (
             <Link
-              href={project.id}
+              href={project.title.toLocaleLowerCase().replaceAll(" ", "-")}
               key={project.id}
               className={`${project.visibility} group/title mb-2  flex aspect-square h-[calc(100%-8px)]  flex-shrink-0 flex-col  rounded-lg bg-slate-400 bg-opacity-50 p-2 duration-300 active:bg-slate-500 dark:bg-slate-700 dark:active:bg-slate-700 sm:hover:bg-slate-400 dark:sm:hover:bg-slate-600`}
             >

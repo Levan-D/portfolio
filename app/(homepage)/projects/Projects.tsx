@@ -44,13 +44,14 @@ export default function Projects() {
         text = "lg:!line-clamp-2 !line-clamp-none xl:!line-clamp-6	"
       }
 
+      const link = title.toLocaleLowerCase().replaceAll(" ", "-")
       return (
         <Card
           key={id}
           glow={true}
           customCSS={`${height}  ${stagger}  ${visibility}  sm:hover:scale-[1.01]  active:scale-[0.99]  max-w-[400px]  `}
         >
-          <Link href={id} className={`${flex} flex h-full flex-col gap-4`}>
+          <Link href={link} className={`${flex} flex h-full flex-col gap-4`}>
             {icon && screenWidth > 1024 ? (
               <Image
                 src={icon}

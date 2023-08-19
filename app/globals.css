@@ -81,7 +81,7 @@
 .backgroundGrid:before {
   position: absolute;
   opacity: 0.3;
-  aspect-ratio: 1 / 0.5;
+  aspect-ratio: 1 / 0.7;
   width: 100%;
   background-repeat: repeat;
   overflow: hidden;
@@ -95,7 +95,7 @@
   z-index: -1;
 }
 
-.backgroundGrid:after {
+.blob:after {
   position: absolute;
   content: "";
   height: 50vw;

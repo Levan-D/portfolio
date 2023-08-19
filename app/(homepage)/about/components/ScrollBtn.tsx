@@ -11,7 +11,7 @@ export default function ScrollBtn() {
     element?.scrollIntoView({ behavior: "smooth" })
   }
   return (
-    <div className="scrollWrap group mx-auto  w-fit translate-y-[40%] rounded-full  duration-500 hover:p-14 md:block">
+    <div className="scrollWrap group mx-auto hidden  w-fit translate-y-[40%] rounded-full  duration-500 hover:p-14 md:block">
       <button
         aria-label="scroll down"
         onClick={scrollToElementSmooth}

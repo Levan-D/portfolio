@@ -16,6 +16,11 @@ import todoCoverMobile from "@/app/assets/projects/todo-cover-mobile.png"
 import todoLeftMobile from "@/app/assets/projects/todo-left-mobile.png"
 import todoRightMobile from "@/app/assets/projects/todo-right-mobile.png"
 
+import portCoverWeb from "@/app/assets/projects/port-cover-web.png"
+import portCoverMobile from "@/app/assets/projects/port-cover-mobile.png"
+import portLeftMobile from "@/app/assets/projects/port-left-mobile.png"
+import portRightMobile from "@/app/assets/projects/port-right-mobile.png"
+
 import tetrisCoverWeb from "@/app/assets/projects/tetris-cover-web.png"
 
 export type ProjectsDataType = {
@@ -155,7 +160,10 @@ export const projectData: ProjectsDataType[] = [
     desc: "The repository features the source code for my personal portfolio website at https://levandolidze.com/. Designed in Figma and built using Next.js. It offers customizable sections for personal details, a dedicated space for project highlights, and a contact form ready to be linked with Google OAuth. If you find it fitting, you're welcome to fork and tailor it for your own use.",
     tech: ["Next.js", "Tailwind", "nodemailer", "React Toastify"],
     images: {
-      coverWeb: cssMateCoverWeb,
+      coverWeb: portCoverWeb,
+      coverMobile: portCoverMobile,
+      leftMobile: portLeftMobile,
+      rightMobile: portRightMobile,
     },
     links: {
       github: "aaa",

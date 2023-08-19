@@ -26,7 +26,7 @@ export default function Carousel() {
               ></Image>
 
               <div className="mx-1 mt-2 flex grow items-center gap-1 ">
-                <h3 className=" -white font-semibold duration-300 group-hover/title:text-white dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400 xl:text-lg">
+                <h3 className=" -white line-clamp-1 text-xs  font-semibold duration-300 group-hover/title:text-white dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400 md:text-sm xl:text-lg">
                   {project.title}
                 </h3>
                 <Icon

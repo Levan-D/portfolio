@@ -81,7 +81,7 @@
 .backgroundGrid:before {
   position: absolute;
   opacity: 0.3;
-  aspect-ratio: 1 / 0.7;
+  height: 90vh;
   width: 100%;
   background-repeat: repeat;
   overflow: hidden;
@@ -89,8 +89,8 @@
   background-size: 20px 20px;
   background-image: linear-gradient(to right, rgb(35 38 45) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(35 38 45) 1px, transparent 1px);
-  -webkit-mask-image: linear-gradient(to bottom, white 40%, transparent 80%);
-  mask-image: linear-gradient(to bottom, white 40%, transparent 80%);
+  -webkit-mask-image: linear-gradient(to bottom, white 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, white 40%, transparent 100%);
 
   z-index: -1;
 }

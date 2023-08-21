@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <link rel="icon" href="../public/favicon.ico" />
         </head>
         <body
-          className={`${inter.className} blob  backgroundGrid  relative flex	 min-h-screen  flex-col    bg-slate-200 text-slate-950  dark:bg-gradient-body-dark dark:text-white`}
+          className={`${inter.className}   backgroundGrid   flex	 min-h-screen  flex-col    bg-slate-200 text-slate-950  dark:bg-gradient-body-dark dark:text-white`}
         >
           <Navbar />
 

@@ -7,7 +7,7 @@ export default function About() {
   const profile = personalData.profile
 
   return (
-    <div id="about" className="   flex flex-col justify-between md:h-[calc(100vh-88px)]">
+    <div id="about" className="  blob flex flex-col justify-between md:h-[calc(100vh-88px)]">
       <div className="pt-36   text-center md:ml-10 md:pt-[20vh] md:text-left">
         <p className="textSecondary font-semibold lg:text-xl">{profile.greetings}</p>
         <p className="mt-2 text-2xl font-bold md:text-4xl lg:mt-4  lg:text-5xl xl:text-6xl ">

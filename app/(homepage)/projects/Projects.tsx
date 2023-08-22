@@ -8,11 +8,24 @@ import { projectData } from "../../data/projectData"
 import Link from "next/link"
 import Image from "next/image"
 import { personalData } from "@/app/data/personalData"
+import useIntersectionObserver from "@/app/hooks/useIntersectionObserver"
 
 export default function Projects() {
   const { screenWidth } = useAppSelector(state => state.global)
   const [cardCount, setCardCount] = useState(4)
   const projects = personalData.projects
+
+  const [isVisible, setIsVisible] = useState(false)
+
+  const handleIntersect = () => {
+    setIsVisible(true)
+  }
+
+  const ref = useIntersectionObserver(handleIntersect, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  })
 
   const handleMoreClick = () => {
     setCardCount(prevCount => Math.min(prevCount + 3, projectData.length))
@@ -82,27 +95,39 @@ export default function Projects() {
   }
 
   return (
-    <div id="projects" className="   mt-20 py-20 sm:mx-16 md:mt-[200px] md:min-h-screen">
-      <div className="mx-auto w-fit -translate-y-10 text-center  lg:-translate-y-10 lg:text-left xl:-translate-x-20 xl:translate-y-6">
-        <h2 className="textSecondary text-2xl font-bold md:text-3xl  lg:text-4xl">
-          {projects.title}
-        </h2>
-        <p className="textTertiary mt-4 font-semibold lg:text-xl"> {projects.desc}</p>
-      </div>
+    <div
+      id="projects"
+      className={`    mt-20 py-20    sm:mx-16 md:mt-[200px] md:min-h-screen`}
+    >
+      <div
+        ref={ref}
+        className={`${
+          isVisible
+            ? " md:translate-y-0 md:opacity-100"
+            : "md:translate-y-[300px] md:opacity-0"
+        }    md:duration-500 `}
+      >
+        <div className="mx-auto w-fit -translate-y-10 text-center  lg:-translate-y-10 lg:text-left xl:-translate-x-20 xl:translate-y-6">
+          <h2 className="textSecondary text-2xl font-bold md:text-3xl  lg:text-4xl">
+            {projects.title}
+          </h2>
+          <p className="textTertiary mt-4 font-semibold lg:text-xl"> {projects.desc}</p>
+        </div>
 
-      <div className="mx-auto flex  w-fit  flex-wrap justify-center gap-8 lg:hidden ">
-        {renderCards(0, cardCount)}
-      </div>
-      {cardCount < projectData.length && (
-        <button
-          onClick={handleMoreClick}
-          className="btnSecondary mx-auto mt-8  lg:hidden  "
-        >
-          Show More
-        </button>
-      )}
-      <div className="mx-auto hidden w-fit  grid-flow-col grid-rows-[repeat(12,_minmax(10px,_40px))] gap-8 lg:grid lg:grid-cols-2 xl:grid-cols-3">
-        {renderCards(0, projectData.length)}
+        <div className="mx-auto flex  w-fit  flex-wrap justify-center gap-8 lg:hidden ">
+          {renderCards(0, cardCount)}
+        </div>
+        {cardCount < projectData.length && (
+          <button
+            onClick={handleMoreClick}
+            className="btnSecondary mx-auto mt-8  lg:hidden  "
+          >
+            Show More
+          </button>
+        )}
+        <div className="mx-auto hidden w-fit  grid-flow-col grid-rows-[repeat(12,_minmax(10px,_40px))] gap-8 lg:grid lg:grid-cols-2 xl:grid-cols-3">
+          {renderCards(0, projectData.length)}
+        </div>
       </div>
     </div>
   )

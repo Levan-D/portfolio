@@ -52,7 +52,16 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
   )
 
   if (!project) {
-    return <div>Error: Project not found</div>
+    return (
+      <div className="mx-auto mt-[30vh]  w-fit">
+        <h2 className="mb-4 text-center text-xl  font-semibold">
+          Can&apos;t find the project you&apos;re looking for
+        </h2>
+        <Link href="/" className="btnSecondary mt-8 text-center">
+          Return Home
+        </Link>
+      </div>
+    )
   }
 
   const {

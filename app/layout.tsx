@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <Providers>
-      <html lang="en" className="dark overflow-x-hidden">
+      <html lang="en" className="dark">
         <head>
           <link rel="icon" href="../public/favicon.ico" />
         </head>

@@ -10,7 +10,7 @@ export default function About() {
   return (
     <div
       id="about"
-      className="   blob flex flex-col justify-between md:h-[calc(100vh-88px)]"
+      className="  md:blob flex flex-col justify-between  md:h-[calc(100vh-88px)]"
     >
       <div className="pt-36   text-center md:ml-10 md:pt-[20vh] md:text-left">
         <div

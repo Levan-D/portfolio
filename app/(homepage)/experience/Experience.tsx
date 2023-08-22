@@ -21,6 +21,7 @@ export default function Experience() {
     rootMargin: "0px",
     threshold: 0.2,
   })
+
   return (
     <div
       ref={ref}

@@ -1,16 +1,20 @@
 /** @format */
-
+"use client"
 import ScrollBtn from "./components/ScrollBtn"
 import ContactBtn from "@/app/components/ContactBtn"
 import { personalData } from "@/app/data/personalData"
+import { useAppSelector } from "@/lib/redux/hooks"
 
 export default function About() {
   const profile = personalData.profile
+  const { screenWidth } = useAppSelector(state => state.global)
 
   return (
     <div
       id="about"
-      className="  md:blob flex flex-col justify-between  md:h-[calc(100vh-88px)]"
+      className={`${
+        screenWidth > 768 && "blob"
+      } max-w-screen flex flex-col justify-between overflow-hidden  md:h-[calc(100vh-88px)]`}
     >
       <div className="pt-36   text-center md:ml-10 md:pt-[20vh] md:text-left">
         <div

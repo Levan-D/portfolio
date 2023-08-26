@@ -56,40 +56,6 @@
   z-index: -1;
 }
 
-.blob:after {
-  position: absolute;
-  content: "";
-  height: 50vw;
-  width: 100vw;
-  opacity: 0;
-  overflow: hidden;
-
-  transform: translateY(-50px);
-  right: -60vw;
-  background: linear-gradient(247.23deg, #2dd4bf 0%, #3a5edf 100%);
-  background-blend-mode: overlay;
-  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 65%);
-  mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 65%);
-  z-index: -1;
-}
-
-.dark .blob:after {
-  position: absolute;
-  content: "";
-  height: 50vw;
-  width: 100vw;
-  opacity: 0.7;
-  overflow: hidden;
-
-  transform: translateY(-50px);
-  right: -60vw;
-  background: linear-gradient(247.23deg, #2dd4bf 0%, #3a5edf 100%);
-  background-blend-mode: overlay;
-  -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 65%);
-  mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 65%);
-  z-index: -1;
-}
-
 /* toast styling */
 .Toastify__toast {
   border-radius: 8px !important;

@@ -15,9 +15,9 @@ interface initialState {
 }
 
 const initialState: initialState = {
-  screenWidth: window ? window.innerWidth : 1200,
+  screenWidth: typeof window !== "undefined" ? window.innerWidth : 1200,
   activeLink: "",
-  darkMode: window ? localStorage.getItem("darkMode") !== "false" : true,
+  darkMode: typeof window !== "undefined" ? localStorage.getItem("darkMode") !== "false" : true,
   sider: false,
   modal: {
     vis: false,
@@ -37,7 +37,7 @@ const globalSlice = createSlice({
     },
     setDarkMode: (state, action: PayloadAction<initialState["darkMode"]>) => {
       state.darkMode = action.payload
-      if (window) {
+      if (typeof window !== "undefined") {
         localStorage.setItem("darkMode", String(action.payload))
       }
     },

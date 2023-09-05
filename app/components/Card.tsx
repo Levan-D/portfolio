@@ -67,7 +67,7 @@ export default function Card({
   let outerGlimmerSyle
   let innerGlimmerSyle
 
-  if (typeof window !== "undefined") {
+  if (window) {
     perspectiveStyle =
       perspective && hover && screenWidth > 540
         ? calculatePerspective(mousePos.x, mousePos.y)
@@ -84,7 +84,7 @@ export default function Card({
     }
     innerGlimmerSyle = {
       background:
-        screenWidth > 540 && glimmer && typeof window !== "undefined"
+        screenWidth > 540 && glimmer && window
           ? `radial-gradient(
     600px circle at ${mousePos.x}px ${mousePos.y}px,
     rgba(100, 116, 139, 0.2),

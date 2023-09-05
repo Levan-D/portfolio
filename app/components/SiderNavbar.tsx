@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
 import Tooltip from "./Tooltip"
 import { setActiveLink } from "@/lib/redux/slices/globalSlice"
 import { routes } from "./Navbar"
+import { v4 as uuidv4 } from "uuid"
 
 export default function SiderNavbar() {
   const { activeLink } = useAppSelector(state => state.global)
@@ -98,7 +99,7 @@ export default function SiderNavbar() {
       <ul className="flex translate-y-[-50%]  flex-col  items-end gap-3 font-semibold ">
         {routes.map((route, i) => (
           <li
-            key={route.name}
+            key={uuidv4()}
             className={`${
               activeLink === route.name && "!text-teal-700 dark:!text-teal-400"
             }  textTertiary text-xs `}

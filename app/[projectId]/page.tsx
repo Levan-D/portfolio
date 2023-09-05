@@ -6,6 +6,7 @@ import Icon from "@mdi/react"
 import { mdiGithub, mdiWeb } from "@mdi/js"
 import Link from "next/link"
 import { Metadata, ResolvingMetadata } from "next"
+import { v4 as uuidv4 } from "uuid"
 
 type Props = {
   params: {
@@ -90,7 +91,7 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
             {tech.map((tech: string) => (
               <div
                 className="rounded-full bg-teal-100 px-4  py-1 text-sm font-semibold text-teal-800 xl:text-base "
-                key={tech}
+                key={uuidv4()}
               >
                 {tech}
               </div>

@@ -4,6 +4,7 @@ import ScrollBtn from "./components/ScrollBtn"
 import ContactBtn from "@/app/components/ContactBtn"
 import { personalData } from "@/app/data/personalData"
 import { useAppSelector } from "@/lib/redux/hooks"
+import { v4 as uuidv4 } from "uuid"
 
 export default function About() {
   const profile = personalData.profile
@@ -22,10 +23,13 @@ export default function About() {
         >
           {profile.greetings.split("").map((letter, i) =>
             letter === " " ? (
-              <span key={i} style={{ width: "0.25em", display: "inline-block" }}></span>
+              <span
+                key={uuidv4()}
+                style={{ width: "0.25em", display: "inline-block" }}
+              ></span>
             ) : (
               <div
-                key={i}
+                key={uuidv4()}
                 style={{ animationDelay: `${0.1 * i}s` }}
                 className={`waveText`}
               >

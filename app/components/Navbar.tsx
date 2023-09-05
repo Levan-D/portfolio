@@ -17,6 +17,7 @@ import ContactBtn from "./ContactBtn"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useGlobalEffects } from "../hooks/useGlobalEffects"
+import { v4 as uuidv4 } from "uuid"
 
 type RouteType = {
   route: string
@@ -146,7 +147,7 @@ function MobileNavbar() {
           {pathname === "/" ? (
             routes.map(route => (
               <RouteScroll
-                key={route.name}
+                key={uuidv4()}
                 route={route.name}
                 toggleSidebar={toggleSidebar}
               />

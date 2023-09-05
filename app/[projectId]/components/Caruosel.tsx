@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Icon from "@mdi/react"
 import { mdiArrowTopRight } from "@mdi/js"
+import { v4 as uuidv4 } from "uuid"
 
 export default function Carousel() {
   return (
@@ -16,7 +17,7 @@ export default function Carousel() {
           {projectData.map(project => (
             <Link
               href={project.title.toLocaleLowerCase().replaceAll(" ", "-")}
-              key={project.id}
+              key={uuidv4()}
               className={`${project.visibility} group/title mb-2  flex aspect-square h-[calc(100%-8px)]  flex-shrink-0 flex-col  rounded-lg bg-slate-400 bg-opacity-50 p-2 duration-300 active:bg-slate-500 dark:bg-slate-700 dark:active:bg-slate-700 sm:hover:bg-slate-400 dark:sm:hover:bg-slate-600`}
             >
               <Image

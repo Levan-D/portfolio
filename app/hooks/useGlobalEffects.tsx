@@ -4,6 +4,7 @@
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import { useEffect } from "react"
 import { setScreenWidth } from "@/lib/redux/slices/globalSlice"
+import { setDarkMode } from "@/lib/redux/slices/globalSlice"
 
 export function useGlobalEffects() {
   const dispatch = useAppDispatch()
@@ -23,12 +24,21 @@ export function useGlobalEffects() {
 
   // Add or remove dark class on load
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark")
-      document.documentElement.classList.remove("light")
-    } else {
-      document.documentElement.classList.add("light")
-      document.documentElement.classList.remove("dark")
+    if (typeof window === "undefined") return
+
+    const darkModeLS = localStorage.getItem("darkMode")
+
+    if (darkModeLS) {
+      const darkModeParsed = JSON.parse(darkModeLS)
+      dispatch(setDarkMode(darkModeParsed))
+
+      if (darkModeParsed) {
+        document.documentElement.classList.add("dark")
+        document.documentElement.classList.remove("light")
+      } else {
+        document.documentElement.classList.add("light")
+        document.documentElement.classList.remove("dark")
+      }
     }
   }, [])
 

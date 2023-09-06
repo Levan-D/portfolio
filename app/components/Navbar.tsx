@@ -169,7 +169,6 @@ function MobileNavbar() {
 function DesktopNavbar() {
   const dispatch = useAppDispatch()
   const { darkMode, activeLink } = useAppSelector(state => state.global)
-  console.log(darkMode)
   const links = personalData.links
 
   const pathname = usePathname()

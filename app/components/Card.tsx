@@ -4,7 +4,7 @@
 import { useMousePosition } from "@/app/hooks/useMousePosition"
 import { useAppSelector } from "@/lib/redux/hooks"
 
-import React, { CSSProperties, useState } from "react"
+import React, { CSSProperties, useState,useEffect } from "react"
 
 type Props = {
   children: JSX.Element
@@ -67,31 +67,33 @@ export default function Card({
   let outerGlimmerSyle
   let innerGlimmerSyle
 
-  if (typeof window !== "undefined") {
-    perspectiveStyle =
-      perspective && hover && screenWidth > 540
-        ? calculatePerspective(mousePos.x, mousePos.y)
-        : {}
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      perspectiveStyle =
+        perspective && hover && screenWidth > 540
+          ? calculatePerspective(mousePos.x, mousePos.y)
+          : {}
 
-    outerGlimmerSyle = {
-      background:
-        screenWidth > 540 && glimmer
-          ? `radial-gradient(
-      600px circle at ${mousePos.x}px ${mousePos.y}px,
-      rgba(203, 213, 225, 0.3),
-      transparent 40%`
-          : "",
-    }
-    innerGlimmerSyle = {
-      background:
-        screenWidth > 540 && glimmer && typeof window !== "undefined"
-          ? `radial-gradient(
+      outerGlimmerSyle = {
+        background:
+          screenWidth > 540 && glimmer
+            ? `radial-gradient(
     600px circle at ${mousePos.x}px ${mousePos.y}px,
-    rgba(100, 116, 139, 0.2),
+    rgba(203, 213, 225, 0.3),
     transparent 40%`
-          : "",
+            : "",
+      }
+      innerGlimmerSyle = {
+        background:
+          screenWidth > 540 && glimmer && typeof window !== "undefined"
+            ? `radial-gradient(
+  600px circle at ${mousePos.x}px ${mousePos.y}px,
+  rgba(100, 116, 139, 0.2),
+  transparent 40%`
+            : "",
+      }
     }
-  }
+  }, [])
 
   return (
     <div

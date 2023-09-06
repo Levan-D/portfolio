@@ -2,7 +2,7 @@
 "use client"
 import { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
-import { techObj } from "../../data/techData"
+import { techObj } from "../data/techData"
 import Image from "next/image"
 import Card from "@/app/components/Card"
 import { personalData } from "@/app/data/personalData"

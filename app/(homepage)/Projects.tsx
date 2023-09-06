@@ -4,7 +4,7 @@
 import { useState } from "react"
 import { useAppSelector } from "@/lib/redux/hooks"
 import Card from "@/app/components/Card"
-import { projectData } from "../../data/projectData"
+import { projectData } from "../data/projectData"
 import Link from "next/link"
 import Image from "next/image"
 import { personalData } from "@/app/data/personalData"

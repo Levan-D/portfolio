@@ -1,14 +1,21 @@
 /** @format */
 "use client"
-import ScrollBtn from "./components/ScrollBtn"
 import ContactBtn from "@/app/components/ContactBtn"
 import { personalData } from "@/app/data/personalData"
 import { useAppSelector } from "@/lib/redux/hooks"
 import { v4 as uuidv4 } from "uuid"
 
+import Icon from "@mdi/react"
+import { mdiChevronDown } from "@mdi/js"
+
 export default function About() {
   const profile = personalData.profile
   const { screenWidth } = useAppSelector(state => state.global)
+
+  const scrollToElementSmooth = () => {
+    const element = document.getElementById("projects")
+    element?.scrollIntoView({ behavior: "smooth" })
+  }
 
   return (
     <div
@@ -52,7 +59,23 @@ export default function About() {
         </div>
       </div>
 
-      <ScrollBtn />
+      <div className="scrollWrap group mx-auto hidden  w-fit translate-y-[40%] rounded-full  duration-500 hover:p-14 md:block">
+        <button
+          aria-label="scroll down"
+          onClick={scrollToElementSmooth}
+          className="rounded-full border-2 border-teal-400 p-28 duration-500 group-hover:bg-teal-400   group-hover:p-14 "
+        >
+          <div className="arrow transition-opacity group-hover:opacity-0">
+            <Icon path={mdiChevronDown} size={2.5} />
+          </div>
+          <div className="arrowDelay">
+            <Icon path={mdiChevronDown} size={2.5} />
+          </div>
+          <div className="arrowDelaySecond">
+            <Icon path={mdiChevronDown} size={2.5} />
+          </div>
+        </button>
+      </div>
     </div>
   )
 }

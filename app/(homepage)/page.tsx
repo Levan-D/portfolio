@@ -1,9 +1,9 @@
 /** @format */
 
-import About from "./about/About"
-import Projects from "./projects/Projects"
-import Technologies from "./technologies/Technologies"
-import Experience from "./experience/Experience"
+import About from "./About"
+import Projects from "./Projects"
+import Technologies from "./Technologies"
+import Experience from "./Experience"
 import SiderNavbar from "@/app/components/SiderNavbar"
 
 export default function Home() {

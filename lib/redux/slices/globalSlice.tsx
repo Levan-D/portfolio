@@ -6,7 +6,7 @@ import type { PayloadAction } from "@reduxjs/toolkit"
 interface initialState {
   screenWidth: number
   activeLink: string
-  darkMode: boolean
+  darkMode: boolean | undefined
   sider: boolean
   modal: {
     vis: boolean
@@ -15,9 +15,9 @@ interface initialState {
 }
 
 const initialState: initialState = {
-  screenWidth: typeof window !== "undefined" ? window.innerWidth : 1200,
+  screenWidth: 1200,
   activeLink: "",
-  darkMode: typeof window !== "undefined" ? localStorage.getItem("darkMode") !== "false" : true,
+  darkMode: undefined,
   sider: false,
   modal: {
     vis: false,

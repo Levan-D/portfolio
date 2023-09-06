@@ -169,7 +169,7 @@ function MobileNavbar() {
 function DesktopNavbar() {
   const dispatch = useAppDispatch()
   const { darkMode, activeLink } = useAppSelector(state => state.global)
-
+  console.log(darkMode)
   const links = personalData.links
 
   const pathname = usePathname()
@@ -211,7 +211,7 @@ function DesktopNavbar() {
   }
 
   return (
-    <nav className="hidden select-none  p-6 md:block mx-auto w-full max-w-screen-2xl">
+    <nav className="mx-auto hidden  w-full max-w-screen-2xl select-none p-6 md:block">
       <ul className="flex items-center justify-end ">
         {pathname === "/" ? (
           routes.map(

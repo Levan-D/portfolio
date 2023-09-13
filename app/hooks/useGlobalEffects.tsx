@@ -14,7 +14,7 @@ export function useGlobalEffects() {
     const handleResize = () => {
       dispatch(setScreenWidth(window.innerWidth))
     }
-
+    handleResize()
     window.addEventListener("resize", handleResize)
 
     return () => {

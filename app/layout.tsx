@@ -54,9 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <Providers>
       <html lang="en" className="dark overflow-x-hidden">
-        <head>
-          <link rel="icon" href="../public/favicon.ico" />
-        </head>
         <body
           className={`${inter.className}   backgroundGrid   flex	 min-h-screen  flex-col    bg-slate-200 text-slate-950  dark:bg-gradient-body-dark dark:text-white`}
         >

@@ -8,12 +8,12 @@ import SiderNavbar from "@/app/components/SiderNavbar"
 
 export default function Home() {
   return (
-    <div>
+    <section>
       <SiderNavbar />
       <About />
       <Projects />
       <Technologies />
       <Experience />
-    </div>
+    </section>
   )
 }

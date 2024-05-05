@@ -1,6 +1,5 @@
 /** @format */
 "use client"
-import { useEffect } from "react"
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import Icon from "@mdi/react"
 import { mdiClose } from "@mdi/js"
@@ -12,18 +11,6 @@ export default function Modal() {
   const {
     modal: { vis, type },
   } = useAppSelector(state => state.global)
-
-  useEffect(() => {
-    if (vis) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
-    }
-
-    return () => {
-      document.body.style.overflow = "unset"
-    }
-  }, [vis])
 
   const handleCloseModal = (event: React.MouseEvent) => {
     if (event.target === event.currentTarget) {

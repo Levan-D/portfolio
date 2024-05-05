@@ -5,9 +5,9 @@ export default function Footer() {
   const profile = personalData.profile
   return (
     <footer>
-      <div className="textTertiary p-8 text-center">
-        © 2023 {profile.name}. All Rights Reserved.
-      </div>
+      <p className="textTertiary p-8 text-center">
+        © 2024 {profile.name}. All Rights Reserved.
+      </p>
     </footer>
   )
 }

@@ -7,7 +7,7 @@ interface initialState {
   screenWidth: number
   activeLink: string
   darkMode: boolean | undefined
-  sider: boolean
+
   modal: {
     vis: boolean
     type: string
@@ -18,7 +18,6 @@ const initialState: initialState = {
   screenWidth: 1200,
   activeLink: "",
   darkMode: undefined,
-  sider: false,
   modal: {
     vis: false,
     type: "",
@@ -41,26 +40,26 @@ const globalSlice = createSlice({
         localStorage.setItem("darkMode", String(action.payload))
       }
     },
-    setSider: (state, action: PayloadAction<initialState["sider"]>) => {
-      state.sider = action.payload
-    },
+
     openModal: (state, action: PayloadAction<initialState["modal"]>) => {
       state.modal.vis = action.payload.vis
       state.modal.type = action.payload.type
+
+      if (typeof window !== "undefined" && state.modal.vis) {
+        document.documentElement.style.overflowY = "hidden"
+      }
     },
     closeModal: state => {
       state.modal.vis = false
       state.modal.type = ""
+
+      if (typeof window !== "undefined" && !state.modal.vis) {
+        document.documentElement.style.overflowY = "unset"
+      }
     },
   },
 })
 
-export const {
-  setActiveLink,
-  openModal,
-  closeModal,
-  setDarkMode,
-  setScreenWidth,
-  setSider,
-} = globalSlice.actions
+export const { setActiveLink, openModal, closeModal, setDarkMode, setScreenWidth } =
+  globalSlice.actions
 export default globalSlice.reducer

@@ -1,0 +1,24 @@
+/** @format */
+
+.glow:hover {
+  animation: glow 20s infinite alternate;
+}
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0;
+  }
+
+  28%,
+  60%,
+  100% {
+    box-shadow: 0 0 36px rgba(45, 212, 191, 0.7), 0 0 16px rgba(45, 212, 191, 1),
+      0 0 50px rgba(232, 121, 249, 0.8), inset 0 0 24px rgba(45, 212, 191, 1);
+  }
+
+  20%,
+  40%,
+  80% {
+    box-shadow: 0 0 24px rgba(45, 212, 191, 0.6), 0 0 12px rgba(45, 212, 191, 0.8),
+      0 0 30px rgba(232, 121, 249, 0.6), inset 0 0 16px rgba(45, 212, 191, 0.8);
+  }
+}

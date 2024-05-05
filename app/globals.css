@@ -195,53 +195,10 @@
 
 /* contact btn */
 
-.flickerBox:hover {
-  animation: flickerBox 20s infinite alternate;
-}
-@keyframes flickerBox {
-  0% {
-    box-shadow: 0 0 0;
-  }
 
-  28%,
-  60%,
-  100% {
-    box-shadow: 0 0 36px rgba(45, 212, 191, 0.7), 0 0 16px rgba(45, 212, 191, 1),
-      0 0 50px rgba(232, 121, 249, 0.8), inset 0 0 24px rgba(45, 212, 191, 1);
-  }
-
-  20%,
-  40%,
-  80% {
-    box-shadow: 0 0 24px rgba(45, 212, 191, 0.6), 0 0 12px rgba(45, 212, 191, 0.8),
-      0 0 30px rgba(232, 121, 249, 0.6), inset 0 0 16px rgba(45, 212, 191, 0.8);
-  }
-}
 
 /* card animations */
-.sideLine:after {
-  content: "";
-  height: 100px;
-  width: 1px;
-  position: absolute;
-  left: -1px;
-  top: 65%;
-  transition: top, opacity;
-  transition-duration: 900ms;
-  transition-timing-function: ease;
-  background: linear-gradient(transparent, rgba(45, 212, 191, 1), transparent);
-  opacity: 0;
-}
 
-.sideLine:after {
-  top: 65%;
-  opacity: 0;
-}
-
-.sideLine:hover:after {
-  top: 15%;
-  opacity: 1;
-}
 
 /* h1 animation */
 

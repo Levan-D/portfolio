@@ -7,10 +7,10 @@ import { mdiEmailFastOutline } from "@mdi/js"
 import { openModal } from "@/lib/redux/slices/globalSlice"
 
 type Props = {
-  type?: "icon"
+  icon?: boolean
 }
 
-export default function ContactBtn({ type }: Props) {
+export default function ContactBtn({ icon }: Props) {
   const dispatch = useAppDispatch()
 
   const handleOpenModal = () => {
@@ -22,10 +22,9 @@ export default function ContactBtn({ type }: Props) {
       className={`flickerBox btnSecondary z-50 flex gap-4 dark:bg-slate-900`}
       onClick={handleOpenModal}
     >
-      <div className={`${type === "icon" && "hidden lg:block"} `}>Get in touch</div>
-      <div>
-        <Icon path={mdiEmailFastOutline} size={1} />
-      </div>
+      {!icon && <p>Get in touch</p>}
+
+      <Icon path={mdiEmailFastOutline} size={1} />
     </button>
   )
 }

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
 import Tooltip from "./Tooltip"
 import { setActiveLink } from "@/lib/redux/slices/globalSlice"
-import { routes } from "./Navbar"
+import { routes } from "./Navbar/routes"
 import { v4 as uuidv4 } from "uuid"
 
 export default function SiderNavbar() {
@@ -33,7 +33,7 @@ export default function SiderNavbar() {
           dispatch(setActiveLink(largestRatioId))
         }
       },
-      { threshold: 0.5}
+      { threshold: 0.5 }
     )
 
     const ids = routes.map(route => `#${route.name}`)

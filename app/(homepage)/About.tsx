@@ -20,9 +20,9 @@ export default function About() {
   return (
     <div
       id="about"
-      className={`${
-        screenWidth > 768 && "blob"
-      } max-w-screen flex flex-col justify-between   md:h-[calc(100vh-88px)]`}
+      className={`
+      ${screenWidth > 768 && "blob"}
+       max-w-screen flex flex-col justify-between   md:h-[calc(100vh-88px)]`}
     >
       <div className="pt-36   text-center md:ml-10 md:pt-[20vh] md:text-left">
         <div

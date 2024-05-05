@@ -2,7 +2,7 @@
 
 import "./globals.css"
 import { Inter } from "next/font/google"
-import Navbar from "@/app/components/Navbar"
+import Navbar from "@/app/components/Navbar/Navbar"
 import Footer from "@/app/components/Footer"
 import { Providers } from "@/lib/provider"
 import BackToTopBtn from "@/app/components/BackToTop"
@@ -10,12 +10,16 @@ import Modal from "./components/Modal"
 import "react-toastify/dist/ReactToastify.css"
 import { ToastContainer } from "react-toastify"
 import { Metadata } from "next"
+import type { Viewport } from "next"
 
 const inter = Inter({ subsets: ["latin"] })
 
+export const viewport: Viewport = {
+  themeColor: "black",
+  colorScheme: "dark",
+}
 export const metadata: Metadata = {
   metadataBase: new URL("https://levandolidze.com"),
-  themeColor: "black",
 
   title: "Levan Dolidze - Web Developer",
   description:
@@ -23,7 +27,7 @@ export const metadata: Metadata = {
   keywords:
     "Web Developer, React, Next.js, Tailwind, Typescript, Node.js, JavaScript, Portfolio",
   authors: [{ name: "Levan Dolidze" }],
-  colorScheme: "dark",
+
   creator: "Levan Dolidze",
   publisher: "Levan Dolidze",
 

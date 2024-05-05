@@ -3,7 +3,7 @@
 "use client"
 
 import { useState } from "react"
-import Card from "../../components/Card"
+import Card from "../../components/Card/Card"
 import Icon from "@mdi/react"
 import { mdiLaptop, mdiCellphone } from "@mdi/js"
 import Image from "next/image"

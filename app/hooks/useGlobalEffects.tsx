@@ -8,7 +8,7 @@ import { setDarkMode } from "@/lib/redux/slices/globalSlice"
 
 export function useGlobalEffects() {
   const dispatch = useAppDispatch()
-  const { darkMode, sider } = useAppSelector(state => state.global)
+ 
   // set screen size
   useEffect(() => {
     const handleResize = () => {
@@ -42,17 +42,5 @@ export function useGlobalEffects() {
     }
   }, [])
 
-  // Disable scroll when sider is visible
-  useEffect(() => {
-    if (sider) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
-    }
 
-    // Cleanup function to prevent side-effects
-    return () => {
-      document.body.style.overflow = "unset"
-    }
-  }, [sider])
 }

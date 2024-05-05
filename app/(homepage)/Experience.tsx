@@ -3,7 +3,7 @@
 
 import { useState } from "react"
 import { personalData } from "@/app/data/personalData"
-import Card from "@/app/components/Card"
+import Card from "@/app/components/Card/Card"
 import { v4 as uuidv4 } from "uuid"
 import useIntersectionObserver from "@/app/hooks/useIntersectionObserver"
 

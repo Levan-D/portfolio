@@ -2,7 +2,7 @@
 
 import React from "react"
 import { projectData } from "@/app/data/projectData"
-import Card from "@/app/components/Card"
+import Card from "@/app/components/Card/Card"
 import Image from "next/image"
 import Link from "next/link"
 import Icon from "@mdi/react"

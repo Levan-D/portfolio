@@ -6,7 +6,6 @@ import type { PayloadAction } from "@reduxjs/toolkit"
 interface initialState {
   screenWidth: number
   activeLink: string
-  darkMode: boolean | undefined
 
   modal: {
     vis: boolean
@@ -17,7 +16,6 @@ interface initialState {
 const initialState: initialState = {
   screenWidth: 1200,
   activeLink: "",
-  darkMode: undefined,
   modal: {
     vis: false,
     type: "",
@@ -33,12 +31,6 @@ const globalSlice = createSlice({
     },
     setActiveLink: (state, action: PayloadAction<initialState["activeLink"]>) => {
       state.activeLink = action.payload
-    },
-    setDarkMode: (state, action: PayloadAction<initialState["darkMode"]>) => {
-      state.darkMode = action.payload
-      if (typeof window !== "undefined") {
-        localStorage.setItem("darkMode", String(action.payload))
-      }
     },
 
     openModal: (state, action: PayloadAction<initialState["modal"]>) => {
@@ -60,6 +52,6 @@ const globalSlice = createSlice({
   },
 })
 
-export const { setActiveLink, openModal, closeModal, setDarkMode, setScreenWidth } =
+export const { setActiveLink, openModal, closeModal, setScreenWidth } =
   globalSlice.actions
 export default globalSlice.reducer

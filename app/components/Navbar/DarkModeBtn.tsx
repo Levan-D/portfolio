@@ -1,30 +1,33 @@
 /** @format */
-
-import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
-import { setDarkMode } from "@/lib/redux/slices/globalSlice"
+"use client"
+import { useState, useEffect } from "react"
 import Icon from "@mdi/react"
-import { mdiWeatherNight, mdiWhiteBalanceSunny } from "@mdi/js"
+import { mdiWeatherNight, mdiWhiteBalanceSunny, mdiCircleDouble } from "@mdi/js"
+import { useTheme } from "next-themes"
 
 type Props = {
   icon?: boolean
 }
 
 export default function DarkModeBtn({ icon }: Props) {
-  const { darkMode } = useAppSelector(state => state.global)
-
-  const dispatch = useAppDispatch()
+  const [mounted, setMounted] = useState(false)
+  const { setTheme, resolvedTheme } = useTheme()
+  useEffect(() => setMounted(true), [])
 
   const handleDarkMode = () => {
-    const newDarkMode = !darkMode
-    dispatch(setDarkMode(newDarkMode))
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark")
-      document.documentElement.classList.remove("light")
+    if (resolvedTheme === "dark") {
+      setTheme("light")
     } else {
-      document.documentElement.classList.add("light")
-      document.documentElement.classList.remove("dark")
+      setTheme("dark")
     }
   }
+
+  if (!mounted)
+    return (
+      <button aria-label="toggle dark mode" className="btnTertiary translate-y-0.5">
+        <Icon path={mdiCircleDouble} size={1} />
+      </button>
+    )
 
   return !icon ? (
     <button
@@ -32,7 +35,10 @@ export default function DarkModeBtn({ icon }: Props) {
       onClick={handleDarkMode}
       className="btnTertiary translate-y-0.5"
     >
-      <Icon path={!darkMode ? mdiWeatherNight : mdiWhiteBalanceSunny} size={1} />
+      <Icon
+        path={resolvedTheme !== "dark" ? mdiWeatherNight : mdiWhiteBalanceSunny}
+        size={1}
+      />
     </button>
   ) : (
     <button
@@ -41,8 +47,11 @@ export default function DarkModeBtn({ icon }: Props) {
       className="btnSecondary mx-auto mb-4 translate-y-0.5"
     >
       <div className="flex gap-4">
-        <p> {!darkMode ? "Dark mode" : "Light Mode"}</p>
-        <Icon path={!darkMode ? mdiWeatherNight : mdiWhiteBalanceSunny} size={1} />
+        <p> {resolvedTheme !== "dark" ? "Dark mode" : "Light Mode"}</p>
+        <Icon
+          path={resolvedTheme !== "dark" ? mdiWeatherNight : mdiWhiteBalanceSunny}
+          size={1}
+        />
       </div>
     </button>
   )

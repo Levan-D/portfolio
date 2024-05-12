@@ -52,21 +52,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Providers>
-      <html lang="en" className="dark overflow-x-hidden">
-        <body
-          className={`${inter.className}   backgroundGrid   flex	 min-h-screen  flex-col    bg-slate-200 text-slate-950  dark:bg-gradient-body-dark dark:text-white`}
-        >
+    <html>
+      <body
+        className={`${inter.className}   backgroundGrid   flex	 min-h-screen  flex-col    bg-slate-200 text-slate-950  dark:bg-gradient-body-dark dark:text-white`}
+      >
+        <Providers>
           <Navbar />
-
           <BackToTopBtn />
           <Modal />
           <ToastContainer position="top-center" theme="dark" newestOnTop />
-
           <main className=" mx-auto w-full max-w-screen-2xl grow   px-8">{children}</main>
-          <Footer />
-        </body>
-      </html>
-    </Providers>
+          <Footer />{" "}
+        </Providers>
+      </body>
+    </html>
   )
 }

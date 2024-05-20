@@ -48,7 +48,7 @@ export default function Technologies() {
         }  mx-auto w-fit duration-500`}
       >
         <Card sideLine>
-          <div className=" flex  max-w-xl select-none flex-wrap justify-center gap-6  rounded-xl px-0 py-10 md:px-6 lg:max-w-3xl lg:px-12 lg:py-20  xl:max-w-5xl ">
+          <div className=" flex  select-none flex-wrap justify-center gap-6 rounded-xl  px-0 py-10 md:max-w-xl  lg:max-w-3xl lg:px-12 lg:py-20  xl:max-w-5xl ">
             {techObj.map((item, i) => (
               <Link
                 key={item.name + i}

@@ -113,17 +113,14 @@ export const projectData: ProjectsDataType[] = [
     images: {
       coverWeb: tetrisCoverWeb,
     },
-    links: {
-      github: "aaa",
-      website: "ssss",
-    },
+    links: {},
   },
 
   {
     title: "Levan Dolidze",
     pitch: "Portfolio site designed in figma and built with Next.js.",
     desc: "The repository features the source code for my personal portfolio website at https://levandolidze.com/. Designed in Figma and built using Next.js. It offers customizable sections for personal details, a dedicated space for project highlights, and a contact form ready to be linked with Google OAuth. If you find it fitting, you're welcome to fork and tailor it for your own use.",
-    tech: ["Next.js", "Tailwind", "nodemailer", "React Toastify"],
+    tech: ["Next.js", "Tailwind", "Nodemailer", "Hook Form", "React Toastify"],
     images: {
       coverWeb: portCoverWeb,
       coverMobile: portCoverMobile,
@@ -131,8 +128,8 @@ export const projectData: ProjectsDataType[] = [
       rightMobile: portRightMobile,
     },
     links: {
-      github: "aaa",
-      website: "ssss",
+      github: "https://github.com/Levan-D/portfolio",
+      website: "https://levandolidze.com",
     },
   },
 ]

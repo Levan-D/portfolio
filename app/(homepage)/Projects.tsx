@@ -40,20 +40,16 @@ export default function Projects() {
 
     const link = title.toLocaleLowerCase().replaceAll(" ", "-")
 
+    const nexus = title.toLowerCase().includes("nexus") && screenWidth > 1024
+
     return (
       <Card glow className={`active:scale-[0.99]   sm:hover:scale-[1.01]    `}>
         <Link href={link} className={`  flex h-full flex-col gap-4`}>
-          <div
-            className={`${
-              title.includes("Nexus") ? "flex-row gap-4" : "flex-col gap-2"
-            }  flex `}
-          >
+          <div className={`${nexus ? "flex-row gap-4" : "flex-col gap-2"}  flex `}>
             <Image
-              src={icon && screenWidth > 1024 ? icon : coverWeb}
+              src={icon && nexus ? icon : coverWeb}
               alt={` cover picture for ${title} project`}
-              className={`${
-                title.includes("Nexus") && "h-20 w-20"
-              }   mx-auto w-fit rounded-lg `}
+              className={`${nexus && "h-20 w-20"}   mx-auto w-fit rounded-lg `}
             />
 
             <div className={`overflow-hidden  `}>
@@ -75,7 +71,7 @@ export default function Projects() {
         isVisible
           ? " md:translate-y-0 md:opacity-100"
           : "md:translate-y-[300px] md:opacity-0"
-      }      mt-40 p-20 duration-500`}
+      }      mt-40 p-20 px-0 duration-500 md:px-20`}
       ref={ref}
     >
       <div className="mx-auto mb-12   w-fit   text-center lg:text-left  ">

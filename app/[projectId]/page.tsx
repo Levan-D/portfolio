@@ -17,11 +17,13 @@ type Props = {
   }
 }
 
-export async function generateMetadata(
-  { params: { projectId } }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const project = projectData.find(card => card.title === projectId)
+export async function generateMetadata({
+  params: { projectId },
+}: Props): Promise<Metadata> {
+  const project = projectData.find(
+    card => card.title.toLowerCase().replaceAll(" ", "-") === projectId
+  )
+
   return {
     title: project?.title,
     description: project?.pitch,

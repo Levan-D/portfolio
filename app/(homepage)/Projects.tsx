@@ -7,13 +7,13 @@ import Card from "@/app/components/Card/Card"
 import { projectData } from "../data/projectData"
 import Link from "next/link"
 import Image from "next/image"
-import { personalData } from "@/app/data/personalData"
 import useIntersectionObserver from "@/app/hooks/useIntersectionObserver"
+import StaggeredGrid from "@/app/components/StaggeredGrid"
+import { ProjectsDataType } from "../data/projectData"
 
 export default function Projects() {
   const { screenWidth } = useAppSelector(state => state.global)
   const [cardCount, setCardCount] = useState(4)
-  const projects = personalData.projects
 
   const [isVisible, setIsVisible] = useState(false)
 
@@ -30,106 +30,76 @@ export default function Projects() {
   const handleMoreClick = () => {
     setCardCount(prevCount => Math.min(prevCount + 3, projectData.length))
   }
-  const renderCards = (start: number, end: number) => {
-    return projectData.slice(start, end).map(card => {
-      const {
-        id,
-        height,
-        stagger,
-        visibility,
-        title,
-        pitch,
-        tech,
-        images: { coverWeb, icon },
-      } = card
 
-      let imgCSS = " grow object-cover "
-      let flex
-      let text
+  const renderCard = (card: ProjectsDataType) => {
+    const {
+      title,
+      pitch,
+      images: { coverWeb, icon },
+    } = card
 
-      if (height.includes("lg:row-span-4")) {
-        imgCSS += "lg:!h-[100px]"
-        text = "lg:!line-clamp-3"
-      }
+    const link = title.toLocaleLowerCase().replaceAll(" ", "-")
 
-      if (height.includes("xl:row-span-3")) {
-        imgCSS += "lg:!h-[76px] lg:w-[76px] w-full xl:mt-2 w-fit mx-auto"
-        flex = "lg:!flex-row "
-        text = "lg:!line-clamp-2 !line-clamp-none xl:!line-clamp-6	"
-      }
+    return (
+      <Card glow className={`active:scale-[0.99]   sm:hover:scale-[1.01]    `}>
+        <Link href={link} className={`  flex h-full flex-col gap-4`}>
+          <div
+            className={`${
+              title.includes("Nexus") ? "flex-row gap-4" : "flex-col gap-2"
+            }  flex `}
+          >
+            <Image
+              src={icon && screenWidth > 1024 ? icon : coverWeb}
+              alt={` cover picture for ${title} project`}
+              className={`${
+                title.includes("Nexus") && "h-20 w-20"
+              }   mx-auto w-fit rounded-lg `}
+            />
 
-      const link = title.toLocaleLowerCase().replaceAll(" ", "-")
-      return (
-        <Card
-          key={id}
-          glow={true}
-          customCSS={`${height}  ${stagger}  ${visibility}  sm:hover:scale-[1.01]  active:scale-[0.99]  max-w-[400px]  `}
-        >
-          <Link href={link} className={`${flex} flex h-full flex-col gap-4`}>
-            {icon && screenWidth > 1024 ? (
-              <Image
-                src={icon}
-                alt={` cover picture for ${title} project`}
-                className={` ${imgCSS} rounded-lg `}
-              />
-            ) : (
-              <Image
-                src={coverWeb}
-                alt={` cover picture for ${title} project`}
-                className={` ${imgCSS} rounded-lg `}
-              />
-            )}
-
-            <div className={`overflow-hidden ${!flex && "mb-1"} `}>
+            <div className={`overflow-hidden  `}>
               <h3 className="font-semibold">{title}</h3>
-              <p
-                className={` ${text} textTertiary	 text-sm lg:line-clamp-2 xl:line-clamp-4`}
-              >
+              <p className={`  textTertiary	 line-clamp-4  text-sm  md:line-clamp-none `}>
                 {pitch}
               </p>
             </div>
-          </Link>
-        </Card>
-      )
-    })
+          </div>
+        </Link>
+      </Card>
+    )
   }
 
   return (
     <div
       id="projects"
-      className={`    mt-20 py-20    sm:mx-16 md:mt-[200px] md:min-h-screen`}
+      className={` ${
+        isVisible
+          ? " md:translate-y-0 md:opacity-100"
+          : "md:translate-y-[300px] md:opacity-0"
+      }      mt-40 p-20 duration-500`}
+      ref={ref}
     >
-      <div
-        ref={ref}
-        className={`${
-          isVisible
-            ? " md:translate-y-0 md:opacity-100"
-            : "md:translate-y-[300px] md:opacity-0"
-        }    md:duration-500 `}
-      >
-        <div className="mx-auto w-fit -translate-y-10 text-center  lg:-translate-y-10 lg:text-left xl:-translate-x-20 xl:translate-y-6">
-          <h2 className="textSecondary text-2xl font-bold md:text-3xl  lg:text-4xl">
-            {projects.title}
-          </h2>
-          <p className="textTertiary mt-4 font-semibold lg:text-xl"> {projects.desc}</p>
-        </div>
+      <div className="mx-auto mb-12   w-fit   text-center lg:text-left  ">
+        <h2 className="textSecondary text-2xl font-bold md:text-3xl  lg:text-4xl">
+          Projects
+        </h2>
+        <p className="textTertiary mt-4 font-semibold lg:text-xl">Some of my works</p>
+      </div>
 
-        <div className="mx-auto flex  w-fit  flex-wrap justify-center gap-8 lg:hidden ">
-          {renderCards(0, cardCount)}
-        </div>
-        {cardCount < projectData.length && (
-          <button
-            onClick={handleMoreClick}
-            className="btnSecondary mx-auto mt-8  lg:hidden  "
-          >
+      <div className="mx-auto w-fit  ">
+        <StaggeredGrid
+          staggered={screenWidth > 768}
+          items={screenWidth > 768 ? projectData : projectData.slice(0, cardCount)}
+          renderItem={renderCard}
+          columns={screenWidth > 1024 ? 3 : screenWidth > 768 ? 2 : 1}
+        />
+        {screenWidth > 768 || cardCount >= projectData.length ? (
+          <></>
+        ) : (
+          <button onClick={handleMoreClick} className="btnSecondary mx-auto mt-8   ">
             Show More
           </button>
         )}
-        <div className="mx-auto hidden w-fit  grid-flow-col grid-rows-[repeat(12,_minmax(10px,_40px))] gap-8 lg:grid lg:grid-cols-2 xl:grid-cols-3">
-          {renderCards(0, projectData.length)}
-        </div>
       </div>
     </div>
   )
 }
-// change xl:grid-cols to 4 and fix title when you add projects. remember to change visibility in the data structure.

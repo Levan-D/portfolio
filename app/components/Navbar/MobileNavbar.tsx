@@ -8,14 +8,8 @@ import { mdiMenu, mdiBackburger } from "@mdi/js"
 import ContactBtn from "../ContactBtn"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { v4 as uuidv4 } from "uuid"
 import { routes } from "./routes"
 import DarkModeBtn from "./DarkModeBtn"
-
-type RouteType = {
-  route: string
-  closeSider: () => void
-}
 
 export default function MobileNavbar() {
   const dispatch = useAppDispatch()
@@ -35,7 +29,7 @@ export default function MobileNavbar() {
     setSider(false)
   }
 
-  const routeBtn = (route: string) => {
+  const routeBtn = (route: string, i: number) => {
     const scrollToElementSmooth = (elementId: string) => {
       const element = document.getElementById(elementId)
       element?.scrollIntoView({ behavior: "smooth" })
@@ -48,7 +42,7 @@ export default function MobileNavbar() {
     }
     return (
       <li
-        key={route}
+        key={route + i}
         className={`${
           activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
         } btnTertiary   mx-4  text-center text-xl md:text-base `}
@@ -96,7 +90,7 @@ export default function MobileNavbar() {
           </li>
 
           {pathname === "/" ? (
-            routes.map(route => routeBtn(route.name))
+            routes.map((route, i) => routeBtn(route.name, i))
           ) : (
             <li
               onClick={handleCloseSider}

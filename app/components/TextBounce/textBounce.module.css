@@ -1,0 +1,28 @@
+/** @format */
+
+.waveText {
+  animation-name: waveDark;
+  color: rgb(45 212 191);
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes waveDark {
+  0%,
+  100% {
+    color: #2dd4bf;
+  }
+  10% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-10px);
+    color: #818cf8;
+  }
+  30% {
+    transform: translateY(0);
+  }
+  50% {
+    color: #38bdf8;
+  }
+}

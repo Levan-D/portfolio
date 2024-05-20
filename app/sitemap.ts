@@ -6,7 +6,7 @@ import { projectData } from "./data/projectData"
 const baseURL = "https://levandolidze.com"
 
 const projectUrls = projectData.map(project => {
-  return { url: baseURL + "/" + project.id, lastModified: new Date() }
+  return { url: baseURL + "/" + project.title.toLocaleLowerCase().replaceAll(" ", "-"), lastModified: new Date() }
 })
 
 export default function sitemap(): MetadataRoute.Sitemap {

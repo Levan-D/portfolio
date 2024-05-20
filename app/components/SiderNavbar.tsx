@@ -2,107 +2,104 @@
 
 "use client"
 
-import { useEffect, useState } from "react"
-import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
-import Tooltip from "./Tooltip"
-import { setActiveLink } from "@/lib/redux/slices/globalSlice"
-import { routes } from "./Navbar/routes"
-import { v4 as uuidv4 } from "uuid"
+import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
+import Tooltip from "./Tooltip";
+import { setActiveLink } from "@/lib/redux/slices/globalSlice";
+import { routes } from "./Navbar/routes";
 
 export default function SiderNavbar() {
-  const { activeLink } = useAppSelector(state => state.global)
+  const { activeLink } = useAppSelector((state) => state.global);
 
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
-  const [showNav, setShowNav] = useState(false)
+  const [showNav, setShowNav] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
-        let largestRatio = 0
-        let largestRatioId = ""
+      (entries) => {
+        let largestRatio = 0;
+        let largestRatioId = "";
 
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.intersectionRatio > largestRatio) {
-            largestRatio = entry.intersectionRatio
-            largestRatioId = entry.target.id
+            largestRatio = entry.intersectionRatio;
+            largestRatioId = entry.target.id;
           }
-        })
+        });
 
-        if (largestRatio > 0.5) {
-          dispatch(setActiveLink(largestRatioId))
+        if (largestRatio > 0.2) {
+          dispatch(setActiveLink(largestRatioId));
         }
       },
-      { threshold: 0.5 }
-    )
+      { threshold: 0.2 }
+    );
 
-    const ids = routes.map(route => `#${route.name}`)
+    const ids = routes.map((route) => `#${route.name}`);
 
-    const sections = document.querySelectorAll(ids.join(", "))
+    const sections = document.querySelectorAll(ids.join(", "));
 
-    sections.forEach(section => observer.observe(section))
+    sections.forEach((section) => observer.observe(section));
 
-    const experienceSection = document.querySelector("#experience")
+    const experienceSection = document.querySelector("#experience");
 
     const lastSectionObserver = new IntersectionObserver(
-      entries => {
-        const entry = entries[0]
+      (entries) => {
+        const entry = entries[0];
         if (entry.isIntersecting) {
-          dispatch(setActiveLink(entry.target.id))
+          dispatch(setActiveLink(entry.target.id));
         }
       },
       { threshold: 0 }
-    )
+    );
 
     if (experienceSection) {
-      lastSectionObserver.observe(experienceSection)
+      lastSectionObserver.observe(experienceSection);
     }
 
     return () => {
-      observer.disconnect()
-      lastSectionObserver.disconnect()
-    }
-  }, [dispatch])
+      observer.disconnect();
+      lastSectionObserver.disconnect();
+    };
+  }, [dispatch]);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       if (window.scrollY > 800) {
-        setShowNav(true)
+        setShowNav(true);
       } else {
-        setShowNav(false)
+        setShowNav(false);
       }
-    })
-    return window.removeEventListener("scroll", () => {
-      if (window.scrollY > 800) {
-        setShowNav(true)
-      } else {
-        setShowNav(false)
-      }
-    })
-  }, [])
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const scrollToElementSmooth = (elementId: string) => {
     if (elementId === routes[0].name) {
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      const element = document.getElementById(elementId)
-      element?.scrollIntoView({ behavior: "smooth" })
+      const element = document.getElementById(elementId);
+      element?.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <nav
-      className={` ${
-        !showNav ? " collapse opacity-0" : " collapse opacity-100 sm:visible"
+      className={`${
+        !showNav ? "collapse opacity-0" : "collapse opacity-100 sm:visible"
       } fixed right-10 top-1/2 z-10 hidden select-none duration-500 md:block`}
     >
-      <ul className="flex translate-y-[-50%]  flex-col  items-end gap-3 font-semibold ">
+      <ul className="flex translate-y-[-50%] flex-col items-end gap-3 font-semibold">
         {routes.map((route, i) => (
           <li
-            key={uuidv4()}
+            key={route.name}
             className={`${
               activeLink === route.name && "!text-teal-700 dark:!text-teal-400"
-            }  textTertiary text-xs `}
+            } textTertiary text-xs`}
             onClick={() => scrollToElementSmooth(route.name)}
           >
             <Tooltip
@@ -117,5 +114,5 @@ export default function SiderNavbar() {
         ))}
       </ul>
     </nav>
-  )
+  );
 }

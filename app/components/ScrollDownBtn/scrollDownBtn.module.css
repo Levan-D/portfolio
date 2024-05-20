@@ -1,0 +1,52 @@
+.scrollWrap:hover .arrow {
+    animation: slideDown 2s ease-in-out;
+    transition: opacity 2s;
+    opacity: 0;
+  }
+  
+  .arrowDelay,
+  .arrowDelaySecond {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .arrow {
+    transition: opacity 0s;
+  }
+  
+  .scrollWrap:hover .arrowDelay {
+    animation: slideDownSecond 2s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  .scrollWrap:hover .arrowDelaySecond {
+    animation: slideDownSecond 2s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  
+  @keyframes slideDown {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+  }
+  
+  @keyframes slideDownSecond {
+    0% {
+      opacity: 0;
+      transform: translateY(-120px);
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+  }

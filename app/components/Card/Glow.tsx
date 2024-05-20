@@ -12,5 +12,9 @@ type Props = {
 export default function Glow({ children, glow }: Props) {
   const { screenWidth } = useAppSelector(state => state.global)
 
-  return <div className={screenWidth > 540 && glow ? styles.glow : ""}>{children}</div>
+  return (
+    <div className={`${screenWidth > 540 && glow ? styles.glow : ""} rounded-xl`}>
+      {children}
+    </div>
+  )
 }

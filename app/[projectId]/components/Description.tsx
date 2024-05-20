@@ -3,7 +3,6 @@
 import Icon from "@mdi/react"
 import { mdiGithub, mdiWeb } from "@mdi/js"
 import Link from "next/link"
-import { v4 as uuidv4 } from "uuid"
 
 type Props = {
   title: string
@@ -17,16 +16,16 @@ type Props = {
 
 export default function Description({ title, tech, links, desc }: Props) {
   return (
-    <>
+    <div className="mx-auto my-8  basis-2/5  lg:w-full">
       <h2 className="textSecondary text-center text-2xl font-bold  md:text-3xl lg:text-left lg:text-4xl ">
         {title}
       </h2>
       <p className=" textTertiary  mt-4 font-semibold  xl:text-lg">{desc}</p>
       <div className="  mt-4  flex flex-wrap  gap-4">
-        {tech.map((tech: string) => (
+        {tech.map((tech, i) => (
           <div
             className="rounded-full bg-teal-100 px-4  py-1 text-sm font-semibold text-teal-800 xl:text-base "
-            key={uuidv4()}
+            key={tech + i + "Q"}
           >
             {tech}
           </div>
@@ -54,6 +53,6 @@ export default function Description({ title, tech, links, desc }: Props) {
           </Link>
         )}
       </div>
-    </>
+    </div>
   )
 }

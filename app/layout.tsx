@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Modal />
           <ToastContainer position="top-center" theme="dark" newestOnTop />
           <main className=" mx-auto w-full max-w-screen-2xl grow   px-8">{children}</main>
-          <Footer />{" "}
+          <Footer />
         </Providers>
       </body>
     </html>

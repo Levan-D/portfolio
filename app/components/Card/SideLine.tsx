@@ -13,6 +13,8 @@ export default function SideLine({ children, sideLine }: Props) {
   const { screenWidth } = useAppSelector(state => state.global)
 
   return (
-    <div className={screenWidth > 540 && sideLine ? styles.sideLine : ""}>{children}</div>
+    <div className={`${screenWidth > 540 && sideLine ? styles.sideLine : ""} rounded-xl relative`}>
+      {children}
+    </div>
   )
 }

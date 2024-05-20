@@ -3,7 +3,6 @@
 
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import { setActiveLink } from "@/lib/redux/slices/globalSlice"
-import { personalData } from "../../data/personalData"
 import Icon from "@mdi/react"
 import { mdiLinkedin, mdiGithub } from "@mdi/js"
 import ContactBtn from "../ContactBtn"
@@ -15,11 +14,10 @@ import DarkModeBtn from "./DarkModeBtn"
 export default function DesktopNavbar() {
   const dispatch = useAppDispatch()
   const { activeLink, screenWidth } = useAppSelector(state => state.global)
-  const links = personalData.links
 
   const pathname = usePathname()
 
-  const navButton = (route: string) => {
+  const navButton = (route: string, i: number) => {
     const scrollToElementSmooth = (elementId: string) => {
       const element = document.getElementById(elementId)
       element?.scrollIntoView({ behavior: "smooth" })
@@ -31,7 +29,7 @@ export default function DesktopNavbar() {
     }
     return (
       <li
-        key={route}
+        key={route + i}
         className={`${
           activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
         } btnTertiary   mx-4  text-center text-xl md:text-base `}
@@ -47,7 +45,7 @@ export default function DesktopNavbar() {
     <nav className="mx-auto hidden  w-full max-w-screen-2xl select-none p-6 md:block">
       <ul className="flex items-center justify-end ">
         {pathname === "/" ? (
-          routes.map((route, i) => i !== 0 && navButton(route.name))
+          routes.map((route, i) => i !== 0 && navButton(route.name, i))
         ) : (
           <li className="btnTertiary mx-4 ">
             <Link href="/">Home</Link>
@@ -59,7 +57,7 @@ export default function DesktopNavbar() {
         </li>
         <li className="pl-4">
           <Link
-            href={links.linkedIn}
+            href={`https://www.linkedin.com/in/levan-dolidze`}
             target="_blank"
             rel="noopener noreferrer"
             className="btnTertiary"
@@ -70,7 +68,7 @@ export default function DesktopNavbar() {
         </li>
         <li className=" mr-24 border-r-2 border-slate-400   border-opacity-70 px-4 dark:border-slate-600 lg:mr-[210px]">
           <Link
-            href={links.github}
+            href={`https://github.com/Levan-D`}
             target="_blank"
             rel="noopener noreferrer"
             className="btnTertiary"

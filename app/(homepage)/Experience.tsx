@@ -2,14 +2,11 @@
 "use client"
 
 import { useState } from "react"
-import { personalData } from "@/app/data/personalData"
+import { expData } from "@/app/data/expData"
 import Card from "@/app/components/Card/Card"
-import { v4 as uuidv4 } from "uuid"
 import useIntersectionObserver from "@/app/hooks/useIntersectionObserver"
 
 export default function Experience() {
-  const exp = personalData.exp
-
   const [isVisible, setIsVisible] = useState(false)
 
   const handleIntersect = () => {
@@ -26,7 +23,7 @@ export default function Experience() {
     <div
       ref={ref}
       id="experience"
-      className="  justify-items-center  py-20 md:min-h-screen lg:flex"
+      className="  my-20 justify-items-center  overflow-hidden py-20 md:min-h-screen lg:flex"
     >
       <div
         className={` ${
@@ -36,9 +33,35 @@ export default function Experience() {
         }  top-0 mx-auto h-fit w-fit max-w-2xl  basis-1/2 py-20  duration-500 lg:sticky`}
       >
         <h2 className="textSecondary   text-2xl font-bold  md:text-3xl lg:text-4xl">
-          {exp.title}
+          Experience
         </h2>
-        <div className="textTertiary mt-4 font-semibold xl:text-lg">{exp.desc}</div>
+        <div className="textTertiary mt-4 font-semibold xl:text-lg">
+          <p>
+            I&apos;m an enthusiastic Web Developer with a knack for building compelling
+            websites and applications. My expertise lies in developing high-performance,
+            mobile-optimized solutions.
+          </p>
+          <br />
+          <p>
+            I&apos;m an advocate for accessibility, ensuring that my projects are
+            inclusive and user-friendly for everyone. In my work, I adhere to coding best
+            practices, resulting in efficient and maintainable end products.
+          </p>
+          <br />
+          <p>
+            From conceptualization and design to architecture and deployment, I&apos;ve
+            covered the entire web development spectrum. I&apos;m equally at home managing
+            independent projects or contributing within a team setting, always working
+            towards the common goal of delivering digital solutions that align with user
+            needs and business objectives.
+          </p>
+          <br />
+          <p>
+            In all I do, I strive to combine technical precision with a focus on user
+            experience, creating web products that not only perform well but also resonate
+            with the end user.
+          </p>
+        </div>
       </div>
 
       <div
@@ -49,23 +72,29 @@ export default function Experience() {
         } basis-1/2 duration-500  lg:mr-10`}
       >
         <div>
-          {exp.pos.map(role => (
-            <Card perspective customCSS="max-w-2xl mx-auto " key={uuidv4()}>
+          {expData.map((role, i) => (
+            <Card perspective className="mx-auto mb-12 max-w-2xl " key={role.title + i}>
               <div className="px-4 py-2 ">
                 <h3 className="  text-lg font-semibold">{role.title}</h3>
 
                 <p className="textTertiary    text-sm  italic">{role.location}</p>
 
                 <p className=" textTertiary mb-2  text-sm  ">{role.date}</p>
-                <div className="textTertiary">{role.desc}</div>
+                <div className="textTertiary">
+                  {role.desc.map((para, i) => (
+                    <p className="mb-2" key={para.slice(5) + i}>
+                      {para}
+                    </p>
+                  ))}
+                </div>
                 <div className="mt-4 flex flex-wrap gap-4">
-                  {role.tech.map(tech => (
-                    <div
+                  {role.tech.map((tech, i) => (
+                    <p
                       className=" rounded-full bg-teal-100  px-3 py-0.5 text-sm font-semibold text-teal-800 "
-                      key={uuidv4()}
+                      key={tech + i}
                     >
                       {tech}
-                    </div>
+                    </p>
                   ))}
                 </div>
               </div>

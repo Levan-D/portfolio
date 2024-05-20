@@ -8,11 +8,12 @@ import SiderNavbar from "@/app/components/SiderNavbar"
 
 export default function Home() {
   return (
-    <section>
+    <section className=" overflow-x-hidden">
       <SiderNavbar />
       <About />
       <Projects />
       <Technologies />
+
       <Experience />
     </section>
   )

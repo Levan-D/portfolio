@@ -52,7 +52,7 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="relative h-[200px] lg:h-[250px] xl:h-[300px]">
+    <div className="relative  ">
       <Card flashLight>
         <div
           className="flex h-full w-full gap-4 overflow-x-auto overflow-y-hidden"
@@ -64,7 +64,7 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
       {showLeftButton && (
         <button
           onClick={scrollLeft}
-          className="absolute left-2 top-1/2 translate-y-1/2 transform rounded-full bg-gray-700 p-2 duration-300 hover:bg-gray-600 lg:translate-y-0"
+          className="absolute left-2 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-700 p-2 duration-300 hover:bg-gray-600 "
           aria-label="Scroll Left"
         >
           <Icon path={mdiArrowLeft} size={1} color="white" />
@@ -73,7 +73,7 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
       {showRightButton && (
         <button
           onClick={scrollRight}
-          className="absolute right-2 top-1/2 translate-y-1/2 transform rounded-full bg-gray-700 p-2 duration-300 hover:bg-gray-600 lg:translate-y-0"
+          className="absolute right-2 top-1/2 -translate-y-1/2 transform rounded-full bg-gray-700 p-2 duration-300 hover:bg-gray-600 "
           aria-label="Scroll Right"
         >
           <Icon path={mdiArrowRight} size={1} color="white" />

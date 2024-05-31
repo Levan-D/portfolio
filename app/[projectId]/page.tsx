@@ -78,7 +78,7 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
               <Link
                 href={project.title.toLocaleLowerCase().replaceAll(" ", "-")}
                 key={project.title + i}
-                className={` group/title mb-2 flex  aspect-square  max-h-[200px] flex-shrink-0  flex-col rounded-lg  bg-slate-400 bg-opacity-50 p-2 duration-300 active:bg-slate-500 dark:bg-slate-700 dark:active:bg-slate-700 sm:hover:bg-slate-400 dark:sm:hover:bg-slate-600 lg:max-h-[250px]`}
+                className={` group/title mb-2 flex  aspect-square max-h-[120px] flex-shrink-0 flex-col  rounded-lg bg-slate-400  bg-opacity-50 p-2 duration-300 active:bg-slate-500 dark:bg-slate-700 dark:active:bg-slate-700 sm:hover:bg-slate-400 dark:sm:hover:bg-slate-600 md:max-h-[200px] lg:max-h-[250px]`}
               >
                 <Image
                   src={project.images.coverWeb}

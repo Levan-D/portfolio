@@ -5,7 +5,7 @@ import { useMousePosition } from "@/app/hooks/useMousePosition"
 import { useAppSelector } from "@/lib/redux/hooks"
 
 type Props = {
-  children: JSX.Element
+  children: React.JSX.Element
   flashLight: boolean
 }
 

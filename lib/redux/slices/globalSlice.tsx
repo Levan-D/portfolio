@@ -36,18 +36,10 @@ const globalSlice = createSlice({
     openModal: (state, action: PayloadAction<initialState["modal"]>) => {
       state.modal.vis = action.payload.vis
       state.modal.type = action.payload.type
-
-      if (typeof window !== "undefined" && state.modal.vis) {
-        document.documentElement.style.overflowY = "hidden"
-      }
     },
     closeModal: state => {
       state.modal.vis = false
       state.modal.type = ""
-
-      if (typeof window !== "undefined" && !state.modal.vis) {
-        document.documentElement.style.overflowY = "unset"
-      }
     },
   },
 })

@@ -31,7 +31,7 @@ export default function DesktopNavbar() {
       <li
         key={route + i}
         className={`${
-          activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
+          activeLink === route ? "text-teal-700! dark:text-teal-400!" : ""
         } btnTertiary   mx-4  text-center text-xl md:text-base `}
       >
         <button onClick={() => handleActiveLink(route)} className="w-2/5 p-2  md:w-full">
@@ -42,7 +42,7 @@ export default function DesktopNavbar() {
   }
 
   return (
-    <nav className="mx-auto hidden  w-full max-w-screen-2xl select-none p-6 md:block">
+    <nav className="mx-auto hidden  w-full max-w-(--breakpoint-2xl) select-none p-6 md:block">
       <ul className="flex items-center justify-end ">
         {pathname === "/" ? (
           routes.map((route, i) => i !== 0 && navButton(route.name, i))
@@ -52,7 +52,7 @@ export default function DesktopNavbar() {
           </li>
         )}
 
-        <li className=" border-x-2 border-slate-400   border-opacity-70 px-4 dark:border-slate-600">
+        <li className=" border-x-2 border-slate-400/70 px-4 dark:border-slate-600/70">
           <DarkModeBtn />
         </li>
         <li className="pl-4">
@@ -66,7 +66,7 @@ export default function DesktopNavbar() {
             <Icon path={mdiLinkedin} size={1.1} />
           </Link>
         </li>
-        <li className=" mr-24 border-r-2 border-slate-400   border-opacity-70 px-4 dark:border-slate-600 lg:mr-[210px]">
+        <li className=" mr-24 border-r-2 border-slate-400/70 px-4 dark:border-slate-600/70 lg:mr-[210px]">
           <Link
             href={`https://github.com/Levan-D`}
             target="_blank"

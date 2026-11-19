@@ -57,7 +57,7 @@ export default function ContactForm() {
             },
           })}
           placeholder="John Doe"
-          className="rounded-lg border border-slate-400 bg-transparent p-2 text-sm outline-none"
+          className="rounded-lg border border-slate-400 bg-transparent p-2 text-sm outline-hidden"
         />
         {errors.name && <p className="text-sm text-red-400">{errors.name.message}</p>}
         <label className="mb-1 font-semibold" htmlFor="email">
@@ -70,7 +70,7 @@ export default function ContactForm() {
             pattern: { value: /\S+@\S+\.\S+/, message: "Please enter a valid email" },
           })}
           placeholder="JDoe@gmail.com"
-          className="rounded-lg border border-slate-400 bg-transparent p-2 text-sm outline-none"
+          className="rounded-lg border border-slate-400 bg-transparent p-2 text-sm outline-hidden"
         />
         {errors.email && <p className="text-sm text-red-400">{errors.email.message}</p>}
         <label className="mb-1 font-semibold" htmlFor="message">
@@ -89,7 +89,7 @@ export default function ContactForm() {
             },
           })}
           placeholder="Hello, I'd like to reach out..."
-          className="grow resize-none rounded-lg border border-slate-400 bg-transparent p-2 text-sm outline-none"
+          className="grow resize-none rounded-lg border border-slate-400 bg-transparent p-2 text-sm outline-hidden"
         />
         {errors.message && (
           <p className="text-sm text-red-400">{errors.message.message}</p>

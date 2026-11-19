@@ -29,5 +29,5 @@ export function useSetScreenWidth() {
         clearTimeout(timeoutId)
       }
     }
-  }, [])
+  }, [dispatch])
 }

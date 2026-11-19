@@ -29,7 +29,7 @@ export default function Experience() {
         className={` ${
           isVisible
             ? " md:translate-x-0 md:opacity-100"
-            : "md:-translate-x-[800px] md:opacity-0"
+            : "md:translate-x-[-800px] md:opacity-0"
         }  top-0 mx-auto h-fit w-fit max-w-2xl basis-1/2 py-20  text-center duration-500  lg:sticky lg:text-left`}
       >
         <h2 className="textSecondary   text-2xl font-bold  md:text-3xl lg:text-4xl">

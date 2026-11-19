@@ -12,14 +12,13 @@ import Icon from "@mdi/react"
 import { mdiArrowTopRight } from "@mdi/js"
 
 type Props = {
-  params: {
+  params: Promise<{
     projectId: string
-  }
+  }>
 }
 
-export async function generateMetadata({
-  params: { projectId },
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { projectId } = await params
   const project = projectData.find(
     card => card.title.toLowerCase().replaceAll(" ", "-") === projectId
   )
@@ -29,7 +28,6 @@ export async function generateMetadata({
     description: project?.pitch,
     keywords: project?.tech,
     authors: [{ name: "Levan Dolidze" }],
-    colorScheme: "dark",
     creator: "Levan Dolidze",
     publisher: "Levan Dolidze",
 
@@ -51,7 +49,8 @@ export async function generateMetadata({
   }
 }
 
-export default function ProjectsPage({ params: { projectId } }: Props) {
+export default async function ProjectsPage({ params }: Props) {
+  const { projectId } = await params
   const project = projectData.find(
     card => card.title.toLocaleLowerCase().replaceAll(" ", "-") === projectId
   )
@@ -78,12 +77,12 @@ export default function ProjectsPage({ params: { projectId } }: Props) {
               <Link
                 href={project.title.toLocaleLowerCase().replaceAll(" ", "-")}
                 key={project.title + i}
-                className={` group/title mb-2 flex  aspect-square max-h-[120px] flex-shrink-0 flex-col  rounded-lg bg-slate-400  bg-opacity-50 p-2 duration-300 active:bg-slate-500 dark:bg-slate-700 dark:active:bg-slate-700 sm:hover:bg-slate-400 dark:sm:hover:bg-slate-600 md:max-h-[200px] lg:max-h-[250px]`}
+                className={` group/title mb-2 flex  aspect-square max-h-[120px] shrink-0 flex-col  rounded-lg bg-slate-400/50 p-2 duration-300 active:bg-slate-500/50 dark:bg-slate-700/50 dark:active:bg-slate-700/50 sm:hover:bg-slate-400/50 dark:sm:hover:bg-slate-600/50 md:max-h-[200px] lg:max-h-[250px]`}
               >
                 <Image
                   src={project.images.coverWeb}
                   alt="project cover image"
-                  className=" aspect-[4/3]  rounded object-cover "
+                  className=" aspect-4/3  rounded-sm object-cover "
                 ></Image>
 
                 <div className="mx-1 mt-2 flex grow items-center gap-1 ">

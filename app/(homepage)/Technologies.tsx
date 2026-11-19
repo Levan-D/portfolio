@@ -44,7 +44,7 @@ export default function Technologies() {
         className={` ${
           isVisible
             ? " md:translate-x-0 md:opacity-100"
-            : "md:-translate-x-[800px] md:opacity-0"
+            : "md:translate-x-[-800px] md:opacity-0"
         }  mx-auto w-fit duration-500`}
       >
         <Card sideLine>
@@ -55,7 +55,7 @@ export default function Technologies() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center justify-end rounded-xl border border-transparent px-2  pb-2 pt-3 duration-300 active:scale-[0.95] sm:hover:-translate-y-2 sm:hover:border-slate-500 sm:hover:border-opacity-50 sm:hover:bg-slate-300 sm:hover:bg-opacity-50 sm:active:bg-slate-600 dark:sm:hover:bg-slate-600  md:px-4"
+                className="flex flex-col items-center justify-end rounded-xl border border-transparent px-2  pb-2 pt-3 duration-300 active:scale-[0.95] sm:hover:-translate-y-2 sm:hover:border-slate-500/50 sm:hover:bg-slate-300/50 sm:active:bg-slate-600 dark:sm:hover:bg-slate-600/50  md:px-4"
               >
                 <Image
                   src={item.image}

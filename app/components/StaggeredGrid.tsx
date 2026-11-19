@@ -7,7 +7,7 @@ type Props<T> = {
   items: T[]
   columns: number
   staggered?: boolean
-  renderItem: (item: T) => JSX.Element
+  renderItem: (item: T) => React.JSX.Element
 }
 
 export default function StaggeredGrid<T extends {}>({
@@ -29,8 +29,9 @@ export default function StaggeredGrid<T extends {}>({
     <div className="flex gap-8">
       {filteredArray.map((array: T[], i: number) => {
         const staggerRatio = (i % 2) + 5
-        const randomNumber = Math.floor(Math.random() * 11)
-        const margin = Math.round(staggerRatio * randomNumber)
+        // fixed "random-looking" 0–10 per column: same on server and client
+        const offset = (i * 7 + 3) % 11
+        const margin = Math.round(staggerRatio * offset)
 
         return (
           <div

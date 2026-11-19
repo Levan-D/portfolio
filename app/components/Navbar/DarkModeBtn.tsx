@@ -1,6 +1,6 @@
 /** @format */
 "use client"
-import { useState, useEffect } from "react"
+import { useSyncExternalStore } from "react"
 import Icon from "@mdi/react"
 import { mdiWeatherNight, mdiWhiteBalanceSunny, mdiCircleDouble } from "@mdi/js"
 import { useTheme } from "next-themes"
@@ -9,10 +9,16 @@ type Props = {
   icon?: boolean
 }
 
+const noopSubscribe = () => () => {}
+
 export default function DarkModeBtn({ icon }: Props) {
-  const [mounted, setMounted] = useState(false)
+  // false on the server and during hydration, true once on the client
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false
+  )
   const { setTheme, resolvedTheme } = useTheme()
-  useEffect(() => setMounted(true), [])
 
   const handleDarkMode = () => {
     if (resolvedTheme === "dark") {

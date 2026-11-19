@@ -98,7 +98,7 @@ export default function SiderNavbar() {
           <li
             key={route.name}
             className={`${
-              activeLink === route.name && "!text-teal-700 dark:!text-teal-400"
+              activeLink === route.name && "text-teal-700! dark:text-teal-400!"
             } textTertiary text-xs`}
             onClick={() => scrollToElementSmooth(route.name)}
           >

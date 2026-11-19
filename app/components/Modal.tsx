@@ -1,5 +1,6 @@
 /** @format */
 "use client"
+import { useEffect } from "react"
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import Icon from "@mdi/react"
 import { mdiClose } from "@mdi/js"
@@ -11,6 +12,16 @@ export default function Modal() {
   const {
     modal: { vis, type },
   } = useAppSelector(state => state.global)
+
+  // lock page scroll while the modal is open
+  useEffect(() => {
+    if (!vis) return
+    const root = document.documentElement
+    root.style.overflowY = "hidden"
+    return () => {
+      root.style.overflowY = "unset"
+    }
+  }, [vis])
 
   const handleCloseModal = (event: React.MouseEvent) => {
     if (event.target === event.currentTarget) {
@@ -45,7 +56,7 @@ export default function Modal() {
   return (
     <div
       onClick={handleCloseModal}
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-opacity duration-300 ${
         vis ? "visible opacity-100" : "collapse opacity-0"
       }`}
     >

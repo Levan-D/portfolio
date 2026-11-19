@@ -1,6 +1,6 @@
 /** @format */
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useAppSelector, useAppDispatch } from "@/lib/redux/hooks"
 import { setActiveLink } from "@/lib/redux/slices/globalSlice"
 import Icon from "@mdi/react"
@@ -19,15 +19,18 @@ export default function MobileNavbar() {
 
   const pathname = usePathname()
 
-  const handleOpenSider = () => {
-    document.documentElement.style.overflow = "hidden"
-    setSider(true)
-  }
+  // lock page scroll while the menu is open
+  useEffect(() => {
+    if (!sider) return
+    const root = document.documentElement
+    root.style.overflow = "hidden"
+    return () => {
+      root.style.overflow = "unset"
+    }
+  }, [sider])
 
-  const handleCloseSider = () => {
-    document.documentElement.style.overflow = "unset"
-    setSider(false)
-  }
+  const handleOpenSider = () => setSider(true)
+  const handleCloseSider = () => setSider(false)
 
   const routeBtn = (route: string, i: number) => {
     const scrollToElementSmooth = (elementId: string) => {
@@ -44,7 +47,7 @@ export default function MobileNavbar() {
       <li
         key={route + i}
         className={`${
-          activeLink === route ? "!text-teal-700 dark:!text-teal-400" : ""
+          activeLink === route ? "text-teal-700! dark:text-teal-400!" : ""
         } btnTertiary   mx-4  text-center text-xl md:text-base `}
       >
         <button onClick={() => handleActiveLink(route)} className="w-2/5 p-2  md:w-full">
@@ -55,7 +58,7 @@ export default function MobileNavbar() {
   }
 
   return (
-    <nav className="fixed z-40 block w-screen p-2 dark:[background:linear-gradient(0deg,_rgba(255,_255,_255,_0)_0%,rgba(2,_6,_23,_1)_80%)] md:hidden ">
+    <nav className="fixed z-40 block w-screen p-2 dark:[background:linear-gradient(0deg,rgba(255,255,255,0)_0%,rgba(2,6,23,1)_80%)] md:hidden ">
       <button
         aria-label="open mobile menu"
         onClick={handleOpenSider}
@@ -66,7 +69,7 @@ export default function MobileNavbar() {
 
       <div
         onClick={handleCloseSider}
-        className={`fixed inset-0 z-40  bg-black bg-opacity-50 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40  bg-black/50 transition-opacity duration-300 ${
           sider ? "visible opacity-100" : "collapse opacity-0"
         }`}
       >

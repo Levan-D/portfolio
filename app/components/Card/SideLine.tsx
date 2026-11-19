@@ -5,7 +5,7 @@ import styles from "./SideLine.module.css"
 import { useAppSelector } from "@/lib/redux/hooks"
 
 type Props = {
-  children: JSX.Element
+  children: React.JSX.Element
   sideLine: boolean
 }
 

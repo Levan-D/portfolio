@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { SECTIONS, isSectionId } from './sections';
+import { LAST_SECTION, SECTIONS, isSectionId } from './sections';
 import useActiveSection from './useActiveSection';
 
 export default function useTrackActiveSection() {
@@ -31,10 +31,10 @@ export default function useTrackActiveSection() {
     });
 
     // the last section is often too short to pass the ratio check above
-    const lastSection = document.getElementById('experience');
+    const lastSection = document.getElementById(LAST_SECTION);
     const lastSectionObserver = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setActiveSection('experience');
+        if (entry.isIntersecting) setActiveSection(LAST_SECTION);
       },
       { threshold: 0 },
     );

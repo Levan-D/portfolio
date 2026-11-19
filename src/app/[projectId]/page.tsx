@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { mdiArrowTopRight } from '@mdi/js';
 import Carousel from '@/components/ui/Carousel';
 import Icon from '@/components/ui/Icon';
+import { OG_IMAGE, SITE_NAME, SITE_URL } from '@/config/site';
 import {
   findProjectBySlug,
   getProjectSlug,
@@ -43,15 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `Levan Dolidze - ${project.title}`,
       description: project.pitch,
-      url: `https://levandolidze.com/${projectId}`,
-      siteName: 'Levan Dolidze - Web Developer',
-      images: [
-        {
-          url: 'https://i.imgur.com/pKweUJY.png',
-          width: 1200,
-          height: 630,
-        },
-      ],
+      url: `${SITE_URL}/${projectId}`,
+      siteName: SITE_NAME,
+      images: [OG_IMAGE],
       locale: 'en_US',
       type: 'website',
     },
@@ -71,7 +66,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="basis-2/5">
           <Description title={title} tech={tech} links={links} desc={desc} />
         </div>
-        <div className="basis-3/5">
+        <div className="min-w-0 basis-3/5">
           <ImageDisplay title={title} images={images} />
         </div>
       </div>

@@ -3,7 +3,10 @@
 import { mdiChevronDown } from '@mdi/js';
 import { twMerge } from 'tailwind-merge';
 import Icon from '@/components/ui/Icon';
-import { scrollToElement } from '@/utils/scroll';
+import {
+  FIRST_CONTENT_SECTION,
+  scrollToSection,
+} from '@/components/navigation/sections';
 import styles from './scrollDownBtn.module.css';
 
 export default function ScrollDownBtn() {
@@ -16,8 +19,8 @@ export default function ScrollDownBtn() {
     >
       <button
         type="button"
-        aria-label="Scroll to projects"
-        onClick={() => scrollToElement('projects')}
+        aria-label="Scroll to experience"
+        onClick={() => scrollToSection(FIRST_CONTENT_SECTION)}
         className="rounded-full border-2 border-teal-400 p-28 duration-500 group-hover:bg-teal-400 group-hover:p-14"
       >
         <span

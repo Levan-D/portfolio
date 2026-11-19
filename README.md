@@ -2,7 +2,7 @@
 
 Source code for my personal portfolio: experience, skills and projects. Designed in Figma, built with Next.js.
 
-Live at https://levandolidze.com
+Live at https://levandolidze.dev
 
 Feel free to fork it and use it as a template.
 

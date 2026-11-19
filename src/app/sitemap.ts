@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getProjectSlug, projectData } from '@/data/projectData';
-
-const BASE_URL = 'https://levandolidze.com';
+import { SITE_URL as BASE_URL } from '@/config/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

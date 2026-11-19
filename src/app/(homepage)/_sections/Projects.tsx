@@ -17,7 +17,7 @@ const INITIAL_MOBILE_COUNT = 4;
 const MOBILE_COUNT_STEP = 3;
 
 export default function Projects() {
-  const { ref, isInView } = useInView<HTMLDivElement>(0.1);
+  const { ref, isInView } = useInView<HTMLDivElement>();
   const [mobileCount, setMobileCount] = useState(INITIAL_MOBILE_COUNT);
 
   const handleMoreClick = () => {
@@ -72,11 +72,11 @@ export default function Projects() {
       id="projects"
       ref={ref}
       className={twMerge(
-        'mt-40 p-20 px-0 duration-500 md:translate-y-[300px] md:px-20 md:opacity-0',
+        'mt-40 p-20 px-0 duration-700 ease-out md:translate-y-24 md:px-20 md:opacity-0',
         isInView && 'md:translate-y-0 md:opacity-100',
       )}
     >
-      <div className="mx-auto mb-12 w-fit text-center lg:text-left">
+      <div className="mx-auto mb-12 w-fit text-center">
         <h2 className="text-2xl font-bold textSecondary md:text-3xl lg:text-4xl">
           Projects
         </h2>

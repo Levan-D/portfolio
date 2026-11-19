@@ -60,10 +60,18 @@ export const projectData: ProjectsDataType[] = [
   },
   {
     title: 'Totem Arts Launcher',
-    pitch:
-      'Totem Arts Launcher blends modern design with robust functionality. The launcher provides an immersive desktop gaming experience.',
-    desc: 'Totem Arts Launcher blends modern design with robust functionality. Built atop the Electron with React for UI, the launcher provides an immersive desktop gaming experience. Users can smoothly authenticate their profiles, ensuring security and personalized game access. Designed with users in mind, the launcher interface is not only visually appealing but also ensures that game launch is a breeze.  ',
-    tech: ['React', 'Tailwind', 'Jest', 'Electron', 'Axios', 'React Toastify'],
+    pitch: 'Desktop game launcher for the Totem Arts community.',
+    desc: "Desktop game launcher for the Totem Arts community. I rewrote the launcher's UI from Vue to React and built most of its features on top of the existing Electron core: login, game library, live server browser with ping, news feed and game launch.",
+    tech: [
+      'Electron',
+      'React',
+      'TypeScript',
+      'Vite',
+      'Redux Toolkit',
+      'Tailwind',
+      'zod',
+      'Jest',
+    ],
     images: {
       coverWeb: TACoverWeb,
     },
@@ -117,9 +125,17 @@ export const projectData: ProjectsDataType[] = [
 
   {
     title: 'Levan Dolidze',
-    pitch: 'Portfolio site designed in figma and built with Next.js.',
-    desc: "The repository features the source code for my personal portfolio website at https://levandolidze.com/. Designed in Figma and built using Next.js. It offers customizable sections for personal details, a dedicated space for project highlights, and a contact form ready to be linked with Google OAuth. If you find it fitting, you're welcome to fork and tailor it for your own use.",
-    tech: ['Next.js', 'Tailwind', 'Nodemailer', 'Hook Form', 'React Toastify'],
+    pitch: 'This site: designed in Figma and built with Next.js.',
+    desc: "The source code for this site, levandolidze.dev. Designed in Figma and built with Next.js, React, TypeScript and Tailwind CSS, with light and dark themes, keyboard and screen-reader support, and a contact form validated on both the client and the server. You're welcome to fork it and make it your own.",
+    tech: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'React Hook Form',
+      'zod',
+      'Nodemailer',
+    ],
     images: {
       coverWeb: portCoverWeb,
       coverMobile: portCoverMobile,
@@ -128,7 +144,7 @@ export const projectData: ProjectsDataType[] = [
     },
     links: {
       github: 'https://github.com/Levan-D/portfolio',
-      website: 'https://levandolidze.com',
+      website: 'https://levandolidze.dev',
     },
   },
 ];

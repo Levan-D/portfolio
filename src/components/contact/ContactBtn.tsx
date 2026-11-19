@@ -21,7 +21,7 @@ export default function ContactBtn({ collapseLabel = false }: Props) {
         aria-label="Get in touch"
         aria-haspopup="dialog"
         onClick={onOpen}
-        className="z-50 btnSecondary flex gap-4 dark:bg-slate-900"
+        className="btnSecondary flex gap-4 bg-slate-200 dark:bg-slate-900"
       >
         <span className={twMerge(collapseLabel && 'hidden lg:inline')}>
           Get in touch

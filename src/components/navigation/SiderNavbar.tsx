@@ -16,7 +16,7 @@ export default function SiderNavbar() {
     <nav
       aria-label="Sections"
       className={twMerge(
-        'invisible fixed top-1/2 right-10 z-10 hidden opacity-0 duration-500 select-none md:block',
+        'invisible fixed top-1/2 right-10 z-30 hidden opacity-0 duration-500 select-none md:block',
         isVisible && 'visible opacity-100',
       )}
     >

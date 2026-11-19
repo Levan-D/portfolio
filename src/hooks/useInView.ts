@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
-export default function useInView<T extends Element>(threshold: number) {
+// Fires once the element's top edge rises past `bottomOffset` of the viewport.
+// Unlike a visibility-ratio threshold, this works for elements taller than the screen.
+export default function useInView<T extends Element>(bottomOffset = '10%') {
   const ref = useRef<T>(null);
   const [isInView, setIsInView] = useState(false);
 
@@ -14,12 +16,12 @@ export default function useInView<T extends Element>(threshold: number) {
         setIsInView(true);
         observer.disconnect();
       },
-      { threshold },
+      { rootMargin: `0px 0px -${bottomOffset} 0px` },
     );
 
     observer.observe(target);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [bottomOffset]);
 
   return { ref, isInView };
 }

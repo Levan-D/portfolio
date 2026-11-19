@@ -20,7 +20,7 @@ const TOGGLE_CLASSES =
 const TOGGLE_ACTIVE_CLASSES =
   'border-slate-900! text-slate-900! dark:border-slate-300! dark:text-slate-300!';
 const PHONE_CLASSES =
-  'collapse absolute left-1/2 z-10 mx-auto aspect-9/16 -translate-x-1/2 rounded-3xl bg-slate-400 p-2 transition-transform duration-500 ease-in-out md:max-h-[400px] xl:max-h-[420px] dark:bg-slate-600';
+  'collapse absolute top-0 left-1/2 z-10 mx-auto aspect-9/16 -translate-x-1/2 rounded-3xl bg-slate-400 p-2 transition-transform duration-500 ease-in-out md:h-full dark:bg-slate-600';
 
 export default function ImageDisplay({
   title,
@@ -64,7 +64,8 @@ export default function ImageDisplay({
           )}
         </div>
 
-        <div className="relative">
+        {/* fixed height so switching desktop/mobile changes only width, never moving the page */}
+        <div className="relative isolate md:flex md:h-[400px] md:justify-center xl:h-[420px]">
           <div
             className={twMerge(
               PHONE_CLASSES,
@@ -76,7 +77,7 @@ export default function ImageDisplay({
               <Image
                 src={leftMobile}
                 alt={`${title} on mobile, secondary screen`}
-                className="h-full rounded-2xl object-cover"
+                className="h-full w-full rounded-2xl object-cover"
               />
             )}
           </div>
@@ -92,21 +93,21 @@ export default function ImageDisplay({
               <Image
                 src={rightMobile}
                 alt={`${title} on mobile, another screen`}
-                className="h-full rounded-2xl object-cover"
+                className="h-full w-full rounded-2xl object-cover"
               />
             )}
           </div>
 
           <div
             className={twMerge(
-              'relative z-20 mx-auto aspect-video max-h-[500px] rounded-3xl bg-slate-400 duration-300 ease-in-out md:max-h-[400px] md:p-2 xl:max-h-[420px] dark:bg-slate-600',
+              'relative z-20 mx-auto aspect-video max-h-[500px] rounded-3xl bg-slate-400 duration-300 ease-in-out md:h-full md:max-h-none md:max-w-full md:p-2 dark:bg-slate-600',
               isMobileView && 'md:aspect-9/16',
             )}
           >
             <Image
               src={mainImage}
               alt={`${title} ${isMobileView ? 'mobile' : 'desktop'} screenshot`}
-              className="h-full rounded-2xl object-cover"
+              className="h-full w-full rounded-2xl object-cover"
             />
           </div>
         </div>

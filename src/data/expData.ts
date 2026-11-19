@@ -1,62 +1,132 @@
-export const expData = [
+export type ExperienceType = {
+  title: string;
+  subtitle: string;
+  date: string;
+  summary?: string;
+  highlights: string[];
+  tech: string[];
+};
+
+export const expData: ExperienceType[] = [
+  {
+    title: 'Frontend Developer, Acting Frontend Lead',
+    subtitle: 'Motority • US (remote)',
+    date: 'Nov 2023 – Nov 2026 (company closed)',
+    summary:
+      'Social platform for vehicle owners: vehicle profiles, logbook with stories and updates, community feed. Team of ~6 developers + PM.',
+    highlights: [
+      'Led the frontend, reporting directly to the PM: owned delivery end to end, coordinated with design and backend on each feature, delegated work and negotiated scope.',
+      'Joined as one of the first hires after the spin-out and revived a legacy codebase untouched for 2+ years: got it building in under 2 months, migrated it to TypeScript, Redux Toolkit and Next.js, then rebuilt and launched it over the following year.',
+      'Cut first-load JavaScript ~50% (770 KB to 375 KB gzipped) and eliminated layout shift (CLS, a Core Web Vital, from 0.11 to 0) by code-splitting third-party SDKs and replacing heavy UI libraries with lightweight in-house components.',
+      'Moved data fetching to RTK Query with caching across ~200 endpoints, 22 APIs and 125 routes, cutting redundant network calls.',
+      'Built a multi-brand landing platform from scratch, serving 82 car brands from one build: the subdomain picks the brand, with per-brand config, fonts and theming loaded at runtime.',
+      'Built its admin CMS for brand teams, including a landing-page editor with live preview, a catalog editor, a media library with resumable chunked uploads (tus) and version history.',
+      'Replaced a broken hand-written editor with Editor.js and wrote every custom plugin in TypeScript within one quarter.',
+      'Shipped logbooks, the short-video feed, auth and social sign-in, Instagram integration, the design system and cross-client email templates.',
+    ],
+    tech: [
+      'React',
+      'TypeScript',
+      'Next.js',
+      'Vite',
+      'Redux Toolkit',
+      'RTK Query',
+      'React Hook Form',
+      'Editor.js',
+      'Tailwind',
+      'SCSS modules',
+    ],
+  },
   {
     title: 'React Developer',
-    date: '08/2022 - Present',
-    location: 'COTT • London',
-    desc: [
-      'As a React Developer at COTT, London, since August 2022, I have undertaken a wide array of responsibilities. I have designed and implemented UI elements using the React Redux Toolkit, and have been instrumental in refactoring existing React projects for better performance and maintainability. One of my notable achievements was the complete rewriting and architecture overhaul of a key software product which involved intricate state management, use of Ant Design UI library, and integration of numerous API endpoints.',
-
-      "Additionally, I have been at the forefront of testing and evaluating potential technologies, frameworks, and projects that can be adopted by the company to drive innovation. I also designed a mobile version of an Innovative Hospitality IPTV Platform, aligning with the company's goal to expand its product reach and user experience. My role not only involves development but also requires me to work under the direction of Senior Software Developers, ensuring the successful implementation and regular updates of application modules.",
+    subtitle: 'COTT • Tbilisi, Georgia',
+    date: 'Aug 2022 – Oct 2023',
+    summary: 'London-based company, hospitality IPTV platform.',
+    highlights: [
+      "Rewrote and re-architected the platform's admin panel: state management, Ant Design UI and numerous API integrations.",
+      "Designed the admin panel's mobile version.",
+      'Built and refactored several in-house React apps for performance and maintainability, and evaluated new technologies for adoption.',
     ],
     tech: [
       'React',
       'Next.js',
       'TypeScript',
-      'Axios',
-      'Tailwind',
-      'React Router',
       'Redux Toolkit',
-      'i18next',
+      'React Router',
       'Ant Design',
-      'Prisma',
-      'React Flow',
-      'Figma',
+      'Tailwind',
+      'i18next',
     ],
   },
   {
     title: 'React Developer',
-    date: '10/2022 - 01/2023',
-    location: 'Hyperdrive • Los Angeles, CA',
-    desc: [
-      `I've been responsible for the client-side app architecture and development. My main achievements include building the MVP, implementing key features such as Google OAuth sign-in and Google Drive integration. I've also been pivotal in bug-fixing, maintaining high standards of software reliability and user experience.`,
+    subtitle: 'Hyperdrive • Los Angeles, US (remote)',
+    date: 'Oct 2022 – Jan 2023',
+    highlights: [
+      'Owned client-side architecture and built the MVP, including Google OAuth sign-in and Google Drive integration.',
     ],
     tech: [
       'React',
       'TypeScript',
-      'Axios',
-      'Tailwind',
-      'React Router',
       'Redux Toolkit',
+      'React Router',
+      'Tailwind',
+      'Axios',
       'Jira',
     ],
   },
   {
-    title: 'Web Application Developer',
-    date: '05/2022 - 07/2022',
-    location: 'GM • Tbilisi ',
-    desc: [
-      `My key responsibilities included developing an internal web application to parse and sort a sizable database. Initially, I built a mechanism for automatic database parsing, integrating Firebase for real-time data handling capabilities. In the subsequent phase, I designed and implemented a dynamic user interface to facilitate manual data sorting operations, enabling users to continue the sorting process as per their specific requirements. This project required in-depth understanding of database structures and proficient application of front-end technologies to ensure seamless interaction and data handling.`,
+    title: 'Front-End Developer',
+    subtitle: 'Freelance',
+    date: 'Feb 2020 – Apr 2022',
+    highlights: [
+      'Built, redesigned and refactored client interfaces in JavaScript and React, working directly with clients.',
     ],
-    tech: ['React', 'TypeScript', 'Firebase', 'Axios', 'Sass'],
+    tech: ['JavaScript', 'React', 'HTML', 'CSS', 'Figma'],
+  },
+];
+
+export const projectExpData: ExperienceType[] = [
+  {
+    title: 'Redflag',
+    subtitle: 'AI due-diligence reports for architecture firms',
+    date: '2024 – Present',
+    summary:
+      'B2B web app for architecture firms: enter a US address or parcel and get an AI-generated report on zoning, permitting and building codes.',
+    highlights: [
+      'Built the frontend end to end, turning backend APIs and rough prototypes into production features.',
+      'Turned static AI reports into editable documents with a TipTap editor, including version history and per-section regeneration.',
+      'Implemented threaded comments on reports with Liveblocks, and export to PDF and DOCX.',
+      'Cut the production bundle 74% and report-page network requests ~80% through code-splitting and request deduplication.',
+      'Built accessibility (WAI-ARIA) support across 31 UI areas: keyboard navigation, focus traps, accessible comboboxes and screen-reader live regions.',
+      'Built the shared UI library, admin pages and product redesigns in an npm-workspaces monorepo.',
+    ],
+    tech: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Redux Toolkit',
+      'TipTap',
+      'Liveblocks',
+      'Tailwind',
+    ],
   },
   {
-    title: 'Freelance: Front-End Developer',
-    date: '02/2020 - 04/2022',
-    desc: [
-      `As a Freelance Front-End Developer, I specialized in building, enhancing, and redesigning client interfaces using JavaScript and React. My role included creating new UI components, refactoring existing code for improved maintainability, and optimizing performance for an improved user experience. My work involved regular client interactions, ensuring their needs were met and offering technical expertise when necessary. This freelancing experience has sharpened my technical skills, & reinforced project management capabilities.
-
-    `,
+    title: 'Totem Arts Launcher',
+    subtitle: 'Desktop game launcher for the Totem Arts community',
+    date: '2023 – 2024',
+    highlights: [
+      "Rewrote the launcher's UI from Vue to React and built most of its features on top of the existing Electron core: login, game library, live server browser with ping, news feed and game launch.",
     ],
-    tech: ['HTML', 'CSS', 'JavaScript', 'Axios', 'Figma'],
+    tech: [
+      'Electron',
+      'React',
+      'TypeScript',
+      'Vite',
+      'Redux Toolkit',
+      'Tailwind',
+      'zod',
+      'Jest',
+    ],
   },
 ];

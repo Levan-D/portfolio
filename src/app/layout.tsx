@@ -8,36 +8,30 @@ import ThemeColorMeta from '@/components/theme/ThemeColorMeta';
 import Toaster from '@/components/theme/Toaster';
 import 'react-toastify/dist/ReactToastify.css';
 import type { Metadata } from 'next';
+import {
+  OG_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_URL,
+} from '@/config/site';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://levandolidze.com'),
-
-  title: 'Levan Dolidze - Web Developer',
-  description:
-    'Professional web developer with expertise in React, Next.js, and other modern web technologies. Explore my work, learn about my skills, and get in touch for collaboration.',
-  keywords:
-    'Web Developer, React, Next.js, Tailwind, Typescript, Node.js, JavaScript, Portfolio',
+  metadataBase: new URL(SITE_URL),
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
   authors: [{ name: 'Levan Dolidze' }],
-
   creator: 'Levan Dolidze',
   publisher: 'Levan Dolidze',
-
   openGraph: {
-    title: 'Levan Dolidze - Web Developer',
-    description:
-      'Professional web developer with expertise in React, Next.js, and other modern web technologies. Explore my work, learn about my skills, and get in touch for collaboration.',
-
-    url: 'https://levandolidze.com',
-    siteName: 'Levan Dolidze - Web Developer',
-    images: [
-      {
-        url: 'https://i.imgur.com/pKweUJY.png',
-        width: 1200,
-        height: 630,
-      },
-    ],
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    images: [OG_IMAGE],
     locale: 'en_US',
     type: 'website',
   },
@@ -59,7 +53,7 @@ export default function RootLayout({
           <BackToTop />
           <ThemeColorMeta />
           <Toaster />
-          <main className="mx-auto w-full max-w-(--breakpoint-2xl) grow px-8">
+          <main className="mx-auto w-full max-w-(--breakpoint-2xl) grow overflow-x-clip px-8">
             {children}
           </main>
           <Footer />

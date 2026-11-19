@@ -75,7 +75,7 @@ export default function DesktopNavbar() {
             <Icon path={mdiGithub} size={1.1} />
           </a>
         </li>
-        <li className="fixed z-10">
+        <li className="fixed z-30">
           <ContactBtn collapseLabel />
         </li>
       </ul>

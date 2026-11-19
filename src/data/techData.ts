@@ -1,87 +1,122 @@
-import { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/image';
+import {
+  siAntdesign,
+  siCss,
+  siFigma,
+  siGit,
+  siHtml5,
+  siI18next,
+  siJavascript,
+  siJira,
+  siMockserviceworker,
+  siMui,
+  siNextdotjs,
+  siPostman,
+  siPrisma,
+  siRadixui,
+  siReact,
+  siReacthookform,
+  siReactquery,
+  siReactrouter,
+  siRedux,
+  siSass,
+  siSentry,
+  siShadcnui,
+  siStyledcomponents,
+  siSupabase,
+  siTailwindcss,
+  siTestinglibrary,
+  siTypescript,
+  siVite,
+  siVitest,
+  siZod,
+  type SimpleIcon,
+} from 'simple-icons';
 
-import html from '@/assets/icons/html.png';
-import css from '@/assets/icons/css.png';
-import tailwind from '@/assets/icons/tailwind.png';
-import sass from '@/assets/icons/sass.png';
-import antDesign from '@/assets/icons/antDesign.png';
-import reactFlow from '@/assets/icons/reactFlow.png';
-import i18next from '@/assets/icons/i18next.png';
-import axios from '@/assets/icons/axios.png';
-import javaScript from '@/assets/icons/javaScript.png';
-import typeScript from '@/assets/icons/typeScript.png';
-import react from '@/assets/icons/react.png';
-import reactRouter from '@/assets/icons/reactRouter.png';
-import reduxToolkit from '@/assets/icons/reduxToolkit.png';
-import nextJS from '@/assets/icons/nextJS.png';
-import prisma from '@/assets/icons/prisma.png';
-import nodeJS from '@/assets/icons/nodeJS.png';
-import photoshop from '@/assets/icons/photoshop.png';
-import illustrator from '@/assets/icons/illustrator.png';
-import figma from '@/assets/icons/figma.png';
-import jira from '@/assets/icons/jira.png';
-import git from '@/assets/icons/git.png';
-import postman from '@/assets/icons/postman.png';
+// not in simple-icons, so it stays a raster logo
 import editorjs from '@/assets/icons/editorjs.png';
-import nextui from '@/assets/icons/nextui.png';
-import hookForm from '@/assets/icons/hookform.png';
 
-type ColType = { name: string; image: StaticImageData; url: string }[];
+export type TechLogoType = StaticImageData | SimpleIcon;
 
-export const techObj: ColType = [
+export type TechType = {
+  name: string;
+  logo: TechLogoType;
+  url: string;
+};
+
+export const techData: TechType[] = [
+  // core
   {
     name: 'HTML',
-    image: html,
-    url: 'https://www.w3schools.com/html/default.asp',
+    logo: siHtml5,
+    url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
   },
-  { name: 'CSS', image: css, url: 'https://www.w3schools.com/css/default.asp' },
-  { name: 'Tailwind', image: tailwind, url: 'https://tailwindcss.com' },
-  { name: 'Sass', image: sass, url: 'https://sass-lang.com' },
-  { name: 'Ant Design', image: antDesign, url: 'https://ant.design' },
-  { name: 'React Flow', image: reactFlow, url: 'https://reactflow.dev' },
-  { name: 'i18next', image: i18next, url: 'https://www.i18next.com' },
-  { name: 'Axios', image: axios, url: 'https://axios-http.com' },
-
+  {
+    name: 'CSS',
+    logo: siCss,
+    url: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+  },
   {
     name: 'JavaScript',
-    image: javaScript,
-    url: 'https://www.w3schools.com/js/default.asp',
+    logo: siJavascript,
+    url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   },
   {
     name: 'TypeScript',
-    image: typeScript,
+    logo: siTypescript,
     url: 'https://www.typescriptlang.org',
   },
-  { name: 'React', image: react, url: 'https://react.dev' },
+  { name: 'React', logo: siReact, url: 'https://react.dev' },
+  { name: 'Next.js', logo: siNextdotjs, url: 'https://nextjs.org' },
+  { name: 'React Router', logo: siReactrouter, url: 'https://reactrouter.com' },
+  // state & data
+  { name: 'Redux Toolkit', logo: siRedux, url: 'https://redux-toolkit.js.org' },
   {
-    name: 'React Router',
-    image: reactRouter,
-    url: 'https://reactrouter.com/en/main',
+    name: 'TanStack Query',
+    logo: siReactquery,
+    url: 'https://tanstack.com/query',
   },
   {
-    name: 'Redux Toolkit',
-    image: reduxToolkit,
-    url: 'https://redux-toolkit.js.org',
+    name: 'React Hook Form',
+    logo: siReacthookform,
+    url: 'https://react-hook-form.com',
   },
-  { name: 'Next.js', image: nextJS, url: 'https://nextjs.org' },
-  { name: 'NextUI', image: nextui, url: 'https://nextui.org' },
-  { name: 'EditorJs', image: editorjs, url: 'https://editorjs.io' },
-  { name: 'Prisma', image: prisma, url: 'https://www.prisma.io' },
-  { name: 'Hook Form', image: hookForm, url: 'https://react-hook-form.com/' },
-  { name: 'Node.js', image: nodeJS, url: 'https://www.w3schools.com/nodejs' },
-
+  { name: 'Zod', logo: siZod, url: 'https://zod.dev' },
+  // ui & styling
+  { name: 'Tailwind', logo: siTailwindcss, url: 'https://tailwindcss.com' },
+  { name: 'Sass', logo: siSass, url: 'https://sass-lang.com' },
   {
-    name: 'Photoshop',
-    image: photoshop,
-    url: 'https://www.adobe.com/products/photoshop.html',
+    name: 'styled-components',
+    logo: siStyledcomponents,
+    url: 'https://styled-components.com',
   },
+  { name: 'Radix UI', logo: siRadixui, url: 'https://www.radix-ui.com' },
+  { name: 'shadcn/ui', logo: siShadcnui, url: 'https://ui.shadcn.com' },
+  { name: 'Ant Design', logo: siAntdesign, url: 'https://ant.design' },
+  { name: 'MUI', logo: siMui, url: 'https://mui.com' },
+  // editors
+  { name: 'Editor.js', logo: editorjs, url: 'https://editorjs.io' },
+  // backend
+  { name: 'Supabase', logo: siSupabase, url: 'https://supabase.com' },
+  { name: 'Prisma', logo: siPrisma, url: 'https://www.prisma.io' },
+  // tooling
+  { name: 'Vite', logo: siVite, url: 'https://vite.dev' },
+  { name: 'Git', logo: siGit, url: 'https://git-scm.com' },
+  { name: 'Sentry', logo: siSentry, url: 'https://sentry.io' },
+  { name: 'i18next', logo: siI18next, url: 'https://www.i18next.com' },
+  { name: 'Figma', logo: siFigma, url: 'https://www.figma.com' },
   {
-    name: 'Illustrator',
-    image: illustrator,
-    url: 'https://www.adobe.com/products/illustrator.html',
+    name: 'Jira',
+    logo: siJira,
+    url: 'https://www.atlassian.com/software/jira',
   },
-  { name: 'Figma', image: figma, url: 'https://www.figma.com' },
-  { name: 'Jira', image: jira, url: 'https://jira.atlassian.com/' },
-  { name: 'Git', image: git, url: 'https://git-scm.com/' },
-  { name: 'Postman', image: postman, url: 'https://www.postman.com/' },
+  { name: 'Postman', logo: siPostman, url: 'https://www.postman.com' },
+  // testing
+  { name: 'Vitest', logo: siVitest, url: 'https://vitest.dev' },
+  {
+    name: 'Testing Library',
+    logo: siTestinglibrary,
+    url: 'https://testing-library.com',
+  },
+  { name: 'MSW', logo: siMockserviceworker, url: 'https://mswjs.io' },
 ];

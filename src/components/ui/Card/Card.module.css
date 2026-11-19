@@ -1,0 +1,54 @@
+@media (min-width: 540px) {
+  .glow:hover {
+    animation: glow 20s infinite alternate;
+  }
+
+  .sideLine::after {
+    content: '';
+    position: absolute;
+    top: 65%;
+    left: -1px;
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(
+      transparent,
+      rgba(45, 212, 191, 1),
+      transparent
+    );
+    opacity: 0;
+    transition:
+      top 900ms ease,
+      opacity 900ms ease;
+  }
+
+  .sideLine:hover::after {
+    top: 15%;
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0;
+  }
+
+  28%,
+  60%,
+  100% {
+    box-shadow:
+      0 0 36px rgba(45, 212, 191, 0.7),
+      0 0 16px rgba(45, 212, 191, 1),
+      0 0 50px rgba(232, 121, 249, 0.8),
+      inset 0 0 24px rgba(45, 212, 191, 1);
+  }
+
+  20%,
+  40%,
+  80% {
+    box-shadow:
+      0 0 24px rgba(45, 212, 191, 0.6),
+      0 0 12px rgba(45, 212, 191, 0.8),
+      0 0 30px rgba(232, 121, 249, 0.6),
+      inset 0 0 16px rgba(45, 212, 191, 0.8);
+  }
+}

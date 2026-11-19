@@ -1,76 +1,69 @@
-# Portfolio 
+# Portfolio
 
-This repository contains the source code for my personal portfolio website, which showcases my experience, skills, and projects. It is a responsive website, designed in Figma, and built with Next.js.
+Source code for my personal portfolio: experience, skills and projects. Designed in Figma, built with Next.js.
 
-Visit at https://levandolidze.com/
+Live at https://levandolidze.com
 
 Feel free to fork it and use it as a template.
 
+## Stack
 
-## Features 
+- Next.js 16 (App Router), React 19, TypeScript
+- Tailwind CSS 4 (theme lives in `src/app/globals.css`)
+- next-themes for light/dark mode
+- react-hook-form + zod for the contact form, validated again on the server
+- Nodemailer (Gmail OAuth2) to deliver contact messages
 
-- **Personal Information:** Adjust the data structure in the project to reflect your own personal information.
-- **Projects Showcase:** Highlight your best projects in an attractive, organized way.
-- **Contact Form:** A ready-to-use contact form, you just need to hook it up with your own Google OAuth credentials.
+## Getting started
 
+Requires Node.js 20.9 or newer (24 LTS recommended).
 
-## Installation
-
-1. Clone the repository:
-  ```js
-git clone https://github.com/Levan-D/portfolio.git
-```
-2. Install dependencies:
-  ```js
+```sh
 npm install
-```
-3. Start the app:
-  ```js
 npm run dev
 ```
-4. Open `http://localhost:3000` in your browser
-  ```js
-http://localhost:3000
-```
-   
-## Configuration
 
-All personal information is stored in the /data directory. Simply replace the provided information with your own.
+Then open http://localhost:3000.
 
-For example, in data/personalData.ts, you would change the following:
+| Script                 | What it does             |
+| ---------------------- | ------------------------ |
+| `npm run dev`          | Dev server               |
+| `npm run build`        | Production build         |
+| `npm run lint`         | ESLint                   |
+| `npm run typecheck`    | TypeScript, no emit      |
+| `npm run format`       | Prettier, writes changes |
+| `npm run format:check` | Prettier, check only     |
 
-
-```javascript
-
-export const personalData = {
-  profile: {
-    name: "Levan Dolidze",
-    role: "Web Developer",
-    desc: "  I specialize in building accessible...",
-    greetings: "Hey! my name is",
-  },
-...
-};
+## Project structure
 
 ```
+src/
+  app/            routes only (homepage sections live in (homepage)/_sections)
+  components/     shared UI: ui/ primitives, navigation/, contact/
+  data/           projects, experience and technologies shown on the site
+  hooks/          generic React hooks
+  lib/            server-only wrappers (mailer)
+  utils/          small pure helpers
+  assets/         images
+```
 
-### Contact Form
+To make it yours, edit the files in `src/data/` and the copy in `src/app/(homepage)/_sections/`.
 
-For the contact form, you'll need to obtain your own Google OAuth Client ID:
+## Contact form
 
-1. Visit the Google Cloud Console.
-2. Create a new project, or select an existing one.
-3. Go to "APIs & Services" -> "Credentials".
-4. Click on "Create Credentials" -> "OAuth client ID".
-5. Choose "Web application", name it, and add `http://localhost:3000` in "Authorized JavaScript origins" and `http://localhost:3000/auth/google/callback` in "Authorized redirect URIs".
-6. Save it and copy the client ID to the .env.local file in the root directory of the project.
+Messages are sent through Gmail with OAuth2. Create `.env.local` in the project root:
 
+```sh
+GMAIL_USER=you@gmail.com
+GMAIL_CLIENT_ID=...
+GMAIL_CLIENT_SECRET=...
+GMAIL_REFRESH_TOKEN=...
+```
 
-## Contributing
+Get the client ID and secret from an OAuth client in the Google Cloud Console (APIs & Services → Credentials), then generate a refresh token for the Gmail scope, for example with the OAuth 2.0 Playground. If the OAuth consent screen is left in "Testing" mode, Google expires refresh tokens after 7 days, so publish the app or the form will stop sending.
 
-Contributions are always welcome! If you have an idea for a new feature, find a bug, or would like to contribute code, please submit an issue or a pull request.
-
+On Vercel, add the same variables under Project Settings → Environment Variables.
 
 ## License
 
-CSS Mate is open source software licensed under the MIT License.
+MIT, see [LICENSE](LICENSE).

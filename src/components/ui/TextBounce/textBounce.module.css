@@ -1,26 +1,33 @@
 .waveText {
-  animation-name: waveDark;
-  color: rgb(45 212 191);
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
+  --wave-1: #115e59;
+  --wave-2: #4338ca;
+  --wave-3: #075985;
+  color: var(--wave-1);
+  animation: wave 4s infinite;
 }
 
-@keyframes waveDark {
+:global(.dark) .waveText {
+  --wave-1: #2dd4bf;
+  --wave-2: #818cf8;
+  --wave-3: #38bdf8;
+}
+
+@keyframes wave {
   0%,
   100% {
-    color: #2dd4bf;
+    color: var(--wave-1);
   }
   10% {
     transform: translateY(0);
   }
   20% {
     transform: translateY(-10px);
-    color: #818cf8;
+    color: var(--wave-2);
   }
   30% {
     transform: translateY(0);
   }
   50% {
-    color: #38bdf8;
+    color: var(--wave-3);
   }
 }

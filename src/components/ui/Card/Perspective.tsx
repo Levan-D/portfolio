@@ -2,53 +2,53 @@
 
 import { useState } from 'react';
 import useMediaQuery from '@/hooks/useMediaQuery';
-import { useMousePosition } from '@/hooks/useMousePosition';
-import useTiltRamp from './useTiltRamp';
+
+const MAX_TILT_DEG = 3;
+
+type TiltType = { rotateX: number; rotateY: number };
 
 type Props = {
   children: React.ReactNode;
 };
 
+function clamp(value: number) {
+  return Math.min(1, Math.max(0, value));
+}
+
 export default function Perspective({ children }: Props) {
   const isEnabled = useMediaQuery(
-    '(min-width: 33.75rem) and (prefers-reduced-motion: no-preference)',
+    '(min-width: 33.75rem) and (hover: hover) and (prefers-reduced-motion: no-preference)',
   );
-  const { ref, mousePos } = useMousePosition();
-  const { strength, startRamp, resetRamp } = useTiltRamp();
-  const [isHovered, setIsHovered] = useState(false);
-  const [size, setSize] = useState({ width: 0, height: 0 });
+  const [tilt, setTilt] = useState<TiltType | null>(null);
 
-  const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>) => {
-    const { width, height } = event.currentTarget.getBoundingClientRect();
-    setSize({ width, height });
-    setIsHovered(true);
-    startRamp();
+  // measure the untransformed wrapper, never the tilted card, or the tilt feeds back on itself
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!isEnabled) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = clamp((event.clientX - rect.left) / rect.width);
+    const y = clamp((event.clientY - rect.top) / rect.height);
+
+    setTilt({
+      rotateX: (0.5 - y) * 2 * MAX_TILT_DEG,
+      rotateY: (x - 0.5) * 2 * MAX_TILT_DEG,
+    });
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    resetRamp();
-  };
-
-  const rotateX = strength.y * (size.height / 2 - mousePos.y);
-  const rotateY = -strength.x * (size.width / 2 - mousePos.x);
-
-  const tiltStyle: React.CSSProperties =
-    isEnabled && isHovered
-      ? {
-          transform: `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-          backfaceVisibility: 'hidden',
-        }
-      : { transition: 'transform 0.3s' };
+  const tiltStyle: React.CSSProperties = tilt
+    ? {
+        transform: `perspective(1000px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`,
+        transition: 'transform 100ms ease-out',
+      }
+    : { transition: 'transform 300ms ease-out' };
 
   return (
     <div
       className="relative"
       style={{ padding: '30px', margin: '-30px' }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setTilt(null)}
     >
-      <div ref={ref} style={tiltStyle} className="relative rounded-xl">
+      <div style={tiltStyle} className="relative rounded-xl">
         {children}
       </div>
     </div>

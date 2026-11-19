@@ -4,17 +4,13 @@ import Navbar from '@/components/navigation/Navbar';
 import Footer from '@/components/Footer';
 import Providers from '@/components/Providers';
 import BackToTop from '@/components/BackToTop';
+import ThemeColorMeta from '@/components/theme/ThemeColorMeta';
+import Toaster from '@/components/theme/Toaster';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
-import { Metadata } from 'next';
-import type { Viewport } from 'next';
+import type { Metadata } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const viewport: Viewport = {
-  themeColor: 'black',
-  colorScheme: 'dark',
-};
 export const metadata: Metadata = {
   metadataBase: new URL('https://levandolidze.com'),
 
@@ -61,7 +57,8 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <BackToTop />
-          <ToastContainer position="top-center" theme="dark" newestOnTop />
+          <ThemeColorMeta />
+          <Toaster />
           <main className="mx-auto w-full max-w-(--breakpoint-2xl) grow px-8">
             {children}
           </main>

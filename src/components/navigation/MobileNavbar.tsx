@@ -67,7 +67,7 @@ export default function MobileNavbar() {
                 key={id}
                 className={twMerge(
                   'mx-4 text-center text-xl btnTertiary md:text-base',
-                  activeSection === id && 'text-teal-700! dark:text-teal-400!',
+                  activeSection === id && 'text-teal-800! dark:text-teal-400!',
                 )}
               >
                 <button

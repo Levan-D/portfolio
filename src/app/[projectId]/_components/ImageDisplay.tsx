@@ -16,7 +16,7 @@ type Props = {
 };
 
 const TOGGLE_CLASSES =
-  'rounded-xl border-2 border-slate-500 text-slate-500 duration-300 sm:hover:border-slate-400 sm:hover:text-slate-400 dark:border-slate-400 dark:text-slate-400 dark:sm:hover:border-slate-300 dark:sm:hover:text-slate-300';
+  'rounded-xl border-2 border-slate-500 text-slate-500 duration-300 sm:hover:border-slate-700 sm:hover:text-slate-700 dark:border-slate-400 dark:text-slate-400 dark:sm:hover:border-slate-300 dark:sm:hover:text-slate-300';
 const TOGGLE_ACTIVE_CLASSES =
   'border-slate-900! text-slate-900! dark:border-slate-300! dark:text-slate-300!';
 const PHONE_CLASSES =

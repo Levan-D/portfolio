@@ -1,5 +1,4 @@
 import { twMerge } from 'tailwind-merge';
-import FlashLight from './FlashLight';
 import Perspective from './Perspective';
 import styles from './Card.module.css';
 
@@ -8,7 +7,6 @@ type Props = {
   className?: string;
   sideLine?: boolean;
   glow?: boolean;
-  flashLight?: boolean;
   perspective?: boolean;
 };
 
@@ -17,7 +15,6 @@ export default function Card({
   className,
   sideLine = false,
   glow = false,
-  flashLight = false,
   perspective = false,
 }: Props) {
   let card = (
@@ -35,7 +32,6 @@ export default function Card({
     </div>
   );
 
-  if (flashLight) card = <FlashLight>{card}</FlashLight>;
   if (perspective) card = <Perspective>{card}</Perspective>;
 
   return card;

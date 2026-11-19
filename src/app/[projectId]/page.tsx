@@ -95,13 +95,13 @@ export default async function ProjectPage({ params }: Props) {
                 />
 
                 <div className="mx-1 mt-2 flex grow items-center gap-1">
-                  <h3 className="line-clamp-1 text-xs font-semibold duration-300 group-hover/title:text-white md:text-sm xl:text-lg dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400">
+                  <h3 className="line-clamp-1 text-xs font-semibold duration-300 group-hover/title:text-teal-900 md:text-sm xl:text-lg dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400">
                     {otherProject.title}
                   </h3>
                   <Icon
                     path={mdiArrowTopRight}
                     size={0.6}
-                    className="duration-300 ease-in group-hover/title:translate-x-1 group-hover/title:-translate-y-1 group-hover/title:text-white dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400"
+                    className="duration-300 ease-in group-hover/title:translate-x-1 group-hover/title:-translate-y-1 group-hover/title:text-teal-900 dark:group-hover/title:text-teal-300 dark:group-active/title:text-teal-400"
                   />
                 </div>
               </Link>

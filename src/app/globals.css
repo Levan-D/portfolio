@@ -90,11 +90,11 @@
 }
 
 @utility btnSecondary {
-  @apply block rounded-full border-2 border-teal-700 px-6 py-2 font-semibold duration-300 active:text-teal-800 sm:hover:text-teal-600 dark:border-teal-400 dark:active:text-teal-400 dark:sm:hover:text-teal-200;
+  @apply block rounded-full border-2 border-teal-700 px-6 py-2 font-semibold duration-300 active:text-teal-800 sm:hover:text-teal-800 dark:border-teal-400 dark:active:text-teal-400 dark:sm:hover:text-teal-200;
 }
 
 @utility btnTertiary {
-  @apply font-semibold duration-300 active:text-teal-700 sm:hover:text-teal-600 dark:active:text-teal-400 dark:sm:hover:text-teal-200;
+  @apply font-semibold duration-300 active:text-teal-800 sm:hover:text-teal-800 dark:active:text-teal-400 dark:sm:hover:text-teal-200;
 }
 
 .backgroundGrid:before {
@@ -121,11 +121,19 @@
 
 .Toastify__toast {
   border-radius: 8px !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.dark .Toastify__toast {
   background: #0f172a !important;
-  border: 1px solid #334155 !important;
+  border-color: #334155 !important;
 }
 
 :root {
+  --toastify-color-success: #0f766e !important;
+}
+
+.dark {
   --toastify-color-dark: #0f172a !important;
   --toastify-color-success: #2dd4bf !important;
 }
@@ -136,6 +144,10 @@
 }
 
 ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+.dark ::-webkit-scrollbar-track {
   background: #020617;
 }
 

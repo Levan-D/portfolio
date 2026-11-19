@@ -26,7 +26,7 @@ export default function SiderNavbar() {
             key={id}
             className={twMerge(
               'text-xs textTertiary',
-              activeSection === id && 'text-teal-700! dark:text-teal-400!',
+              activeSection === id && 'text-teal-800! dark:text-teal-400!',
             )}
           >
             <Tooltip position="left" text={label}>

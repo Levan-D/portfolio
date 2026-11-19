@@ -14,7 +14,7 @@ type FieldNameType = Exclude<keyof ContactFormValues, 'website'>;
 const SEND_FAILED = "Couldn't send your message. Please try again later.";
 
 const INPUT_CLASSES =
-  'rounded-lg border border-slate-400 bg-transparent p-2 text-sm outline-none focus-visible:border-teal-500 focus-visible:ring-2 focus-visible:ring-teal-500/40 aria-invalid:border-red-400';
+  'rounded-lg border border-slate-500 bg-transparent dark:border-slate-400 p-2 text-sm outline-none focus-visible:border-teal-500 focus-visible:ring-2 focus-visible:ring-teal-500/40 aria-invalid:border-red-700 dark:aria-invalid:border-red-400';
 
 type Props = {
   onSent: () => void;
@@ -45,7 +45,7 @@ export default function ContactForm({ onSent }: Props) {
 
   const renderError = (name: FieldNameType) =>
     errors[name] && (
-      <p id={errorId(name)} className="text-sm text-red-400">
+      <p id={errorId(name)} className="text-sm text-red-800 dark:text-red-400">
         {errors[name].message}
       </p>
     );
@@ -129,7 +129,10 @@ export default function ContactForm({ onSent }: Props) {
         </div>
 
         {sendError && (
-          <p role="alert" className="mt-4 text-sm text-red-400">
+          <p
+            role="alert"
+            className="mt-4 text-sm text-red-800 dark:text-red-400"
+          >
             {sendError}
           </p>
         )}

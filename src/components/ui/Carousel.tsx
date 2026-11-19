@@ -24,10 +24,10 @@ export default function Carousel({ children }: Props) {
 
   return (
     <div className="relative">
-      <Card flashLight>
+      <Card>
         <div
           ref={ref}
-          className="flex h-full w-full gap-4 overflow-x-auto overflow-y-hidden"
+          className="flex h-full w-full [scrollbar-width:none] gap-4 overflow-x-auto overflow-y-hidden [&::-webkit-scrollbar]:hidden"
         >
           {children}
         </div>

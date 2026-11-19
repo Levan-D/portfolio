@@ -40,12 +40,10 @@ export default function StaggeredGrid<T extends {}>({
                 ? `${i % 2 === 0 ? '-' : ''}${margin}px`
                 : '',
             }}
-            className={`grow flex-col gap-8`}
+            className="flex min-w-0 flex-1 flex-col gap-8"
           >
             {array.map((item: T, j: number) => (
-              <div key={`item-${j}`} className=" ">
-                {renderItem(item)}
-              </div>
+              <div key={`item-${j}`}>{renderItem(item)}</div>
             ))}
           </div>
         );

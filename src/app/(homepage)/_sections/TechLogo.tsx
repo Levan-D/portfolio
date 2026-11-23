@@ -23,12 +23,21 @@ function contrast(a: string, b: string) {
 
 type Props = {
   logo: TechLogoType;
+  invertInDark?: boolean;
 };
 
-export default function TechLogo({ logo }: Props) {
+export default function TechLogo({ logo, invertInDark }: Props) {
   if (!('path' in logo)) {
     return (
-      <Image src={logo} alt="" height={50} className="h-7 w-auto lg:h-[38px]" />
+      <Image
+        src={logo}
+        alt=""
+        height={50}
+        className={twMerge(
+          'h-7 w-auto lg:h-[38px]',
+          invertInDark && 'dark:invert',
+        )}
+      />
     );
   }
 
@@ -39,7 +48,7 @@ export default function TechLogo({ logo }: Props) {
 
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox={'viewBox' in logo ? logo.viewBox : '0 0 24 24'}
       aria-hidden="true"
       focusable="false"
       style={{ '--logo': color } as React.CSSProperties}

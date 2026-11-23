@@ -41,7 +41,7 @@ export default function Technologies() {
                   rel="noopener noreferrer"
                   className="flex flex-col items-center justify-end rounded-xl border border-transparent px-2 pt-2 pb-1.5 duration-300 active:scale-[0.95] sm:hover:-translate-y-2 sm:hover:border-slate-500/50 sm:hover:bg-slate-300/50 sm:active:bg-slate-600 md:px-3 dark:sm:hover:bg-slate-600/50"
                 >
-                  <TechLogo logo={item.logo} />
+                  <TechLogo logo={item.logo} invertInDark={item.invertInDark} />
                   <span className="mt-1.5 text-center text-xs font-semibold whitespace-nowrap lg:text-sm">
                     {item.name}
                   </span>

@@ -1,26 +1,44 @@
 import type { StaticImageData } from 'next/image';
+import { REDFLAG_STACK, TOTEM_ARTS_STACK } from '@/data/stacks';
 
-import cssMateCoverWeb from '@/assets/projects/css-mate-cover-web.png';
-import cssMateCoverMobile from '@/assets/projects/css-mate-cover-mobile.png';
-import cssMateLeftMobile from '@/assets/projects/css-mate-left-mobile.png';
-import cssMateRightMobile from '@/assets/projects/css-mate-right-mobile.png';
+import redflagCoverWeb from '@/assets/projects/redflag-cover-web.webp';
+import redflagSourcesWeb from '@/assets/projects/redflag-sources-web.webp';
+import redflagMapWeb from '@/assets/projects/redflag-map-web.webp';
+import redflagRfiDraftWeb from '@/assets/projects/redflag-rfi-draft-web.webp';
+import redflagRfiTrackingWeb from '@/assets/projects/redflag-rfi-tracking-web.webp';
+import redflagExporterWeb from '@/assets/projects/redflag-exporter-web.webp';
+import redflagSectionsWeb from '@/assets/projects/redflag-sections-web.webp';
+import redflagCoverMobile from '@/assets/projects/redflag-cover-mobile.webp';
+import redflagLeftMobile from '@/assets/projects/redflag-left-mobile.webp';
+import redflagRightMobile from '@/assets/projects/redflag-right-mobile.webp';
 
-import RNKCoverWeb from '@/assets/projects/RNK-cover-web.png';
-import RNKIcon from '@/assets/projects/RNK-icon.png';
+import TACoverWeb from '@/assets/projects/ta-launcher-cover-web.webp';
 
-import TACoverWeb from '@/assets/projects/ta-launcher-cover-web.jpg';
+import animaCoverWeb from '@/assets/projects/anima-cover-web.webp';
+import animaTracksWeb from '@/assets/projects/anima-tracks-web.webp';
+import animaEqualizerWeb from '@/assets/projects/anima-equalizer-web.webp';
+import animaLyricsWeb from '@/assets/projects/anima-lyrics-web.webp';
+import animaRadioWeb from '@/assets/projects/anima-radio-web.webp';
+import animaStationsWeb from '@/assets/projects/anima-stations-web.webp';
+import animaDiscoverWeb from '@/assets/projects/anima-discover-web.webp';
 
-import todoCoverWeb from '@/assets/projects/todo-cover-web.png';
-import todoCoverMobile from '@/assets/projects/todo-cover-mobile.png';
-import todoLeftMobile from '@/assets/projects/todo-left-mobile.png';
-import todoRightMobile from '@/assets/projects/todo-right-mobile.png';
+import smashPattyCoverWeb from '@/assets/projects/smash-patty-cover-web.webp';
+import smashPattyMenuWeb from '@/assets/projects/smash-patty-menu-web.webp';
+import smashPattyLocationWeb from '@/assets/projects/smash-patty-location-web.webp';
+import smashPattyCoverMobile from '@/assets/projects/smash-patty-cover-mobile.webp';
+import smashPattyLeftMobile from '@/assets/projects/smash-patty-left-mobile.webp';
+import smashPattyRightMobile from '@/assets/projects/smash-patty-right-mobile.webp';
 
-import portCoverWeb from '@/assets/projects/port-cover-web.png';
-import portCoverMobile from '@/assets/projects/port-cover-mobile.png';
-import portLeftMobile from '@/assets/projects/port-left-mobile.png';
-import portRightMobile from '@/assets/projects/port-right-mobile.png';
+import cramCoverWeb from '@/assets/projects/cram-cover-web.webp';
+import cramQuizWeb from '@/assets/projects/cram-quiz-web.webp';
+import cramEditingDarkWeb from '@/assets/projects/cram-editing-dark-web.webp';
+import cramSearchWeb from '@/assets/projects/cram-search-web.webp';
+import cramStudyWeb from '@/assets/projects/cram-study-web.webp';
 
-import tetrisCoverWeb from '@/assets/projects/tetris-cover-web.png';
+import tetrisCoverWeb from '@/assets/projects/tetris-cover-web.webp';
+import tetrisNukeWeb from '@/assets/projects/tetris-nuke-web.webp';
+import tetrisPaintWeb from '@/assets/projects/tetris-paint-web.webp';
+import tetrisPowerupsWeb from '@/assets/projects/tetris-powerups-web.webp';
 
 export type ProjectsDataType = {
   title: string;
@@ -28,7 +46,8 @@ export type ProjectsDataType = {
   desc: string;
   tech: string[];
   images: {
-    coverWeb: StaticImageData;
+    // desktop screenshots; the first is the cover
+    web: [StaticImageData, ...StaticImageData[]];
     coverMobile?: StaticImageData;
     leftMobile?: StaticImageData;
     rightMobile?: StaticImageData;
@@ -37,43 +56,100 @@ export type ProjectsDataType = {
   links: {
     github?: string;
     website?: string;
+    download?: string;
   };
 };
 
 export const projectData: ProjectsDataType[] = [
   {
-    title: 'CSS Mate',
+    title: 'Redflag',
     pitch:
-      'CSS-Mate is a React application designed to help web developers with CSS & HTML rules.',
-    desc: 'CSS-Mate is a React application designed to help web developers visualize CSS rules, access CSS cheat sheets, and assist with color theory. The application provides a user-friendly interface for exploring various CSS properties and their effects on web elements. It is intended to be an educational resource and productivity tool for both beginners and experienced developers.',
-    tech: ['React', 'RTK', 'RRD', 'Tailwind', 'Express', 'Puppeteer'],
+      'AI due diligence for real estate sites: zoning, code and permits, with every answer sourced.',
+    desc: "Redflag is an AI due-diligence workspace for commercial real estate and construction teams. Before a site is bought or designed, someone has to work out what the local rules allow there: zoning, building code, utilities, permits, fees and timelines. Redflag does that research from an address and gives source-backed answers: a clear determination, the key factors behind it, and citations that open the exact passage in the city's code. Teams collaborate on the report: they edit answers, comment and assign follow-ups, bring in their own records like titles, easements and leases, and export it for clients. When the records can't answer something, Redflag emails the question to the city's planning or building office, and the reply lands back in the report.",
+    tech: REDFLAG_STACK,
     images: {
-      coverWeb: cssMateCoverWeb,
-      coverMobile: cssMateCoverMobile,
-      leftMobile: cssMateLeftMobile,
-      rightMobile: cssMateRightMobile,
+      web: [
+        redflagCoverWeb,
+        redflagSourcesWeb,
+        redflagMapWeb,
+        redflagRfiDraftWeb,
+        redflagRfiTrackingWeb,
+        redflagSectionsWeb,
+        redflagExporterWeb,
+      ],
+      coverMobile: redflagCoverMobile,
+      leftMobile: redflagLeftMobile,
+      rightMobile: redflagRightMobile,
     },
     links: {
-      github: 'https://github.com/Levan-D/css-mate',
-      website: 'https://cssmate.online',
+      website: 'https://redflagdata.com',
     },
   },
+
   {
-    title: 'Totem Arts Launcher',
-    pitch: 'Desktop game launcher for the Totem Arts community.',
-    desc: "Desktop game launcher for the Totem Arts community. I rewrote the launcher's UI from Vue to React and built most of its features on top of the existing Electron core: login, game library, live server browser with ping, news feed and game launch.",
+    title: 'anima',
+    pitch: 'A desktop music player for the music library you already own.',
+    desc: "anima is a Windows music player for the music you already own. Browse by artist, album, genre and track, on anything from a touch laptop to a TV across the room. Playback is gapless and bit-perfect, with WASAPI exclusive mode and a signal line that shows exactly what's happening to the sound. The parametric EQ is checked against the engine's real output to within 0.01 dB, and headphone correction fits it to a target curve from AutoEq measurements. Radio and mood stations pick from your own library using audio fingerprints made on your machine, and lyrics sync line by line. mpv does the audio, SQLite holds the library, and tests compare the actual output bytes.",
     tech: [
       'Electron',
       'React',
       'TypeScript',
-      'Vite',
-      'Redux Toolkit',
+      'SQLite',
+      'mpv',
+      'FFmpeg',
+      'ONNX Runtime',
+      'Zustand',
+      'TanStack Query',
+      'Zod',
       'Tailwind',
-      'zod',
-      'Jest',
+      'Vitest',
+      'Playwright',
     ],
     images: {
-      coverWeb: TACoverWeb,
+      web: [
+        animaCoverWeb,
+        animaTracksWeb,
+        animaLyricsWeb,
+        animaEqualizerWeb,
+        animaRadioWeb,
+        animaStationsWeb,
+        animaDiscoverWeb,
+      ],
+    },
+    links: {
+      github: 'https://github.com/Levan-D/anima',
+      download: 'https://github.com/Levan-D/anima/releases/latest',
+    },
+  },
+
+  {
+    title: 'Smash Patty',
+    pitch: 'Website for a smash-burger restaurant in Tbilisi.',
+    desc: 'A one-page website for Smash Patty, a smash-burger spot in Tbilisi. Browse the burgers with a photo and nutrition for each, read the story behind the place, ask about catering, find the address and opening hours, and send a message straight to the restaurant.',
+    tech: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind',
+      'Motion',
+      'Nodemailer',
+    ],
+    images: {
+      web: [smashPattyCoverWeb, smashPattyMenuWeb, smashPattyLocationWeb],
+      coverMobile: smashPattyCoverMobile,
+      leftMobile: smashPattyLeftMobile,
+      rightMobile: smashPattyRightMobile,
+    },
+    links: {},
+  },
+
+  {
+    title: 'Totem Arts Launcher',
+    pitch: 'Desktop game launcher for the Totem Arts community.',
+    desc: 'The desktop launcher for Totem Arts, the community studio behind free games like Renegade X and Firestorm. Sign in once, keep your games installed and updated, browse live servers with their ping and player counts, read the latest news, and jump straight into a match.',
+    tech: TOTEM_ARTS_STACK,
+    images: {
+      web: [TACoverWeb],
     },
     links: {
       website: 'https://totemarts.games/',
@@ -81,70 +157,44 @@ export const projectData: ProjectsDataType[] = [
   },
 
   {
-    title: 'React Nexus Kit',
-    pitch:
-      'React Nexus Kit (RNK) is an all-in-one solution that brings together a powerful set of React packages and includes prewritten boilerplate code to help you start your project swiftly.',
-    desc: 'React Nexus Kit (RNK) is an all-in-one solution that brings together a powerful set of React packages and includes prewritten boilerplate code to help you start your project swiftly. It simplifies the setup process by automatically installing a Vite React TypeScript project, complete with essential libraries such as Redux Toolkit for state management, React Router DOM for routing, Tailwind CSS for styling, Axios for API requests, React Helmet for managing metadata, and the Vite SVGR plugin to seamlessly import SVGs as JSX components.',
-    tech: ['React', 'Node.js', 'RTK', 'Tailwind', 'Axios'],
+    title: 'Cram',
+    pitch: 'A desktop app for studying from your own markdown notes.',
+    desc: 'A reader and editor for a folder of markdown files, with full-text search, quizzes generated from your notes, a Pomodoro timer and a study heatmap. It uses CodeMirror instead of a WYSIWYG editor, so saving never reformats your file.',
+    tech: [
+      'Electron',
+      'React',
+      'TypeScript',
+      'Zustand',
+      'CodeMirror',
+      'Vitest',
+      'Playwright',
+    ],
     images: {
-      coverWeb: RNKCoverWeb,
-      icon: RNKIcon,
+      web: [
+        cramCoverWeb,
+        cramEditingDarkWeb,
+        cramQuizWeb,
+        cramSearchWeb,
+        cramStudyWeb,
+      ],
     },
     links: {
-      github: 'https://github.com/Levan-D/react-nexus-kit',
-    },
-  },
-
-  {
-    title: 'Task Manager',
-    pitch:
-      "Task Manager is a straightforward yet comprehensive task management tool. Built with React's interactive front-end and Go's robust backend.",
-    desc: "Task Manager is a straightforward yet comprehensive task management tool. Built with React's interactive front-end and Go's robust backend, it aims to provide a reliable platform for daily to-dos. From basic CRUD operations, handy sorting features, to categorized task views, it facilitates an organized approach to task management. And with security as a priority, it comes with both user authentication and a guest login option.",
-    tech: ['React', 'Axios', 'Go'],
-    images: {
-      coverWeb: todoCoverWeb,
-      coverMobile: todoCoverMobile,
-      leftMobile: todoLeftMobile,
-      rightMobile: todoRightMobile,
-    },
-    links: {
-      github: 'https://github.com/Levan-D/todo-frontend',
+      github: 'https://github.com/Levan-D/cram',
+      download: 'https://github.com/Levan-D/cram/releases/latest',
     },
   },
 
   {
     title: 'Tetris',
-    pitch: 'A simple and fun implementation of the classic Tetris game.',
-    desc: 'A simple and fun implementation of the classic Tetris game using JavaScript, HTML, and CSS. It aims to provide a nostalgic gaming experience to users while demonstrating clean code and good programming practices.',
-    tech: ['Javascript'],
+    pitch: 'An arcade-flavored Tetris you can play in the browser.',
+    desc: 'Standard Tetris feel (7-bag randomizer, hold, lock delay, wall kicks, T-spins) plus five game modes, power-ups, sound effects generated in code and per-mode leaderboards.',
+    tech: ['React', 'TypeScript', 'Vite', 'Zustand', 'Tailwind', 'Web Audio'],
     images: {
-      coverWeb: tetrisCoverWeb,
-    },
-    links: {},
-  },
-
-  {
-    title: 'Levan Dolidze',
-    pitch: 'This site: designed in Figma and built with Next.js.',
-    desc: "The source code for this site, levandolidze.dev. Designed in Figma and built with Next.js, React, TypeScript and Tailwind CSS, with light and dark themes, keyboard and screen-reader support, and a contact form validated on both the client and the server. You're welcome to fork it and make it your own.",
-    tech: [
-      'Next.js',
-      'React',
-      'TypeScript',
-      'Tailwind',
-      'React Hook Form',
-      'zod',
-      'Nodemailer',
-    ],
-    images: {
-      coverWeb: portCoverWeb,
-      coverMobile: portCoverMobile,
-      leftMobile: portLeftMobile,
-      rightMobile: portRightMobile,
+      web: [tetrisCoverWeb, tetrisNukeWeb, tetrisPaintWeb, tetrisPowerupsWeb],
     },
     links: {
-      github: 'https://github.com/Levan-D/portfolio',
-      website: 'https://levandolidze.dev',
+      github: 'https://github.com/Levan-D/tetris-v2',
+      website: 'https://levan-d.github.io/tetris-v2/',
     },
   },
 ];

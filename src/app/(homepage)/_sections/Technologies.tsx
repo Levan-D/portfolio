@@ -10,7 +10,7 @@ export default function Technologies() {
   const { ref, isInView } = useInView<HTMLDivElement>();
 
   return (
-    <div ref={ref} id="technologies" className="my-20 py-20">
+    <div ref={ref} id="technologies" className="py-12 md:my-20 md:py-20">
       <div
         className={twMerge(
           'mx-auto mb-20 w-fit max-w-sm text-center duration-700 ease-out md:translate-x-24 md:opacity-0',
@@ -32,7 +32,7 @@ export default function Technologies() {
         )}
       >
         <Card sideLine>
-          <ul className="flex flex-wrap justify-center gap-3 rounded-xl px-0 py-8 select-none md:max-w-xl lg:max-w-3xl lg:gap-4 lg:px-8 lg:py-12 xl:max-w-5xl">
+          <ul className="flex flex-wrap justify-center gap-3 rounded-xl px-0 py-4 select-none md:max-w-xl md:py-8 lg:max-w-3xl lg:gap-4 lg:px-8 lg:py-12 xl:max-w-5xl">
             {techData.map((item) => (
               <li key={item.name}>
                 <a

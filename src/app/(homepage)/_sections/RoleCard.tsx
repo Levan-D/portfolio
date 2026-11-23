@@ -10,8 +10,8 @@ export default function RoleCard({ role, headingLevel = 'h3' }: Props) {
   const Heading = headingLevel;
 
   return (
-    <Card perspective className="mx-auto mb-8 max-w-2xl">
-      <div className="px-4 py-2">
+    <Card perspective className="mx-auto mb-4 max-w-2xl md:mb-8">
+      <div className="p-1 md:px-4 md:py-2">
         <Heading className="text-lg font-semibold">{role.title}</Heading>
         <p className="text-sm textTertiary italic">{role.subtitle}</p>
         <p className="mb-2 text-sm textTertiary">{role.date}</p>
@@ -23,11 +23,11 @@ export default function RoleCard({ role, headingLevel = 'h3' }: Props) {
           ))}
         </ul>
 
-        <ul className="mt-4 flex flex-wrap gap-4">
+        <ul className="mt-4 flex flex-wrap gap-2">
           {role.tech.map((tech) => (
             <li
               key={tech}
-              className="rounded-full bg-teal-100 px-3 py-0.5 text-sm font-semibold text-teal-800"
+              className="rounded-full bg-teal-100 px-3 py-0.5 text-xs font-semibold text-teal-800 xl:text-sm"
             >
               {tech}
             </li>

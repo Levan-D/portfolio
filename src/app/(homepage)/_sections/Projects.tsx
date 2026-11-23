@@ -30,7 +30,10 @@ export default function Projects() {
     const {
       title,
       pitch,
-      images: { coverWeb, icon },
+      images: {
+        web: [coverWeb],
+        icon,
+      },
     } = card;
     const useIconLayout = showIcon && icon !== undefined;
 
@@ -72,11 +75,11 @@ export default function Projects() {
       id="projects"
       ref={ref}
       className={twMerge(
-        'mt-40 p-20 px-0 duration-700 ease-out md:translate-y-24 md:px-20 md:opacity-0',
+        'pb-12 duration-700 ease-out md:mt-40 md:translate-y-24 md:p-20 md:opacity-0',
         isInView && 'md:translate-y-0 md:opacity-100',
       )}
     >
-      <div className="mx-auto mb-12 w-fit text-center">
+      <div className="mx-auto mb-6 w-fit text-center md:mb-12">
         <h2 className="text-2xl font-bold textSecondary md:text-3xl lg:text-4xl">
           Projects
         </h2>

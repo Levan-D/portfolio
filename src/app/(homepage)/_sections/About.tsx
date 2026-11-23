@@ -22,8 +22,8 @@ export default function About() {
         </p>
 
         <p className="mx-auto mt-2 max-w-[600px] font-bold textTertiary md:mx-0 lg:mt-4 lg:max-w-[700px] lg:text-xl">
-          I lead frontends end to end, from rough prototype to fast,
-          production&#8209;ready product.
+          I make web apps, mostly in React, and sometimes desktop apps when the
+          apps I use annoy me enough.
         </p>
 
         <div className="mx-auto mt-12 mb-8 block w-fit md:hidden">

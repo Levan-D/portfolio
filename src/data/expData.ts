@@ -1,3 +1,5 @@
+import { REDFLAG_STACK, TOTEM_ARTS_STACK } from '@/data/stacks';
+
 export type ExperienceType = {
   title: string;
   subtitle: string;
@@ -101,15 +103,7 @@ export const projectExpData: ExperienceType[] = [
       'Built accessibility (WAI-ARIA) support across 31 UI areas: keyboard navigation, focus traps, accessible comboboxes and screen-reader live regions.',
       'Built the shared UI library, admin pages and product redesigns in an npm-workspaces monorepo.',
     ],
-    tech: [
-      'React',
-      'TypeScript',
-      'Vite',
-      'Redux Toolkit',
-      'TipTap',
-      'Liveblocks',
-      'Tailwind',
-    ],
+    tech: REDFLAG_STACK,
   },
   {
     title: 'Totem Arts Launcher',
@@ -118,15 +112,6 @@ export const projectExpData: ExperienceType[] = [
     highlights: [
       "Rewrote the launcher's UI from Vue to React and built most of its features on top of the existing Electron core: login, game library, live server browser with ping, news feed and game launch.",
     ],
-    tech: [
-      'Electron',
-      'React',
-      'TypeScript',
-      'Vite',
-      'Redux Toolkit',
-      'Tailwind',
-      'zod',
-      'Jest',
-    ],
+    tech: TOTEM_ARTS_STACK,
   },
 ];

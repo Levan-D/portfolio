@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { mdiArrowTopRight } from '@mdi/js';
 import Carousel from '@/components/ui/Carousel';
 import Icon from '@/components/ui/Icon';
-import { OG_IMAGE, SITE_NAME, SITE_URL } from '@/config/site';
+import { SITE_NAME, SITE_URL } from '@/config/site';
 import {
   findProjectBySlug,
   getProjectSlug,
@@ -46,7 +46,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: project.pitch,
       url: `${SITE_URL}/${projectId}`,
       siteName: SITE_NAME,
-      images: [OG_IMAGE],
       locale: 'en_US',
       type: 'website',
     },
@@ -61,8 +60,8 @@ export default async function ProjectPage({ params }: Props) {
   const { title, desc, tech, images, links } = project;
 
   return (
-    <div className="my-16">
-      <div className="items-center justify-center gap-12 select-none lg:flex">
+    <div className="my-6 md:my-16">
+      <div className="items-start justify-center gap-12 select-none lg:flex">
         <div className="basis-2/5">
           <Description title={title} tech={tech} links={links} desc={desc} />
         </div>
@@ -71,7 +70,7 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </div>
 
-      <div className="my-16 select-none md:my-28">
+      <div className="my-10 select-none md:my-28">
         <Carousel>
           {projectData.map((otherProject) => {
             const slug = getProjectSlug(otherProject);
@@ -81,10 +80,10 @@ export default async function ProjectPage({ params }: Props) {
                 key={slug}
                 href={`/${slug}`}
                 aria-current={slug === projectId ? 'page' : undefined}
-                className="group/title mb-2 flex aspect-square max-h-[120px] shrink-0 flex-col rounded-lg bg-slate-400/50 p-2 duration-300 active:bg-slate-500/50 sm:hover:bg-slate-400/50 md:max-h-[200px] lg:max-h-[250px] dark:bg-slate-700/50 dark:active:bg-slate-700/50 dark:sm:hover:bg-slate-600/50"
+                className="group/title flex aspect-square max-h-[120px] shrink-0 flex-col rounded-lg bg-slate-400/50 p-2 duration-300 active:bg-slate-500/50 sm:hover:bg-slate-400/50 md:max-h-[200px] lg:max-h-[250px] dark:bg-slate-700/50 dark:active:bg-slate-700/50 dark:sm:hover:bg-slate-600/50"
               >
                 <Image
-                  src={otherProject.images.coverWeb}
+                  src={otherProject.images.web[0]}
                   alt=""
                   className="aspect-4/3 rounded-sm object-cover"
                 />

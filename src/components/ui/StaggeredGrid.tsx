@@ -2,6 +2,9 @@
 
 import React from 'react';
 
+// every column starts at its own height, so neighbours and the outer pair both read as staggered
+const STAGGER_OFFSETS = ['0px', '64px', '32px'];
+
 type Props<T> = {
   items: T[];
   columns: number;
@@ -27,17 +30,12 @@ export default function StaggeredGrid<T extends {}>({
   return (
     <div className="flex gap-8">
       {filteredArray.map((array: T[], i: number) => {
-        const staggerRatio = (i % 2) + 5;
-        // fixed "random-looking" 0–10 per column: same on server and client
-        const offset = (i * 7 + 3) % 11;
-        const margin = Math.round(staggerRatio * offset);
-
         return (
           <div
             key={`array-${i}`}
             style={{
               marginTop: staggered
-                ? `${i % 2 === 0 ? '-' : ''}${margin}px`
+                ? STAGGER_OFFSETS[i % STAGGER_OFFSETS.length]
                 : '',
             }}
             className="flex min-w-0 flex-1 flex-col gap-8"

@@ -9,7 +9,6 @@ import Toaster from '@/components/theme/Toaster';
 import 'react-toastify/dist/ReactToastify.css';
 import type { Metadata } from 'next';
 import {
-  OG_IMAGE,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
   SITE_NAME,
@@ -31,10 +30,10 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
-    images: [OG_IMAGE],
     locale: 'en_US',
     type: 'website',
   },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({
@@ -46,14 +45,14 @@ export default function RootLayout({
     // next-themes sets class/color-scheme on <html> before hydration
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} backgroundGrid flex min-h-screen flex-col bg-slate-200 text-slate-950 dark:bg-gradient-body-dark dark:text-white`}
+        className={`${inter.className} backgroundGrid flex min-h-screen flex-col bg-slate-200 text-slate-950 dark:bg-slate-950 dark:bg-gradient-body-dark dark:text-white`}
       >
         <Providers>
           <Navbar />
           <BackToTop />
           <ThemeColorMeta />
           <Toaster />
-          <main className="mx-auto w-full max-w-(--breakpoint-2xl) grow overflow-x-clip px-8">
+          <main className="mx-auto w-full max-w-(--breakpoint-2xl) grow overflow-x-clip px-4 md:px-8">
             {children}
           </main>
           <Footer />

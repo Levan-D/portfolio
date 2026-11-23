@@ -15,9 +15,3 @@ export const SITE_KEYWORDS = [
   'Tailwind CSS',
   'Portfolio',
 ];
-
-export const OG_IMAGE = {
-  url: 'https://i.imgur.com/pKweUJY.png',
-  width: 1200,
-  height: 630,
-};

@@ -25,11 +25,12 @@ export default function Experience() {
         </h2>
         <div className="mt-4 space-y-6 font-semibold textTertiary xl:text-lg">
           <p>
-            I&apos;ve spent most of my career at small teams, building the kind
-            of web apps people use every day at work, like editors, dashboards
-            and admin tools. A lot of the time I&apos;m not just building a
-            feature but working out what it should be in the first place, down
-            to how it behaves at the edges and what makes it easy to use.
+            I&apos;ve spent most of my career at small companies, building the
+            kind of web apps people use every day at work, like editors,
+            dashboards and admin tools. A lot of the time I&apos;m not just
+            building a feature but working out what it should be in the first
+            place, down to how it behaves at the edges and what makes it easy to
+            use.
           </p>
           <p>
             On small teams the frontend tends to come with everything around it,

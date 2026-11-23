@@ -3,7 +3,7 @@ export const SITE_URL = 'https://levandolidze.dev';
 export const SITE_NAME = 'Levan Dolidze - Senior Frontend Engineer';
 
 export const SITE_DESCRIPTION =
-  'Senior frontend engineer with 6+ years of React and TypeScript, most recently acting frontend lead at a US company. See my experience and projects, and get in touch.';
+  'Levan Dolidze, a senior frontend engineer. I make web apps, mostly in React, and sometimes desktop apps when the apps I use annoy me enough.';
 
 export const SITE_KEYWORDS = [
   'Senior Frontend Engineer',

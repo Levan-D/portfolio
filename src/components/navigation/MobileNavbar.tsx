@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { mdiBackburger, mdiMenu } from '@mdi/js';
@@ -21,12 +22,19 @@ export default function MobileNavbar() {
   const { activeSection, setActiveSection } = useActiveSection();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  const [openedOn, setOpenedOn] = useState(pathname);
+  if (openedOn !== pathname) {
+    setOpenedOn(pathname);
+    if (isOpen) onClose();
+  }
   // widening past mobile hides the drawer, but an open dialog would keep the page's scroll locked
   if (isOpen && isDesktop) onClose();
   const dialogRef = useDialog(isOpen && !isDesktop);
 
   const handleSectionClick = (id: SectionIdType) => {
     setActiveSection(id);
+    // closed right away, not on the next render: the scroll lock would swallow the scroll
+    dialogRef.current?.close();
     onClose();
     scrollToSection(id);
   };

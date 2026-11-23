@@ -1,13 +1,11 @@
 import 'server-only';
 import nodemailer from 'nodemailer';
 
+// A Gmail app password, not OAuth: it doesn't expire, and it's two settings instead of four
 export const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    type: 'OAuth2',
     user: process.env.GMAIL_USER,
-    clientId: process.env.GMAIL_CLIENT_ID,
-    clientSecret: process.env.GMAIL_CLIENT_SECRET,
-    refreshToken: process.env.GMAIL_REFRESH_TOKEN,
+    pass: process.env.GMAIL_APP_PASSWORD,
   },
 });

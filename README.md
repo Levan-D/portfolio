@@ -51,18 +51,16 @@ To make it yours, edit the files in `src/data/` and the copy in `src/app/(homepa
 
 ## Contact form
 
-Messages are sent through Gmail with OAuth2. Create `.env.local` in the project root:
+Messages are sent through Gmail with an app password, from the account to itself. Copy `.env.example` to `.env.local` and fill it in:
 
 ```sh
 GMAIL_USER=you@gmail.com
-GMAIL_CLIENT_ID=...
-GMAIL_CLIENT_SECRET=...
-GMAIL_REFRESH_TOKEN=...
+GMAIL_APP_PASSWORD=abcdefghijklmnop
 ```
 
-Get the client ID and secret from an OAuth client in the Google Cloud Console (APIs & Services → Credentials), then generate a refresh token for the Gmail scope, for example with the OAuth 2.0 Playground. If the OAuth consent screen is left in "Testing" mode, Google expires refresh tokens after 7 days, so publish the app or the form will stop sending.
+The app password comes from [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords), which needs 2-Step Verification turned on. Paste it without the spaces Google shows.
 
-On Vercel, add the same variables under Project Settings → Environment Variables.
+On Vercel, add the same two variables under Project Settings → Environment Variables, then redeploy so they take effect.
 
 ## License
 

@@ -1,10 +1,13 @@
 'use client';
 
-import { useId } from 'react';
+import { useId, useSyncExternalStore } from 'react';
+import { createPortal } from 'react-dom';
 import { mdiClose } from '@mdi/js';
 import { twMerge } from 'tailwind-merge';
 import Icon from '@/components/ui/Icon';
 import useDialog from '@/hooks/useDialog';
+
+const noopSubscribe = () => () => {};
 
 type Props = {
   isOpen: boolean;
@@ -23,12 +26,21 @@ export default function Modal({
 }: Props) {
   const dialogRef = useDialog(isOpen);
   const titleId = useId();
+  const isClient = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
 
   const handleBackdropClick = (event: React.MouseEvent<HTMLDialogElement>) => {
     if (event.target === event.currentTarget) onClose();
   };
 
-  return (
+  // in <body>, not next to its button: a trigger hidden at some breakpoint would
+  // otherwise hide an open modal with it and leave the page's scroll locked
+  if (!isClient) return null;
+
+  return createPortal(
     <dialog
       ref={dialogRef}
       aria-labelledby={titleId}
@@ -60,6 +72,7 @@ export default function Modal({
           {children}
         </div>
       </div>
-    </dialog>
+    </dialog>,
+    document.body,
   );
 }

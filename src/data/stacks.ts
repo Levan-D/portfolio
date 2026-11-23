@@ -2,7 +2,9 @@
 export const REDFLAG_STACK = [
   'React',
   'TypeScript',
+  'Vite',
   'Redux Toolkit',
+  'Fluent UI',
   'TipTap',
   'Liveblocks',
   'React-PDF',

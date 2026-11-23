@@ -27,7 +27,7 @@ export default function MobileNavbar() {
   return (
     <nav
       aria-label="Main"
-      className="fixed z-40 block w-screen p-2 md:hidden dark:[background:linear-gradient(0deg,rgba(255,255,255,0)_0%,rgba(2,6,23,1)_80%)]"
+      className="pointer-events-none fixed z-40 block w-screen p-2 md:hidden"
     >
       <button
         type="button"
@@ -35,9 +35,9 @@ export default function MobileNavbar() {
         aria-haspopup="dialog"
         aria-expanded={isOpen}
         onClick={onOpen}
-        className="textTertiary"
+        className="pointer-events-auto flex rounded-xl border border-slate-400/50 bg-slate-200/80 p-1.5 textTertiary shadow-md backdrop-blur-sm active:scale-95 dark:border-slate-600/50 dark:bg-slate-800/80"
       >
-        <Icon path={mdiMenu} size={1.5} />
+        <Icon path={mdiMenu} size={1.25} />
       </button>
 
       <dialog

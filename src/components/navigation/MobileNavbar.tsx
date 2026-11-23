@@ -8,15 +8,22 @@ import ContactBtn from '@/components/contact/ContactBtn';
 import Icon from '@/components/ui/Icon';
 import useDialog from '@/hooks/useDialog';
 import useDisclosure from '@/hooks/useDisclosure';
+import useMediaQuery from '@/hooks/useMediaQuery';
 import DarkModeBtn from './DarkModeBtn';
 import { SECTIONS, scrollToSection, type SectionIdType } from './sections';
 import useActiveSection from './useActiveSection';
+
+// matches the md breakpoint, where this navbar is hidden
+const DESKTOP_QUERY = '(min-width: 48rem)';
 
 export default function MobileNavbar() {
   const pathname = usePathname();
   const { activeSection, setActiveSection } = useActiveSection();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const dialogRef = useDialog(isOpen);
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  // widening past mobile hides the drawer, but an open dialog would keep the page's scroll locked
+  if (isOpen && isDesktop) onClose();
+  const dialogRef = useDialog(isOpen && !isDesktop);
 
   const handleSectionClick = (id: SectionIdType) => {
     setActiveSection(id);
@@ -44,7 +51,7 @@ export default function MobileNavbar() {
         ref={dialogRef}
         aria-label="Menu"
         onClose={onClose}
-        className="m-0 h-dvh max-h-none w-screen max-w-none -translate-x-full bg-slate-200 px-4 pt-2 text-slate-950 transition-[translate,display,overlay] transition-discrete duration-300 backdrop:bg-black/50 open:translate-x-0 dark:bg-slate-950 dark:text-white starting:open:-translate-x-full"
+        className="pointer-events-auto m-0 h-dvh max-h-none w-screen max-w-none -translate-x-full bg-slate-200 px-4 pt-2 text-slate-950 transition-[translate,display,overlay] transition-discrete duration-300 backdrop:bg-black/50 open:translate-x-0 dark:bg-slate-950 dark:text-white starting:open:-translate-x-full"
       >
         <ul className="flex flex-col gap-4">
           <li className="mb-12 flex justify-end textTertiary">
